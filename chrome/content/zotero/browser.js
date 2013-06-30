@@ -804,6 +804,10 @@ Zotero_Browser.Tab.prototype._selectItems = function(obj, itemList, callback) {
  */
 Zotero_Browser.Tab.prototype._translatorsAvailable = function(translate, translators) {
 	if(translators && translators.length) {
+		translators.targetURL = translate.document.location.href;
+		translators.bestPriority = translators[0].priority;
+		translators.targetsTopFrame = translate.document.defaultView == translate.document.defaultView.top;
+		
 		//see if we should keep the previous set of translators
 		if(//we already have a translator for part of this page
 			this.page.translators && this.page.translators.length && this.page.document.location
@@ -811,20 +815,20 @@ Zotero_Browser.Tab.prototype._translatorsAvailable = function(translate, transla
 			&& this.page.document.defaultView && !this.page.document.defaultView.closed
 			//this set of translators is not targeting the same URL as a previous set of translators,
 			// because otherwise we want to use the newer set
-			&& this.page.document.location.href != translate.document.location.href
+			&& this.page.translators.targetURL != translators.targetURL
 				//the best translator we had was of higher priority than the new set
-			&& (this.page.translators[0].priority < translators[0].priority
+			&& (this.page.translators.bestPriority < translators.bestPriority
 				//or the priority was the same, but...
-				|| (this.page.translators[0].priority == translators[0].priority
+				|| (this.page.translators.bestPriority == translators.bestPriority
 					//the previous set of translators targets the top frame or the current one does not either
-					&& (this.page.document.defaultView == this.page.document.defaultView.top
-						|| translate.document.defaultView !== this.page.document.defaultView.top)
-			))
+					&& (this.page.translators.targetsTopFrame || !translators.targetsTopFrame)
+				)
+			)
 		) {
 			return; //keep what we had
-		} else {
-			this.clear(); //clear URL bar icon
 		}
+		
+		this.clear(); //clear URL bar icon
 		
 		this.page.translate = translate;
 		this.page.translators = translators;
