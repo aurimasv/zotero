@@ -291,7 +291,7 @@
 			
 			
 			<hbox id="zotero-trees" flex="1">
-				<vbox id="zotero-collections-pane" zotero-persist="width">
+				<vbox id="zotero-collections-pane" zotero-persist="width,collapsed">
 					<!-- This is used for positioning the sync error icon panel
 							under specific tree cells, which don't exist as
 							elements on their own -->
