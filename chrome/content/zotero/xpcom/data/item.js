@@ -117,6 +117,10 @@ Zotero.defineProperty(Zotero.Item.prototype, 'itemID', {
 		return this._id;
 	}
 });
+Zotero.defineProperty(Zotero.Item.prototype, 'libraryID', {
+	get: function() this._libraryID,
+	set: function(val) this.setField('libraryID', val)
+});
 Zotero.defineProperty(Zotero.Item.prototype, 'key', {
 	get: function() this._key,
 	set: function(val) this.setField('key', val)
@@ -138,10 +142,17 @@ Zotero.defineProperty(Zotero.Item.prototype, 'synced', {
 	get: function() this._synced,
 	set: function(val) this.setField('synced', val)
 });
-Zotero.defineProperty(Zotero.Item.prototype, 'libraryID', {
-	get: function() this._libraryID,
-	set: function(val) this.setField('libraryID', val)
+
+// .parentKey and .parentID defined in dataObject.js, but create aliases
+Zotero.defineProperty(Zotero.Item.prototype, 'parentItemID', {
+	get: function() this.parentID,
+	set: function(val) this.parentID = val
 });
+Zotero.defineProperty(Zotero.Item.prototype, 'parentItemKey', {
+	get: function() this.parentKey,
+	set: function(val) this.parentKey = val
+});
+
 Zotero.defineProperty(Zotero.Item.prototype, 'firstCreator', {
 	get: function() this._firstCreator
 });
