@@ -468,7 +468,7 @@ Zotero.DataObject.prototype.save = Zotero.Promise.coroutine(function* (options) 
 		yield this._saveData(env);
 		return yield this._finalizeSave(env);
 	}.bind(this), env.transactionOptions)
-	.catch((e) => {
+	.catch(e => {
 		return this._recoverFromSaveError(env, e)
 		.catch(function(e2) {
 			Zotero.debug(e2, 1);
@@ -482,7 +482,7 @@ Zotero.DataObject.prototype.save = Zotero.Promise.coroutine(function* (options) 
 
 Zotero.DataObject.prototype.hasChanged = function() {
 	Zotero.debug(this._changed);
-	return !!Object.keys(this._changed).filter((dataType) => this._changed[dataType]).length
+	return !!Object.keys(this._changed).filter(dataType => this._changed[dataType]).length
 }
 
 Zotero.DataObject.prototype._saveData = function() {
