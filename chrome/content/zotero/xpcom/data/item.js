@@ -107,48 +107,48 @@ Zotero.Item.prototype._dataTypes = Zotero.Item._super.prototype._dataTypes.conca
 	'relations'
 ]);
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'id', {
+Zotero.defineProperty(Zotero.Item.prototype, 'id', {
 	get: function() this._id,
 	set: function(val) this.setField('id', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'itemID', {
+Zotero.defineProperty(Zotero.Item.prototype, 'itemID', {
 	get: function() {
 		Zotero.debug("Item.itemID is deprecated -- use Item.id");
 		return this._id;
 	}
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'key', {
+Zotero.defineProperty(Zotero.Item.prototype, 'key', {
 	get: function() this._key,
 	set: function(val) this.setField('key', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'itemTypeID', {
+Zotero.defineProperty(Zotero.Item.prototype, 'itemTypeID', {
 	get: function() this._itemTypeID
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'dateAdded', {
+Zotero.defineProperty(Zotero.Item.prototype, 'dateAdded', {
 	get: function() this._dateAdded
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'dateModified', {
+Zotero.defineProperty(Zotero.Item.prototype, 'dateModified', {
 	get: function() this._dateModified
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'version', {
+Zotero.defineProperty(Zotero.Item.prototype, 'version', {
 	get: function() this._itemVersion,
 	set: function(val) this.setField('version', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'synced', {
+Zotero.defineProperty(Zotero.Item.prototype, 'synced', {
 	get: function() this._synced,
 	set: function(val) this.setField('synced', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'libraryID', {
+Zotero.defineProperty(Zotero.Item.prototype, 'libraryID', {
 	get: function() this._libraryID,
 	set: function(val) this.setField('libraryID', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'firstCreator', {
+Zotero.defineProperty(Zotero.Item.prototype, 'firstCreator', {
 	get: function() this._firstCreator
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'sortCreator', {
+Zotero.defineProperty(Zotero.Item.prototype, 'sortCreator', {
 	get: function() this._sortCreator
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'relatedItems', {
+Zotero.defineProperty(Zotero.Item.prototype, 'relatedItems', {
 	get: function() this._getRelatedItems(true),
 	set: function(arr) this._setRelatedItems(arr)
 });
@@ -1067,7 +1067,7 @@ Zotero.Item.prototype.removeCreator = function(orderIndex, allowMissing) {
 	return true;
 }
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'deleted', {
+Zotero.defineProperty(Zotero.Item.prototype, 'deleted', {
 	get: function() {
 		if (!this.id) {
 			return false;
@@ -2658,7 +2658,7 @@ Zotero.Item.prototype.getAttachmentLinkMode = function() {
  * Possible values specified as constants in Zotero.Attachments
  * (e.g. Zotero.Attachments.LINK_MODE_LINKED_FILE)
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentLinkMode', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentLinkMode', {
 	get: function() {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2699,7 +2699,7 @@ Zotero.Item.prototype.getAttachmentMIMEType = function() {
 	return this.attachmentContentType;
 };
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentMIMEType', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentMIMEType', {
 	get: function() {
 		Zotero.debug(".attachmentMIMEType deprecated -- use .attachmentContentType");
 		return this.attachmentContentType;
@@ -2709,7 +2709,7 @@ Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentMIMET
 /**
  * Content type of an attachment (e.g. 'text/plain')
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentContentType', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentContentType', {
 	get: function() {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2747,7 +2747,7 @@ Zotero.Item.prototype.getAttachmentCharset = function() {
 /**
  * Character set of an attachment
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentCharset', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentCharset', {
 	get: function() {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2786,7 +2786,7 @@ Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentChars
 	}
 });
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentPath', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentPath', {
 	get: function() {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2836,7 +2836,7 @@ Zotero.Item.prototype.updateAttachmentPath = function () {
 };
 
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentSyncState', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentSyncState', {
 	get: function() {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2893,7 +2893,7 @@ Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentSyncS
  * @return {Promise<Number|undefined>} File modification time as timestamp in milliseconds,
  *                                     or undefined if no file
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentModificationTime', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentModificationTime', {
 	get: Zotero.Promise.coroutine(function* () {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2928,7 +2928,7 @@ Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentModif
  *
  * @return	{String}		MD5 hash of file as hex string
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentHash', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentHash', {
 	get: function () {
 		if (!this.isAttachment()) {
 			return undefined;
@@ -2957,7 +2957,7 @@ Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentHash'
  *
  * @return {Promise<String>} - A promise for attachment text or empty string if unavailable
  */
-Zotero.Utilities.Internal.defineProperty(Zotero.Item.prototype, 'attachmentText', {
+Zotero.defineProperty(Zotero.Item.prototype, 'attachmentText', {
 	get: Zotero.Promise.coroutine(function* () {
 		if (!this.isAttachment()) {
 			return undefined;

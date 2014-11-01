@@ -49,31 +49,31 @@ Zotero.Collection.prototype._dataTypes = Zotero.Collection._super.prototype._dat
 	'childItems'
 ]);
 
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'id', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'id', {
 	get: function() this._get('id'),
 	set: function(val) this._set('id', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'libraryID', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'libraryID', {
 	get: function() this._get('libraryID'),
 	set: function(val) this._set('libraryID', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'key', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'key', {
 	get: function() this._get('key'),
 	set: function(val) this._set('key', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'name', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'name', {
 	get: function() this._get('name'),
 	set: function(val) this._set('name', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'version', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'version', {
 	get: function() this._get('version'),
 	set: function(val) this._set('version', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'synced', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'synced', {
 	get: function() this._get('synced'),
 	set: function(val) this._set('synced', val)
 });
-Zotero.Utilities.Internal.defineProperty(Zotero.Collection.prototype, 'parent', {
+Zotero.defineProperty(Zotero.Collection.prototype, 'parent', {
 	get: function() {
 		Zotero.debug("WARNING: Zotero.Collection.prototype.parent has been deprecated -- use .parentID or .parentKey", 2);
 		return this.parentID;
