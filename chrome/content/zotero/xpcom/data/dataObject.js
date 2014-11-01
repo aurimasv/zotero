@@ -77,7 +77,7 @@ Zotero.defineProperty(Zotero.DataObject.prototype, 'parentID', {
 });
 
 Zotero.defineProperty(Zotero.DataObject.prototype, 'ObjectsClass', {
-	get: function() Zotero.DataObjectUtilities.getObjectsClassForObjectType(this.objectType);
+	get: function() Zotero.DataObjectUtilities.getObjectsClassForObjectType(this.objectType)
 });
 
 
