@@ -33,7 +33,6 @@ Zotero.Item = function(itemTypeOrID) {
 	}
 	
 	Zotero.Item._super.apply(this);
-	this._BucketClass = Zotero.Items;
 	
 	this._disabled = false;
 	

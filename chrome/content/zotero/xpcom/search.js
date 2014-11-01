@@ -25,7 +25,6 @@
 
 Zotero.Search = function() {
 	Zotero.Search._super.apply(this);
-	this._BucketClass = Zotero.Searches;
 	
 	this._name = null;
 	
@@ -1174,7 +1173,7 @@ Zotero.Search.prototype._buildQuery = Zotero.Promise.coroutine(function* () {
 						let objLibraryID;
 						let objKey = condition.value;
 						let objectType = condition.name == 'collection' ? 'collection' : 'search';
-						let objectTypeClass = Zotero.DataObjectUtilities.getClassForObjectType(objectType);
+						let objectTypeClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(objectType);
 						
 						// Old-style library-key hash
 						if (objKey.contains('_')) {

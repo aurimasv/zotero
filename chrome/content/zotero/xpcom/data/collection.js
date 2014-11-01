@@ -25,7 +25,6 @@
 
 Zotero.Collection = function() {
 	Zotero.Collection._super.apply(this);
-	this._BucketClass = Zotero.Collections;
 	
 	this._name = null;
 	this._parentID = null;
