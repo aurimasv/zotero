@@ -482,11 +482,11 @@ Zotero.DataObject.prototype.hasChanged = function() {
 }
 
 Zotero.DataObject.prototype._saveData = function() {
-	return Zotero.Promise.resolve();
+	throw new Error("Zotero.DataObject.prototype._saveData is an abstract method");
 }
 
 Zotero.DataObject.prototype._finalizeSave = function() {
-	return Zotero.Promise.resolve(true);
+	throw new Error("Zotero.DataObject.prototype._finalizeSave is an abstract method");
 }
 
 Zotero.DataObject.prototype._recoverFromSaveError = Zotero.Promise.coroutine(function* () {
