@@ -1640,29 +1640,31 @@ Zotero.Search.prototype._buildQuery = Zotero.Promise.coroutine(function* () {
 	this._sqlParams = sqlParams.length ? sqlParams : false;
 });
 
-Zotero.Searches = new function(){
-	Zotero.DataObjects.apply(this, ['search', 'searches', 'savedSearch', 'savedSearches']);
-	this.constructor.prototype = new Zotero.DataObjects();
+Zotero.Searches = function() {
+	var Zotero_Searches = function() {
+		Zotero_Searches._super.apply(this);
+	}
 	
-	Object.defineProperty(this, "_primaryDataSQLParts", {
-		get: function () {
-			return _primaryDataSQLParts ?  _primaryDataSQLParts : (_primaryDataSQLParts = {
-				savedSearchID: "O.savedSearchID",
-				name: "O.savedSearchName",
-				libraryID: "O.libraryID",
-				key: "O.key",
-				version: "O.version",
-				synced: "O.synced"
-			});
-		}
-	});
+	Zotero_Searches._super = Zotero.DataObjects;
+	Zotero_Searches.prototype = Object.create(Zotero_Searches._super.prototype);
+	Zotero_Searches.constructor = Zotero_Searches; // This is the only way to access the class from the singleton
+	
+	Zotero_Searches.prototype._ZDO_object = 'search';
+	Zotero_Searches.prototype._ZDO_id = 'savedSearch';
+	Zotero_Searches.prototype._ZDO_table = 'savedSearches';
+	
+	Zotero_Searches.prototype._primaryDataSQLParts = {
+		savedSearchID: "O.savedSearchID",
+		name: "O.savedSearchName",
+		libraryID: "O.libraryID",
+		key: "O.key",
+		version: "O.version",
+		synced: "O.synced"
+	}
 	
 	
-	var _primaryDataSQLParts;
-	
-	
-	this.init = Zotero.Promise.coroutine(function* () {
-		yield this.constructor.prototype.init.apply(this);
+	Zotero_Searches.prototype.init = Zotero.Promise.coroutine(function* () {
+		yield Zotero_Searches._super.prototype.init.apply(this);
 		yield Zotero.SearchConditions.init();
 	});
 	
@@ -1672,7 +1674,7 @@ Zotero.Searches = new function(){
 	 *
 	 * @param	{Integer}	[libraryID=0]
 	 */
-	this.getAll = Zotero.Promise.coroutine(function* (libraryID) {
+	Zotero_Searches.prototype.getAll = Zotero.Promise.coroutine(function* (libraryID) {
 		var sql = "SELECT savedSearchID AS id, savedSearchName AS name "
 				+ "FROM savedSearches WHERE libraryID=?";
 		sql += " ORDER BY name COLLATE NOCASE";
@@ -1701,7 +1703,7 @@ Zotero.Searches = new function(){
 	/*
 	 * Delete a given saved search from the DB
 	 */
-	this.erase = Zotero.Promise.coroutine(function* (ids) {
+	Zotero_Searches.prototype.erase = Zotero.Promise.coroutine(function* (ids) {
 		ids = Zotero.flattenArguments(ids);
 		var notifierData = {};
 		
@@ -1726,14 +1728,16 @@ Zotero.Searches = new function(){
 	});
 	
 	
-	this.getPrimaryDataSQL = function () {
+	Zotero_Searches.prototype.getPrimaryDataSQL = function () {
 		// This should be the same as the query in Zotero.Search.loadPrimaryData(),
 		// just without a specific savedSearchID
 		return "SELECT "
 			+ Object.keys(this._primaryDataSQLParts).map(key => this._primaryDataSQLParts[key]).join(", ") + " "
 			+ "FROM savedSearches O WHERE 1";
 	}
-}
+	
+	return new Zotero_Searches();
+}()
 
 
 
