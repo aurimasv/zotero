@@ -34,6 +34,7 @@ Zotero.DataObject = function () {
 	let objectType = this._objectType;
 	this._ObjectType = objectType[0].toUpperCase() + objectType.substr(1);
 	this._objectTypePlural = Zotero.DataObjectUtilities.getObjectTypePlural(objectType);
+	this._ObjectsClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(objectType)
 	
 	this._id = null;
 	this._libraryID = null;
@@ -77,7 +78,7 @@ Zotero.defineProperty(Zotero.DataObject.prototype, 'parentID', {
 });
 
 Zotero.defineProperty(Zotero.DataObject.prototype, 'ObjectsClass', {
-	get: function() Zotero.DataObjectUtilities.getObjectsClassForObjectType(this.objectType)
+	get: function() this._ObjectsClass
 });
 
 
