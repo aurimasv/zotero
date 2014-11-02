@@ -27,11 +27,18 @@
 /*
  * Primary interface for accessing Zotero collection
  */
-Zotero.Collections = new function() {
-	Zotero.DataObjects.apply(this, ['collection']);
-	this.constructor.prototype = new Zotero.DataObjects();
+Zotero.Collections = function() {
+	var Zotero_Collections = function() {
+		Zotero_Collections._super.apply(this);
+	}
 	
-	this._primaryDataSQLParts = {
+	Zotero_Collections._super = Zotero.DataObjects;
+	Zotero_Collections.prototype = Object.create(Zotero_Collections._super.prototype);
+	Zotero_Collections.constructor = Zotero_Collections; // This is the only way to access the class from the singleton
+	
+	Zotero_Collections.prototype._ZDO_object = 'collection';
+	
+	Zotero_Collections.prototype._primaryDataSQLParts = {
 		collectionID: "O.collectionID",
 		name: "O.collectionName AS name",
 		libraryID: "O.libraryID",
@@ -56,8 +63,8 @@ Zotero.Collections = new function() {
 	*
 	* Returns true on success; false on error
 	**/
-	this.add = function (name, parent) {
-		var col = new Zotero.Collection;
+	Zotero_Collections.prototype.add = function (name, parent) {
+		var col = new this.ObjectClass;
 		col.name = name;
 		col.parent = parent;
 		var id = col.save();
@@ -74,7 +81,7 @@ Zotero.Collections = new function() {
 	 * Takes parent collectionID as optional parameter;
 	 * by default, returns root collections
 	 */
-	this.getByParent = Zotero.Promise.coroutine(function* (libraryID, parent, recursive) {
+	Zotero_Collections.prototype.getByParent = Zotero.Promise.coroutine(function* (libraryID, parent, recursive) {
 		var toReturn = [];
 		
 		if (!parent) {
@@ -99,7 +106,7 @@ Zotero.Collections = new function() {
 		for (var i=0, len=children.length; i<len; i++) {
 			var obj = yield this.getAsync(children[i].id);
 			if (!obj) {
-				throw ('Collection ' + children[i].id + ' not found');
+				throw (this._ZDO_Object + ' ' + children[i].id + ' not found');
 			}
 			
 			toReturn.push(obj);
@@ -110,7 +117,7 @@ Zotero.Collections = new function() {
 				for (var j in desc) {
 					var obj2 = yield this.getAsync(desc[j]['id']);
 					if (!obj2) {
-						throw new Error('Collection ' + desc[j] + ' not found');
+						throw new Error(this._ZDO_Object + ' ' + desc[j] + ' not found');
 					}
 					
 					// TODO: This is a quick hack so that we can indent subcollections
@@ -130,7 +137,7 @@ Zotero.Collections = new function() {
 	});
 	
 	
-	this.getCollectionsContainingItems = function (itemIDs, asIDs) {
+	Zotero_Collections.prototype.getCollectionsContainingItems = function (itemIDs, asIDs) {
 		// If an unreasonable number of items, don't try
 		if (itemIDs.length > 100) {
 			return Zotero.Promise.resolve([]);
@@ -145,8 +152,8 @@ Zotero.Collections = new function() {
 		}
 		sql = sql.substring(0, sql.length - 5);
 		return Zotero.DB.columnQueryAsync(sql, sqlParams)
-		.then(function (collectionIDs) {
-			return asIDs ? collectionIDs : Zotero.Collections.get(collectionIDs);
+		.then(collectionIDs => {
+			return asIDs ? collectionIDs : this.get(collectionIDs);
 		});
 		
 	}
@@ -157,7 +164,7 @@ Zotero.Collections = new function() {
 	 *
 	 * @param	{Integer|Integer[]}	ids		One or more collectionIDs
 	 */
-	this.refreshChildCollections = Zotero.Promise.coroutine(function* (ids) {
+	Zotero_Collections.prototype.refreshChildCollections = Zotero.Promise.coroutine(function* (ids) {
 		ids = Zotero.flattenArguments(ids);
 		
 		for (let i=0; i<ids.length; i++) {
@@ -174,7 +181,7 @@ Zotero.Collections = new function() {
 	 *
 	 * @param	{Integer|Integer[]}	ids		One or more itemIDs
 	 */
-	this.refreshChildItems = Zotero.Promise.coroutine(function* (ids) {
+	Zotero_Collections.prototype.refreshChildItems = Zotero.Promise.coroutine(function* (ids) {
 		ids = Zotero.flattenArguments(ids);
 		
 		for (let i=0; i<ids.length; i++) {
@@ -186,7 +193,7 @@ Zotero.Collections = new function() {
 	});
 	
 	
-	this.erase = function (ids) {
+	Zotero_Collections.prototype.erase = function (ids) {
 		ids = Zotero.flattenArguments(ids);
 		
 		Zotero.DB.beginTransaction();
@@ -204,7 +211,7 @@ Zotero.Collections = new function() {
 	}
 	
 	
-	this.getPrimaryDataSQL = function () {
+	Zotero_Collections.prototype.getPrimaryDataSQL = function () {
 		// This should be the same as the query in Zotero.Collection.load(),
 		// just without a specific collectionID
 		return "SELECT "
@@ -213,5 +220,7 @@ Zotero.Collections = new function() {
 			+ "LEFT JOIN collections CP ON (O.parentCollectionID=CP.collectionID) "
 			+ "WHERE 1";
 	}
-}
+	
+	return new Zotero_Collections();
+}()
 

@@ -23,25 +23,28 @@
     ***** END LICENSE BLOCK *****
 */
 
-Zotero.Relations = new function () {
-	Zotero.DataObjects.apply(this, ['relation']);
-	this.constructor.prototype = new Zotero.DataObjects();
+Zotero.Relations = function () {
+	var Zotero_Relations = function() {
+		Zotero_Relations._super.apply(this);
+	}
 	
-	this.__defineGetter__('relatedItemPredicate', function () "dc:relation");
-	this.__defineGetter__('linkedObjectPredicate', function () "owl:sameAs");
-	this.__defineGetter__('deletedItemPredicate', function () 'dc:isReplacedBy');
+	Zotero_Relations._super = Zotero.DataObjects;
+	Zotero_Relations.prototype = Object.create(Zotero_Relations._super.prototype);
+	Zotero_Relations.constructor = Zotero_Relations; // This is the only way to access the class from the singleton
 	
-	var _namespaces = {
-		dc: 'http://purl.org/dc/elements/1.1/',
-		owl: 'http://www.w3.org/2002/07/owl#'
-	};
+	Zotero_Relations.prototype._ZDO_object = 'relation';
+	Zotero_Relations.prototype._ZDO_idOnly = true;
 	
-	this.get = function (id) {
+	Zotero.defineProperty(Zotero_Relations.prototype, 'relatedItemPredicate', {value: 'dc:relation'});
+	Zotero.defineProperty(Zotero_Relations.prototype, 'linkedObjectPredicate', {value: 'owl:sameAs'});
+	Zotero.defineProperty(Zotero_Relations.prototype, 'deletedItemPredicate', {value: 'dc:isReplacedBy'});
+	
+	Zotero_Relations.prototype.get = function (id) {
 		if (typeof id != 'number') {
-			throw ("id '" + id + "' must be an integer in Zotero.Relations.get()");
+			throw ("id '" + id + "' must be an integer in Zotero." + this._ZDO_Objects + ".get()");
 		}
 		
-		var relation = new Zotero.Relation;
+		var relation = new this.ObjectClass;
 		relation.id = id;
 		return relation;
 	}
@@ -50,9 +53,9 @@ Zotero.Relations = new function () {
 	/**
 	 * @return	{Object[]}
 	 */
-	this.getByURIs = Zotero.Promise.coroutine(function* (subject, predicate, object) {
+	Zotero_Relations.prototype.getByURIs = Zotero.Promise.coroutine(function* (subject, predicate, object) {
 		if (predicate) {
-			predicate = _getPrefixAndValue(predicate).join(':');
+			predicate = this._getPrefixAndValue(predicate).join(':');
 		}
 		
 		if (!subject && !predicate && !object) {
@@ -81,7 +84,7 @@ Zotero.Relations = new function () {
 		var toReturn = [];
 		var loads = [];
 		for (let i=0; i<rows.length; i++) {
-			var relation = new Zotero.Relation;
+			var relation = new this.ObjectClass;
 			relation.id = rows[i];
 			loads.push(relation.load());
 			toReturn.push(relation);
@@ -91,7 +94,7 @@ Zotero.Relations = new function () {
 	});
 	
 	
-	this.getSubject = Zotero.Promise.coroutine(function* (subject, predicate, object) {
+	Zotero_Relations.prototype.getSubject = Zotero.Promise.coroutine(function* (subject, predicate, object) {
 		var subjects = [];
 		var relations = yield this.getByURIs(subject, predicate, object);
 		for each(var relation in relations) {
@@ -101,7 +104,7 @@ Zotero.Relations = new function () {
 	});
 	
 	
-	this.getObject = Zotero.Promise.coroutine(function* (subject, predicate, object) {
+	Zotero_Relations.prototype.getObject = Zotero.Promise.coroutine(function* (subject, predicate, object) {
 		var objects = [];
 		var relations = yield this.getByURIs(subject, predicate, object);
 		for each(var relation in relations) {
@@ -111,18 +114,18 @@ Zotero.Relations = new function () {
 	});
 	
 	
-	this.updateUser = Zotero.Promise.coroutine(function* (fromUserID, fromLibraryID, toUserID, toLibraryID) {
+	Zotero_Relations.prototype.updateUser = Zotero.Promise.coroutine(function* (fromUserID, fromLibraryID, toUserID, toLibraryID) {
 		if (!fromUserID) {
-			throw ("Invalid source userID " + fromUserID + " in Zotero.Relations.updateUserID");
+			throw ("Invalid source userID " + fromUserID + " in Zotero." + this._ZDO_Objects + ".updateUserID");
 		}
 		if (!fromLibraryID) {
-			throw ("Invalid source libraryID " + fromLibraryID + " in Zotero.Relations.updateUserID");
+			throw ("Invalid source libraryID " + fromLibraryID + " in Zotero." + this._ZDO_Objects + ".updateUserID");
 		}
 		if (!toUserID) {
-			throw ("Invalid target userID " + toUserID + " in Zotero.Relations.updateUserID");
+			throw ("Invalid target userID " + toUserID + " in Zotero." + this._ZDO_Objects + ".updateUserID");
 		}
 		if (!toLibraryID) {
-			throw ("Invalid target libraryID " + toLibraryID + " in Zotero.Relations.updateUserID");
+			throw ("Invalid target libraryID " + toLibraryID + " in Zotero." + this._ZDO_Objects + ".updateUserID");
 		}
 		
 		yield Zotero.DB.executeTransaction(function* () {
@@ -140,10 +143,10 @@ Zotero.Relations = new function () {
 	});
 	
 	
-	this.add = Zotero.Promise.coroutine(function* (libraryID, subject, predicate, object) {
-		predicate = _getPrefixAndValue(predicate).join(':');
+	Zotero_Relations.prototype.add = Zotero.Promise.coroutine(function* (libraryID, subject, predicate, object) {
+		predicate = this._getPrefixAndValue(predicate).join(':');
 		
-		var relation = new Zotero.Relation;
+		var relation = new this.ObjectClass;
 		if (!libraryID) {
 			libraryID = Zotero.Users.getCurrentLibraryID();
 		}
@@ -163,7 +166,7 @@ Zotero.Relations = new function () {
 	/**
 	 * Copy relations from one object to another within the same library
 	 */
-	this.copyURIs = Zotero.Promise.coroutine(function* (libraryID, fromURI, toURI) {
+	Zotero_Relations.prototype.copyURIs = Zotero.Promise.coroutine(function* (libraryID, fromURI, toURI) {
 		var rels = yield this.getByURIs(fromURI);
 		for each(var rel in rels) {
 			yield this.add(libraryID, toURI, rel.predicate, rel.object);
@@ -180,7 +183,7 @@ Zotero.Relations = new function () {
 	 * @param {String} prefix
 	 * @param {String[]} ignorePredicates
 	 */
-	this.eraseByURIPrefix = function (prefix, ignorePredicates) {
+	Zotero_Relations.prototype.eraseByURIPrefix = function (prefix, ignorePredicates) {
 		return Zotero.DB.executeTransaction(function* () {
 			prefix = prefix + '%';
 			var sql = "SELECT ROWID FROM relations WHERE (subject LIKE ? OR object LIKE ?)";
@@ -204,7 +207,7 @@ Zotero.Relations = new function () {
 	/**
 	 * @return {Promise}
 	 */
-	this.eraseByURI = function (uri, ignorePredicates) {
+	Zotero_Relations.prototype.eraseByURI = function (uri, ignorePredicates) {
 		return Zotero.DB.executeTransaction(function* () {
 			var sql = "SELECT ROWID FROM relations WHERE (subject=? OR object=?)";
 			var params = [uri, uri];
@@ -224,7 +227,7 @@ Zotero.Relations = new function () {
 	}
 	
 	
-	this.purge = Zotero.Promise.coroutine(function* () {
+	Zotero_Relations.prototype.purge = Zotero.Promise.coroutine(function* () {
 		var sql = "SELECT subject FROM relations WHERE predicate != ? "
 				+ "UNION SELECT object FROM relations WHERE predicate != ?";
 		var uris = yield Zotero.DB.columnQueryAsync(sql, [this.deletedItemPredicate, this.deletedItemPredicate]);
@@ -249,8 +252,8 @@ Zotero.Relations = new function () {
 	});
 	
 	
-	this.xmlToRelation = function (relationNode) {
-		var relation = new Zotero.Relation;
+	Zotero_Relations.prototype.xmlToRelation = function (relationNode) {
+		var relation = new this.ObjectClass();
 		var libraryID = relationNode.getAttribute('libraryID');
 		if (libraryID) {
 			relation.libraryID = parseInt(libraryID);
@@ -272,12 +275,16 @@ Zotero.Relations = new function () {
 		return relation;
 	}
 	
+	Zotero_Relations.prototype._namespaces = {
+		dc: 'http://purl.org/dc/elements/1.1/',
+		owl: 'http://www.w3.org/2002/07/owl#'
+	};
 	
-	function _getPrefixAndValue(uri) {
+	Zotero_Relations.prototype._getPrefixAndValue = function(uri) {
 		var [prefix, value] = uri.split(':');
 		if (prefix && value) {
-			if (!_namespaces[prefix]) {
-				throw ("Invalid prefix '" + prefix + "' in Zotero.Relations._getPrefixAndValue()");
+			if (!this._namespaces[prefix]) {
+				throw ("Invalid prefix '" + prefix + "' in Zotero." + this._ZDO_Objects + "._getPrefixAndValue()");
 			}
 			return [prefix, value];
 		}
@@ -288,6 +295,8 @@ Zotero.Relations = new function () {
 				return [prefix, value];
 			}
 		}
-		throw ("Invalid namespace in URI '" + uri + "' in Zotero.Relations._getPrefixAndValue()");
+		throw ("Invalid namespace in URI '" + uri + "' in Zotero." + this._ZDO_Objects + "._getPrefixAndValue()");
 	}
-}
+	
+	return new Zotero_Relations();
+}()
