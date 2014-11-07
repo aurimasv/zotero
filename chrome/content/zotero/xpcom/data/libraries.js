@@ -25,8 +25,19 @@
 
 Zotero.Libraries = new function () {
 	let _libraryData = {},
+		_feedLibraryID,
 		_userLibraryID,
 		_libraryDataLoaded = false;
+	
+	// Zotero.Libraries.feedLibraryID
+	Zotero.defineProperty(this, 'feedLibraryID', {
+		get: function() {
+			if (!_libraryDataLoaded) {
+				throw new Error("Library data not yet loaded");
+			}
+			return _feedLibraryID;
+		}
+	});
 	
 	Zotero.defineProperty(this, 'userLibraryID', {
 		get: function() { 
@@ -46,6 +57,8 @@ Zotero.Libraries = new function () {
 			_libraryData[row.libraryID] = parseDBRow(row);
 			if (row.libraryType == 'user') {
 				_userLibraryID = row.libraryID;
+			} else if (row.libraryType == 'feed') {
+				_feedLibraryID = row.libraryID;
 			}
 		}
 		_libraryDataLoaded = true;
@@ -86,6 +99,8 @@ Zotero.Libraries = new function () {
 		switch (type) {
 			case 'user':
 				return Zotero.getString('pane.collections.library');
+			case 'feed':
+				return Zotero.getString('pane.collections.feeds');
 			case 'group':
 				var groupID = Zotero.Groups.getGroupIDFromLibraryID(libraryID);
 				var group = Zotero.Groups.get(groupID);
@@ -101,6 +116,10 @@ Zotero.Libraries = new function () {
 		if (libraryID === Zotero.Libraries.userLibraryID) {
 			return 'user';
 		}
+		if (libraryID === Zotero.Libraries.feedLibraryID) {
+			return 'feed';
+		}
+		
 		if (!this.exists(libraryID)) {
 			throw new Error("Library data not loaded for library " + libraryID);
 		}
@@ -155,7 +174,8 @@ Zotero.Libraries = new function () {
 		switch (type) {
 			case 'user':
 				return true;
-			
+			case 'feed':
+				return false;
 			case 'group':
 				var groupID = Zotero.Groups.getGroupIDFromLibraryID(libraryID);
 				var group = Zotero.Groups.get(groupID);
@@ -172,7 +192,8 @@ Zotero.Libraries = new function () {
 		switch (type) {
 			case 'user':
 				return true;
-			
+			case 'feed':
+				return false;
 			case 'group':
 				var groupID = Zotero.Groups.getGroupIDFromLibraryID(libraryID);
 				var group = Zotero.Groups.get(groupID);
