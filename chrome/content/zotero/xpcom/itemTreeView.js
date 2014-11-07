@@ -2460,6 +2460,7 @@ Zotero.ItemTreeView.prototype.onDragStart = function (event) {
 	}
 	
 	// Get Quick Copy format for current URL
+/** Currently broken
 	var url = this._ownerDocument.defaultView.content && this._ownerDocument.defaultView.content.location ?
 				this._ownerDocument.defaultView.content.location.href : null;
 	var format = Zotero.QuickCopy.getFormatFromURL(url);
@@ -2498,6 +2499,7 @@ Zotero.ItemTreeView.prototype.onDragStart = function (event) {
 		Zotero.debug(e);
 		Components.utils.reportError(e + " with format '" + format + "'");
 	}
+*/
 };
 
 
