@@ -50,17 +50,22 @@ Zotero.DataObjects = function () {
 	if (!this.ObjectClass) {
 		this.ObjectClass = Zotero[this._ZDO_Object];
 	}
+	
+	this.primaryDataSQLFrom = " " + this._primaryDataSQLFrom + " " + this._primaryDataSQLWhere;
+	
+	this._objectCache = {};
+	this._objectKeys = {};
+	this._objectIDs = {};
+	this._loadedLibraries = {};
+	this._loadPromise = null;
 }
 
 Zotero.DataObjects.prototype._ZDO_idOnly = false;
 
-Zotero.DataObjects.prototype._objectCache = {};
-Zotero.DataObjects.prototype._objectKeys = {};
-Zotero.DataObjects.prototype._objectIDs = {};
-Zotero.DataObjects.prototype._loadedLibraries = {};
-Zotero.DataObjects.prototype._loadPromise = null;
-	
-	// Public properties
+// Public properties
+Zotero.defineProperty(Zotero.DataObjects.prototype, 'sqlID', {
+	get: function() this._ZDO_id
+});
 Zotero.defineProperty(Zotero.DataObjects.prototype, 'table', {
 	get: function() this._ZDO_table
 });
@@ -511,6 +516,15 @@ Zotero.DataObjects.prototype.editCheck = function (obj) {
 	}
 }
 
+Zotero.defineProperty(Zotero.DataObjects.prototype, "primaryDataSQL", {
+	get: function () {
+		return "SELECT "
+		+ Object.keys(this._primaryDataSQLParts).map((val) => this._primaryDataSQLParts[val]).join(', ')
+		+ this.primaryDataSQLFrom;
+	}
+}, {lateInit: true});
+
+Zotero.DataObjects.prototype._primaryDataSQLWhere = "WHERE 1";
 
 Zotero.DataObjects.prototype.getPrimaryDataSQLPart = function (part) {
 	var sql = this._primaryDataSQLParts[part];
@@ -538,7 +552,7 @@ Zotero.DataObjects.prototype._load = Zotero.Promise.coroutine(function* (library
 	}
 	
 	// getPrimaryDataSQL() should use "O" for the primary table alias
-	var sql = this.getPrimaryDataSQL();
+	var sql = this.primaryDataSQL;
 	var params = [];
 	if (libraryID !== false) {
 		sql += ' AND O.libraryID=?';

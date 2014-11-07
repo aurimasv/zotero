@@ -34,7 +34,7 @@ Zotero.Collections = function() {
 	
 	Zotero_Collections._super = Zotero.DataObjects;
 	Zotero_Collections.prototype = Object.create(Zotero_Collections._super.prototype);
-	Zotero_Collections.constructor = Zotero_Collections; // This is the only way to access the class from the singleton
+	Zotero_Collections.prototype.constructor = Zotero_Collections; // This is the only way to access the class from the singleton
 	
 	Zotero_Collections.prototype._ZDO_object = 'collection';
 	
@@ -52,8 +52,12 @@ Zotero.Collections = function() {
 		hasChildCollections: "(SELECT COUNT(*) FROM collections WHERE "
 			+ "parentCollectionID=O.collectionID) != 0 AS hasChildCollections",
 		hasChildItems: "(SELECT COUNT(*) FROM collectionItems WHERE "
-			+ "collectionID=O.collectionID) != 0 AS hasChildItems "
+			+ "collectionID=O.collectionID) != 0 AS hasChildItems"
 	};
+	
+		
+	Zotero_Collections.prototype._primaryDataSQLFrom = "FROM collections O "
+			+ "LEFT JOIN collections CP ON (O.parentCollectionID=CP.collectionID)";
 	
 	/**
 	* Add new collection to DB and return Collection object
@@ -208,17 +212,6 @@ Zotero.Collections = function() {
 		this.unload(ids);
 		
 		Zotero.DB.commitTransaction();
-	}
-	
-	
-	Zotero_Collections.prototype.getPrimaryDataSQL = function () {
-		// This should be the same as the query in Zotero.Collection.load(),
-		// just without a specific collectionID
-		return "SELECT "
-			+ Object.keys(this._primaryDataSQLParts).map(key => this._primaryDataSQLParts[key]).join(", ") + " "
-			+ "FROM collections O "
-			+ "LEFT JOIN collections CP ON (O.parentCollectionID=CP.collectionID) "
-			+ "WHERE 1";
 	}
 	
 	return new Zotero_Collections();

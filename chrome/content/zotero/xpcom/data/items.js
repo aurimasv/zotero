@@ -98,6 +98,13 @@ Zotero.Items = function() {
 	}, {lateInit: true});
 	
 	
+	Zotero_Items.prototype._primaryDataSQLFrom = " FROM items O "
+		+ "LEFT JOIN itemAttachments IA USING (itemID) "
+		+ "LEFT JOIN items IAP ON (IA.parentItemID=IAP.itemID) "
+		+ "LEFT JOIN itemNotes INo ON (O.itemID=INo.itemID) "
+		+ "LEFT JOIN items INoP ON (INo.parentItemID=INoP.itemID) "
+		+ "LEFT JOIN deletedItems DI ON (O.itemID=DI.itemID) ";
+	
 	/**
 	 * Return items marked as deleted
 	 *
@@ -399,7 +406,7 @@ Zotero.Items = function() {
 			for (let i=0; i<allItemIDs.length; i++) {
 				let itemID = allItemIDs[i];
 				let item = this._objectCache[itemID];
-				yield this._objectCache[itemID].loadDisplayTitle()
+				yield item.loadDisplayTitle()
 			}
 		}
 		
@@ -620,22 +627,6 @@ Zotero.Items = function() {
 		
 		Zotero.Prefs.set('purge.items', false)
 	});
-	
-	
-	Zotero_Items.prototype.getPrimaryDataSQL = function () {
-		return "SELECT "
-			+ Object.keys(this._primaryDataSQLParts).map((val) => this._primaryDataSQLParts[val]).join(', ')
-			+ this.primaryDataSQLFrom;
-	};
-	
-	
-	Zotero_Items.prototype.primaryDataSQLFrom = " FROM items O "
-		+ "LEFT JOIN itemAttachments IA USING (itemID) "
-		+ "LEFT JOIN items IAP ON (IA.parentItemID=IAP.itemID) "
-		+ "LEFT JOIN itemNotes INo ON (O.itemID=INo.itemID) "
-		+ "LEFT JOIN items INoP ON (INo.parentItemID=INoP.itemID) "
-		+ "LEFT JOIN deletedItems DI ON (O.itemID=DI.itemID) "
-		+ "WHERE 1";
 	
 	
 	Zotero_Items.prototype._postLoad = function (libraryID, ids) {

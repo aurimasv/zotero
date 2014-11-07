@@ -43,7 +43,6 @@ Zotero.Search.constructor = Zotero.Search;
 
 Zotero.Search.prototype._objectType = 'search';
 Zotero.Search.prototype._dataTypes = Zotero.Search._super.prototype._dataTypes.concat([
-	'primaryData',
 	'conditions'
 ]);
 
@@ -257,7 +256,7 @@ Zotero.Search.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 	}
 });
 
-Zotero.Collection.prototype._finalizeSave = Zotero.Promise.coroutine(function* (env) {
+Zotero.Search.prototype._finalizeSave = Zotero.Promise.coroutine(function* (env) {
 	var isNew = env.isNew;
 	if (isNew) {
 		Zotero.Notifier.trigger('add', 'search', this.id);
@@ -266,7 +265,7 @@ Zotero.Collection.prototype._finalizeSave = Zotero.Promise.coroutine(function* (
 		Zotero.Notifier.trigger('modify', 'search', this.id, this._previousData);
 	}
 	
-	if (isNew && this.libraryID) {
+	if (isNew && Zotero.Libraries.isGroupLibrary(this.libraryID)) {
 		var groupID = Zotero.Groups.getGroupIDFromLibraryID(this.libraryID);
 		var group = yield Zotero.Groups.get(groupID);
 		group.clearSearchCache();

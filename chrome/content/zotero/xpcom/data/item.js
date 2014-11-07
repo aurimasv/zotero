@@ -95,7 +95,6 @@ Zotero.Item.constructor = Zotero.Item;
 
 Zotero.Item.prototype._objectType = 'item';
 Zotero.Item.prototype._dataTypes = Zotero.Item._super.prototype._dataTypes.concat([
-	'primaryData',
 	'itemData',
 	'note',
 	'creators',
@@ -297,63 +296,6 @@ Zotero.Item.prototype.getUsedFields = Zotero.Promise.coroutine(function* (asName
 		.filter(id => this._itemData[id] !== false)
 		.map(id => asNames ? Zotero.ItemFields.getName(id) : parseInt(id));
 });
-
-
-
-/*
- * Build object from database
- */
-Zotero.Item.prototype.loadPrimaryData = Zotero.Promise.coroutine(function* (reload, failOnMissing) {
-	if (this._loaded.primaryData && !reload) return;
-	
-	var id = this._id;
-	var key = this._key;
-	var libraryID = this._libraryID;
-	
-	if (!id && !key) {
-		throw new Error('ID or key not set in Zotero.Item.loadPrimaryData()');
-	}
-	
-	var columns = [], join = [], where = [];
-	var primaryFields = this.ObjectsClass.primaryFields;
-	for (let i=0; i<primaryFields.length; i++) {
-		let field = primaryFields[i];
-		// If field not already set
-		if (field == 'itemID' || this['_' + field] === null || reload) {
-			columns.push(this.ObjectsClass.getPrimaryDataSQLPart(field));
-		}
-	}
-	if (!columns.length) {
-		return;
-	}
-	// This should match Zotero.Items.getPrimaryDataSQL(), but without
-	// necessarily including all columns
-	var sql = "SELECT " + columns.join(", ") + this.ObjectsClass.primaryDataSQLFrom;
-	if (id) {
-		sql += " AND O.itemID=? ";
-		var params = id;
-	}
-	else {
-		sql += " AND O.key=? AND O.libraryID=? ";
-		var params = [key, libraryID];
-	}
-	sql += (where.length ? ' AND ' + where.join(' AND ') : '');
-	var row = yield Zotero.DB.rowQueryAsync(sql, params);
-	
-	if (!row) {
-		if (failOnMissing) {
-			throw new Error("Item " + (id ? id : libraryID + "/" + key)
-				+ " not found in Zotero.Item.loadPrimaryData()");
-		}
-		this._loaded.primaryData = true;
-		this._clearChanged('primaryData');
-		return;
-	}
-	
-	this.loadFromRow(row, reload);
-	return;
-});
-
 
 /*
  * Populate basic item data from a database row
@@ -4252,7 +4194,7 @@ Zotero.Item.prototype.loadItemData = Zotero.Promise.coroutine(function* (reload)
 	
 	this._loaded.itemData = true;
 	this._clearChanged('itemData');
-	this.loadDisplayTitle(reload);
+	yield this.loadDisplayTitle(reload);
 });
 
 

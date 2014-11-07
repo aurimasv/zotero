@@ -34,6 +34,7 @@ Zotero.DataObject = function () {
 	let objectType = this._objectType;
 	this._ObjectType = objectType[0].toUpperCase() + objectType.substr(1);
 	this._objectTypePlural = Zotero.DataObjectUtilities.getObjectTypePlural(objectType);
+	this._ObjectTypePlural = this._objectTypePlural[0].toUpperCase() + this._objectTypePlural.substr(1);
 	this._ObjectsClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(objectType)
 	
 	this._id = null;
@@ -54,7 +55,7 @@ Zotero.DataObject = function () {
 };
 
 Zotero.DataObject.prototype._objectType = 'dataObject';
-Zotero.DataObject.prototype._dataTypes = [];
+Zotero.DataObject.prototype._dataTypes = ['primaryData'];
 
 Zotero.defineProperty(Zotero.DataObject.prototype, 'objectType', {
 	get: function() this._objectType
@@ -64,6 +65,9 @@ Zotero.defineProperty(Zotero.DataObject.prototype, 'id', {
 });
 Zotero.defineProperty(Zotero.DataObject.prototype, 'libraryID', {
 	get: function() this._libraryID
+});
+Zotero.defineProperty(Zotero.DataObject.prototype, 'key', {
+	get: function() this._key
 });
 Zotero.defineProperty(Zotero.DataObject.prototype, 'libraryKey', {
 	get: function() this._libraryID + "/" + this._key
@@ -320,6 +324,60 @@ Zotero.DataObject.prototype._getLinkedObject = Zotero.Promise.coroutine(function
 	return false;
 });
 
+/*
+ * Build object from database
+ */
+Zotero.DataObject.prototype.loadPrimaryData = Zotero.Promise.coroutine(function* (reload, failOnMissing) {
+	if (this._loaded.primaryData && !reload) return;
+	
+	var id = this.id;
+	var key = this.key;
+	var libraryID = this.libraryID;
+	
+	if (!id && !key) {
+		throw new Error('ID or key not set in Zotero.' + this._ObjectType + '.loadPrimaryData()');
+	}
+	
+	var columns = [], join = [], where = [];
+	var primaryFields = this.ObjectsClass.primaryFields;
+	var idField = this.ObjectsClass.sqlID;
+	for (let i=0; i<primaryFields.length; i++) {
+		let field = primaryFields[i];
+		// If field not already set
+		if (field == idField || this['_' + field] === null || reload) {
+			columns.push(this.ObjectsClass.getPrimaryDataSQLPart(field));
+		}
+	}
+	if (!columns.length) {
+		return;
+	}
+	
+	// This should match Zotero.*.primaryDataSQL, but without
+	// necessarily including all columns
+	var sql = "SELECT " + columns.join(", ") + this.ObjectsClass.primaryDataSQLFrom;
+	if (id) {
+		sql += " AND O." + idField + "=? ";
+		var params = id;
+	}
+	else {
+		sql += " AND O.key=? AND O.libraryID=? ";
+		var params = [key, libraryID];
+	}
+	sql += (where.length ? ' AND ' + where.join(' AND ') : '');
+	var row = yield Zotero.DB.rowQueryAsync(sql, params);
+	
+	if (!row) {
+		if (failOnMissing) {
+			throw new Error(this._ObjectType + " " + (id ? id : libraryID + "/" + key)
+				+ " not found in Zotero." + this._ObjectType + ".loadPrimaryData()");
+		}
+		this._loaded.primaryData = true;
+		this._clearChanged('primaryData');
+		return;
+	}
+	
+	this.loadFromRow(row, reload);
+});
 
 /**
  * Reloads loaded, changed data
@@ -497,7 +555,7 @@ Zotero.DataObject.prototype._recoverFromSaveError = Zotero.Promise.coroutine(fun
 Zotero.DataObject.prototype._initSave = Zotero.Promise.coroutine(function* (env) {
 	env.isNew = !this.id;
 	
-	this.editCheck();
+	if (!env.options.skipEditCheck) this.editCheck();
 	
 	if (!this.hasChanged()) {
 		Zotero.debug(this._ObjectType + ' ' + this.id + ' has not changed', 4);
