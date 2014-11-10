@@ -71,6 +71,8 @@ const xpcomFilesLocal = [
 	'data/items',
 	'data/collection',
 	'data/collections',
+	'data/feedItem',
+	'data/feedItems',
 	'data/feed',
 	'data/feeds',
 	'data/creators',
