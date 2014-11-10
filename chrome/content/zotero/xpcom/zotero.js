@@ -1497,6 +1497,10 @@ Components.utils.import("resource://gre/modules/osfile.jsm");
 		};
 	}
 	
+	this.localeCompare = (() => {
+		var collation = this.getLocaleCollation();
+		return collation.compareString.bind(collation, 1);
+	})();
 	
 	/*
 	 * Sets font size based on prefs -- intended for use on root element
@@ -1613,6 +1617,11 @@ Components.utils.import("resource://gre/modules/osfile.jsm");
 		Object.defineProperty(obj, prop, d);
 	}
 	
+	this.extendClass = function(superClass, newClass) {
+		newClass._super = superClass;
+		newClass.prototype = Object.create(superClass.prototype);
+		newClass.prototype.constructor = newClass;
+	}
 	
 	/**
 	 * Allow other events (e.g., UI updates) on main thread to be processed if necessary

@@ -132,13 +132,6 @@ Zotero.DataObjects.prototype.get = function (ids) {
  *                                          otherwise, an array of Zotero.[Object]
  */
 Zotero.DataObjects.prototype.getAsync = Zotero.Promise.coroutine(function* (ids, options) {
-	// Serialize loads
-	if (this._loadPromise && this._loadPromise.isPending()) {
-		yield this._loadPromise;
-	}
-	var deferred = Zotero.Promise.defer();
-	this._loadPromise = deferred.promise;
-	
 	var toLoad = [];
 	var toReturn = [];
 	
@@ -167,6 +160,13 @@ Zotero.DataObjects.prototype.getAsync = Zotero.Promise.coroutine(function* (ids,
 	
 	// New object to load
 	if (toLoad.length) {
+		// Serialize loads
+		if (this._loadPromise && this._loadPromise.isPending()) {
+			yield this._loadPromise;
+		}
+		let deferred = Zotero.Promise.defer();
+		this._loadPromise = deferred.promise;
+		
 		let loaded = yield this._load(null, toLoad, options);
 		for (let i=0; i<toLoad.length; i++) {
 			let id = toLoad[i];
@@ -177,9 +177,8 @@ Zotero.DataObjects.prototype.getAsync = Zotero.Promise.coroutine(function* (ids,
 			}
 			toReturn.push(obj);
 		}
+		deferred.resolve();
 	}
-	
-	deferred.resolve();
 	
 	// If single id, return the object directly
 	if (singleObject) {

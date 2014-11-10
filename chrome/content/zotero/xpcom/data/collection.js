@@ -37,9 +37,7 @@ Zotero.Collection = function() {
 	this._childItems = [];
 }
 
-Zotero.Collection._super = Zotero.DataObject;
-Zotero.Collection.prototype = Object.create(Zotero.Collection._super.prototype);
-Zotero.Collection.constructor = Zotero.Collection;
+Zotero.extendClass(Zotero.DataObject, Zotero.Collection);
 
 Zotero.Collection.prototype._objectType = 'collection';
 Zotero.Collection.prototype._dataTypes = Zotero.Collection._super.prototype._dataTypes.concat([
@@ -647,7 +645,7 @@ Zotero.Collection.prototype.erase = function(deleteItems) {
 		
 		// TODO: Update member items
 	}.bind(this))
-	.then(function () {
+	.then(() => {
 		// Clear deleted collection from internal memory
 		this.ObjectsClass.unload(collections);
 		//return Zotero.Collections.reloadAll();
@@ -850,7 +848,7 @@ Zotero.Collection.prototype.loadChildCollections = Zotero.Promise.coroutine(func
 	
 	this._childCollections = [];
 	
-	if (ids) {
+	if (ids.length) {
 		for each(var id in ids) {
 			var col = yield this.ObjectsClass.getAsync(id);
 			if (!col) {

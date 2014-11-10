@@ -35,7 +35,10 @@ Zotero.DataObject = function () {
 	this._ObjectType = objectType[0].toUpperCase() + objectType.substr(1);
 	this._objectTypePlural = Zotero.DataObjectUtilities.getObjectTypePlural(objectType);
 	this._ObjectTypePlural = this._objectTypePlural[0].toUpperCase() + this._objectTypePlural.substr(1);
-	this._ObjectsClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(objectType)
+	this._ObjectsClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(objectType);
+	if (this._containerObject) {
+		this._ContainerObjectsClass = Zotero.DataObjectUtilities.getObjectsClassForObjectType(this._containerObject);
+	}
 	
 	this._id = null;
 	this._libraryID = null;
@@ -83,6 +86,9 @@ Zotero.defineProperty(Zotero.DataObject.prototype, 'parentID', {
 
 Zotero.defineProperty(Zotero.DataObject.prototype, 'ObjectsClass', {
 	get: function() this._ObjectsClass
+});
+Zotero.defineProperty(Zotero.DataObject.prototype, 'ContainerObjectsClass', {
+	get: function() this._ContainerObjectsClass
 });
 
 
@@ -447,6 +453,14 @@ Zotero.DataObject.prototype._loadDataType = function (dataType, reload) {
 	return this["load" + dataType[0].toUpperCase() + dataType.substr(1)](reload);
 }
 
+Zotero.DataObject.prototype.loadAllData = function (reload) {
+	let loadPromises = new Array(this._dataTypes.length);
+	for (let i=0; i<this._dataTypes.length; i++) {
+		loadPromises[i] = this._loadDataType(this._dataTypes[i], reload);
+	}
+	
+	return Zotero.Promise.all(loadPromises);
+}
 
 /**
  * Save old version of data that's being changed, to pass to the notifier

@@ -32,9 +32,7 @@ Zotero.Items = function() {
 		Zotero_Items._super.apply(this);
 	}
 	
-	Zotero_Items._super = Zotero.DataObjects;
-	Zotero_Items.prototype = Object.create(Zotero_Items._super.prototype);
-	Zotero_Items.constructor = Zotero_Items; // This is the only way to access the class from the singleton
+	Zotero.extendClass(Zotero.DataObjects, Zotero_Items);
 	
 	Zotero_Items.prototype._ZDO_object = 'item';
 	
@@ -98,12 +96,12 @@ Zotero.Items = function() {
 	}, {lateInit: true});
 	
 	
-	Zotero_Items.prototype._primaryDataSQLFrom = " FROM items O "
+	Zotero_Items.prototype._primaryDataSQLFrom = "FROM items O "
 		+ "LEFT JOIN itemAttachments IA USING (itemID) "
 		+ "LEFT JOIN items IAP ON (IA.parentItemID=IAP.itemID) "
 		+ "LEFT JOIN itemNotes INo ON (O.itemID=INo.itemID) "
 		+ "LEFT JOIN items INoP ON (INo.parentItemID=INoP.itemID) "
-		+ "LEFT JOIN deletedItems DI ON (O.itemID=DI.itemID) ";
+		+ "LEFT JOIN deletedItems DI ON (O.itemID=DI.itemID)";
 	
 	/**
 	 * Return items marked as deleted
