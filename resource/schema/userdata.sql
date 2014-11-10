@@ -191,6 +191,22 @@ CREATE TABLE collectionItems (
 );
 CREATE INDEX collectionItems_itemID ON collectionItems(itemID);
 
+CREATE TABLE feeds (
+    collectionID INT NOT NULL REFERENCES collections(collectionID) ON DELETE CASCADE,
+    url TEXT NOT NULL,
+    lastUpdate TIMESTAMP,
+    lastCheck TIMESTAMP,
+    lastCheckError TEXT,
+    cleanupAfter INT NOT NULL DEFAULT 2,
+    refreshInterval INT NOT NULL DEFAULT 60
+);
+
+CREATE TABLE feedItems (
+    itemID INT NOT NULL REFERENCES items(itemID) ON DELETE CASCADE,
+    guid TEXT NOT NULL UNIQUE,
+    readTimestamp TIMESTAMP
+);
+
 CREATE TABLE savedSearches (
     savedSearchID INTEGER PRIMARY KEY,
     savedSearchName TEXT NOT NULL,

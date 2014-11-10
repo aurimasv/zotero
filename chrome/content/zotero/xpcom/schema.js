@@ -1410,6 +1410,7 @@ Zotero.Schema = new function(){
 			yield _updateDBVersion('compatibility', _maxCompatibility);
 			
 			yield Zotero.DB.queryAsync("INSERT INTO libraries (libraryID, libraryType) VALUES (0, 'user')");
+			yield Zotero.DB.queryAsync("INSERT INTO libraries (libraryType) VALUES ('feed')");
 			
 			if (!Zotero.Schema.skipDefaultData) {
 				// Quick Start Guide web page item
@@ -2087,6 +2088,11 @@ Zotero.Schema = new function(){
 						yield Zotero.DB.queryAsync("DROP TABLE creatorData");
 						yield Zotero.DB.queryAsync("DROP TABLE itemsOld");
 						yield Zotero.DB.queryAsync("DROP TABLE tagsOld");
+						
+						// Feeds
+						yield Zotero.DB.queryAsync("INSERT INTO libraries (libraryType) VALUES ('feed')");
+						yield Zotero.DB.queryAsync("CREATE TABLE feeds (\n    collectionID INT NOT NULL REFERENCES collections(collectionID) ON DELETE CASCADE,\n    url TEXT NOT NULL,\n    lastUpdate TIMESTAMP,\n    lastCheck TIMESTAMP,\n    lastCheckError TEXT,\n    cleanupAfter INT NOT NULL DEFAULT 2,\n    refreshInterval INT NOT NULL DEFAULT 60\n)");
+						yield Zotero.DB.queryAsync("CREATE TABLE feedItems (\n    itemID INT NOT NULL REFERENCES items(itemID) ON DELETE CASCADE,\n    guid TEXT NOT NULL UNIQUE,\n    readTimestamp TIMESTAMP\n)");
 					}
 				}
 				
