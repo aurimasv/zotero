@@ -135,6 +135,17 @@ Zotero.FeedReader = function(url) {
 		return Zotero.Utilities.dom2text(domFragment, field);
 	};
 	
+	let formatDate = function(date) {
+		let offset = (date.getTimezoneOffset() / 60) * -1;
+		let absOffset = Math.abs(offset);
+		offset = offset
+			? ' ' + (offset < 0 ? '-' : '+')
+				+ Zotero.Utilities.lpad(Math.floor(absOffset), '0', 2)
+				+ ('' + ( (absOffset - Math.floor(absOffset)) || '' )).substr(1) // Get ".5" fraction or "" otherwise
+			: '';
+		return Zotero.Date.dateToSQL(date, false) + offset;
+	}
+	
 	let ns = {
 		'prism': 'null',
 		'dc': 'dc:'
@@ -164,7 +175,7 @@ Zotero.FeedReader = function(url) {
 			return;
 		}
 		
-		item.id = feedEntry.id;
+		item.guid = feedEntry.id;
 				
 		if (feedEntry.title) item.title = getRichText(feedEntry.title, 'title');
 		
@@ -185,7 +196,7 @@ Zotero.FeedReader = function(url) {
 		
 		if (feedEntry.link) item.url = feedEntry.link.spec;
 		
-		if (feedEntry.updated) item.lastModified = new Date(feedEntry.updated);
+		if (feedEntry.updated) item.dateModified = new Date(feedEntry.updated);
 		
 		if (feedEntry.published) {
 			let date = new Date(feedEntry.published);
@@ -199,24 +210,28 @@ Zotero.FeedReader = function(url) {
 						+ (date.getUTCMonth() + 1) + '-'
 						+  date.getUTCDate() );
 			} else {
-				item.date = Zotero.Date.dateToSQL(date, false, true);
+				item.date = formatDate(date);
+				// Add time zone
 			}
 			
-			if (!item.lastModified) {
-				items.lastModified = date;
+			if (!item.dateModified) {
+				items.dateModified = date;
 			}
 		}
 		
-		if (!item.lastModified) {
+		if (!item.dateModified) {
 			// When there's no reliable modification date, we can assume that item doesn't get updated
-			Zotero.debug("FeedReader: Feed item missing a modification date (" + item.id + ")");
-			item.lastModified = null;
+			Zotero.debug("FeedReader: Feed item missing a modification date (" + item.guid + ")");
+			item.dateModified = null;
 		}
 		
-		if (!item.date && item.lastModified) {
+		if (!item.date && item.dateModified) {
 			// Use lastModified date
-			item.date = Zotero.Date.dateToSQL(item.lastModified, false, true);
+			item.date = formatDate(item.dateModified);
 		}
+		
+		// Convert date modified to string, since those are directly comparable
+		if (item.dateModified) item.dateModified = Zotero.Date.dateToSQL(item.dateModified, true);
 		
 		if (feedEntry.rights) item.rights = getRichText(feedEntry.rights, 'rights');
 		
@@ -392,13 +407,13 @@ Zotero.FeedReader = function(url) {
 	this.createItemIterator = function* () {
 		// For the first item, we need to make sure that we wait for data
 		yield feed.promise
-			.then(() => {
-				if (feedItems.length) {
-					return feedItems[0];
-				}
-				return Zotero.Promise.resolve();
-			});
-
+		.then(() => {
+			if (feedItems.length) {
+				return feedItems[0];
+			}
+			return Zotero.Promise.resolve();
+		});
+		
 		for (let i = 1; i < feedItems.length; i++) {
 			yield feedItems[i];
 		}
