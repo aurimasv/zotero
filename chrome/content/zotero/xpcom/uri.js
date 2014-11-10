@@ -30,6 +30,9 @@ Zotero.URI = new function () {
 	var _baseURI = ZOTERO_CONFIG.BASE_URI;
 	var _apiURI = ZOTERO_CONFIG.API_URI;
 	
+	Zotero.defineProperty(this, 'feedLibraryBaseURI', {
+		value: 'feedLibrary'
+	});
 	
 	/**
 	 * Get a URI with the user's local key, if there is one
@@ -85,6 +88,8 @@ Zotero.URI = new function () {
 		var libraryType = Zotero.Libraries.getType(libraryID);
 		
 		switch (libraryType) {
+			case 'feed':
+				return this.feedLibraryBaseURI;
 			case 'user':
 				var id = Zotero.Users.getCurrentUserID();
 				if (!id) {
@@ -108,8 +113,11 @@ Zotero.URI = new function () {
 	 * Return URI of item, which might be a local URI if user hasn't synced
 	 */
 	this.getItemURI = function (item) {
-		if (item.libraryID) {
+		if (Zotero.Libraries.isGroupLibrary(item.libraryID)) {
 			var baseURI = this.getLibraryURI(item.libraryID);
+		}
+		else if (item.library == Zotero.Libraries.feedLibraryID) {
+			var baseURI = this.feedLibraryBaseURI;
 		}
 		else {
 			var baseURI =  this.getCurrentUserURI();
@@ -130,8 +138,11 @@ Zotero.URI = new function () {
 	 * Return URI of collection, which might be a local URI if user hasn't synced
 	 */
 	this.getCollectionURI = function (collection) {
-		if (collection.libraryID) {
+		if (Zotero.Libraries.isGroupLibrary(collection.libraryID)) {
 			var baseURI = this.getLibraryURI(collection.libraryID);
+		}
+		else if (collection.libraryID == Zotero.Libraries.feedLibraryID) {
+			var baseURI = this.feedLibraryBaseURI;
 		}
 		else {
 			var baseURI =  this.getCurrentUserURI();
