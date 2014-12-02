@@ -28,31 +28,39 @@
  * Primary interface for accessing Zotero collection
  */
 Zotero.Feeds = function() {
+	// Don't extend, just proxy
 	var Zotero_Feeds = function() {
-		Zotero_Feeds._super.apply(this);
-	}
-	
-	Zotero.extendClass(Zotero.Collections.constructor, Zotero_Feeds);
-	
-	Zotero_Feeds.prototype._ZDO_object = 'feed';
-	Zotero_Feeds.prototype._ZDO_id = 'collectionID';
-	
-	var _primaryDataSQLParts = Zotero.Utilities.deepCopy(Zotero_Feeds._super.prototype._primaryDataSQLParts);
-	_primaryDataSQLParts.feedUrl = "FeD.url AS feedUrl";
-	_primaryDataSQLParts.feedLastUpdate = "FeD.lastUpdate AS feedLastUpdate";
-	_primaryDataSQLParts.feedLastCheck = "FeD.lastCheck AS feedLastCheck";
-	_primaryDataSQLParts.feedLastCheckError = "FeD.lastCheckError AS feedLastCheckError";
-	_primaryDataSQLParts.feedCleanupAfter = "FeD.cleanupAfter AS feedCleanupAfter"; // Days
-	_primaryDataSQLParts.feedRefreshInterval = "FeD.refreshInterval AS feedRefreshInterval"; // Minutes
-	_primaryDataSQLParts.feedUnreadCount = "(SELECT COUNT(*) "
-		+ "FROM collectionItems CI LEFT JOIN feedItems FeID USING (itemID) "
-		+ "WHERE CI.collectionID=O.collectionID AND FeID.readTimestamp IS NULL) "
-		+ "AS feedUnreadCount";
-	
-	Zotero_Feeds.prototype._primaryDataSQLParts = _primaryDataSQLParts;
-	
-	Zotero_Feeds.prototype._primaryDataSQLFrom = Zotero_Feeds._super.prototype._primaryDataSQLFrom
-		+ " LEFT JOIN feeds FeD USING (collectionID)";
+		// Modify Zotero.Collections to deal with Feeds
+		
+		// Load additional primary data
+		let additionalParts = {
+			feedUrl: "FeD.url AS feedUrl",
+			feedLastUpdate: "FeD.lastUpdate AS feedLastUpdate",
+			feedLastCheck: "FeD.lastCheck AS feedLastCheck",
+			feedLastCheckError: "FeD.lastCheckError AS feedLastCheckError",
+			feedCleanupAfter: "FeD.cleanupAfter AS feedCleanupAfter", // Days
+			feedRefreshInterval: "FeD.refreshInterval AS feedRefreshInterval", // Minutes
+			feedUnreadCount: "(SELECT COUNT(*) "
+				+ "FROM collectionItems CI LEFT JOIN feedItems FeID USING (itemID) "
+				+ "WHERE CI.collectionID=O.collectionID AND FeID.readTimestamp IS NULL) "
+				+ "AS feedUnreadCount"
+		};
+		for (let i in additionalParts) {
+			Zotero.Collections._primaryDataSQLParts[i] = additionalParts[i];
+		}
+		
+		// Join additional tables
+		Zotero.Collections._primaryDataSQLFrom += " LEFT JOIN feeds FeD USING (collectionID)";
+		
+		// Choose correct item type when loading from DB row
+		Zotero.Collections._getObjectForRow = function(row) {
+			if (row.feedUrl) {
+				return new Zotero.Feed();
+			}
+			
+			return new Zotero.Collection();
+		}
+	};
 	
 	Zotero_Feeds.prototype.add = function() {
 		throw new Error('Zotero.Feeds.add must not be used. Use new Zotero.Feed instead');
@@ -67,6 +75,7 @@ Zotero.Feeds = function() {
 	Zotero_Feeds.prototype.getFeedsInLibrary = Zotero.Promise.coroutine(function* () {
 		let sql = "SELECT collectionID AS id FROM feeds";
 		let ids = yield Zotero.DB.queryAsync(sql);
+Zotero.debug(ids.map(function(row) row.id));
 		let feeds = yield this.getAsync(ids.map(function(row) row.id));
 		if (!feeds.length) return feeds;
 		
@@ -147,8 +156,23 @@ return;
 		yield Zotero.Collections.refreshChildItems.apply(Zotero.Collections, arguments);
 		yield Zotero_Feeds._super.prototype.refreshChildItems.apply(this, arguments);
 	});
-		
 	
-	return new Zotero_Feeds();
+	var feeds = new Zotero_Feeds();
+	// Proxy remaining methods/properties to Zotero.Collections
+	for (let i in Zotero.Collections) {
+		if (feeds.hasOwnProperty(i)) continue;
+		
+		let prop = i;
+		Zotero.defineProperty(feeds, prop, {
+			get: function() {
+				let val = Zotero.Collections[prop];
+				if (typeof val == 'function') return val.bind(Zotero.Collections);
+				return val;
+			},
+			set: function(val) Zotero.Collections[prop] = val
+		});
+	}
+	
+	return feeds;
 }()
 

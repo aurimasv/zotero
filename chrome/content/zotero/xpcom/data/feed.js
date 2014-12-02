@@ -41,6 +41,10 @@ Zotero.Feed.constructor = Zotero.Feed;
 
 Zotero.Feed.prototype._objectType = 'feed';
 
+Zotero.defineProperty(Zotero.Feed.prototype, 'isFeed', {
+	value: true
+});
+
 Zotero.defineProperty(Zotero.Feed.prototype, 'url', {
 	get: function() this._feedUrl,
 	set: function(val) this._set('url',val)
