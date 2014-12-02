@@ -28,26 +28,49 @@
  * Primary interface for accessing Zotero feed items
  */
 Zotero.FeedItems = function() {
+	// Don't extend Zotero.Items, just provide a proxy, so we use a single cache
+	// All code dealing explicitly and solely with feeds should use
+	// Zotero.FeedItems API instead of Zotero.Items
 	var Zotero_FeedItems = function() {
-		Zotero_FeedItems._super.apply(this);
-	}
-	
-	Zotero.extendClass(Zotero.Items.constructor, Zotero_FeedItems);
-	
-	Zotero_FeedItems.prototype._ZDO_object = 'feedItem';
-	Zotero_FeedItems.prototype._ZDO_id = 'itemID';
-	
-	Zotero.defineProperty(Zotero_FeedItems.prototype, '_primaryDataSQLParts', {
-		get: function() {
-			var _primaryDataSQLParts = Zotero.Utilities.deepCopy(Zotero.Items._primaryDataSQLParts);
-			_primaryDataSQLParts.feedItemGUID = "FeI.guid AS feedItemGUID";
-			_primaryDataSQLParts.feedItemReadTimestamp = "FeI.readTimestamp AS feedItemReadTimestamp";
-			return _primaryDataSQLParts;
+		// Modify Zotero.Items to support FeedItems
+		
+		// Load additional primary data
+		var additionalParts = {
+			feedItemGUID: "FeI.guid AS feedItemGUID",
+			feedItemReadTimestamp: "FeI.readTimestamp AS feedItemReadTimestamp"
+		};
+		// The getter for _primaryDataSQLParts MUST NOT have been called yet or this
+		// won't work, because some other lateInit properties may have been called
+		// and would be out of sync. Shouldn't really be an issue.
+		let descriptor = Object.getOwnPropertyDescriptor(
+			Object.getPrototypeOf(Zotero.Items),
+			'_primaryDataSQLParts'
+		);
+		Zotero.defineProperty(Zotero.Items, '_primaryDataSQLParts', {
+			get: function() {
+				let parts = descriptor.get.call(Zotero.Items);
+				for (let i in additionalParts) {
+					parts[i] = additionalParts[i];
+				}
+				return parts;
+			},
+			set: descriptor.set,
+			enumerable: descriptor.enumerable,
+			configurable: descriptor.configurable // But this would fail anyway if it were false
+		}, {lateInit: true} );
+		
+		// Join additional tables
+		Zotero.Items._primaryDataSQLFrom += " LEFT JOIN feedItems FeI ON (FeI.itemID=O.itemID)";
+		
+		// Choose correct item type when loading from DB row
+		Zotero.Items._getObjectForRow = function(row) {
+			if (row.feedItemGUID) {
+				return new Zotero.FeedItem();
+			}
+			
+			return new Zotero.Item();
 		}
-	}, {lateInit: true});
-	
-	Zotero_FeedItems.prototype._primaryDataSQLFrom = Zotero_FeedItems._super.prototype._primaryDataSQLFrom
-		+ " LEFT JOIN feedItems FeI ON (FeI.itemID=O.itemID)";
+	};
 	
 	Zotero_FeedItems.prototype._idCache = {};
 	Zotero_FeedItems.prototype._guidCache = {};
@@ -77,7 +100,7 @@ Zotero.FeedItems = function() {
 	};
 	
 	Zotero_FeedItems.prototype.unload = function() {
-		Zotero_FeedItems._super.prototype.unload.apply(this, arguments);
+		Zotero.Items.unload.apply(Zotero.Items, arguments);
 		let ids = Zotero.flattenArguments(arguments);
 		for (let i=0; i<ids.length; i++) {
 			this._deleteGUIDMapping(null, ids[i]);
@@ -88,8 +111,25 @@ Zotero.FeedItems = function() {
 		let id = yield this.getIDFromGUID(guid);
 		if (id === false) return false;
 		
-		return this.getAsync(id);
+		return Zotero.Items.getAsync(id);
 	});
 	
-	return new Zotero_FeedItems();
+	var feedItems = new Zotero_FeedItems();
+	
+	// Proxy remaining methods/properties to Zotero.Items
+	for (let i in Zotero.Items) {
+		if (feedItems.hasOwnProperty(i)) continue;
+		
+		let prop = i;
+		Zotero.defineProperty(feedItems, prop, {
+			get: function() {
+				let val = Zotero.Items[prop];
+				if (typeof val == 'function') return val.bind(Zotero.Items);
+				return val;
+			},
+			set: function(val) Zotero.Items[prop] = val
+		});
+	}
+	
+	return feedItems;
 }();

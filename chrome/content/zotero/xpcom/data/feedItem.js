@@ -39,6 +39,10 @@ Zotero.extendClass(Zotero.Item, Zotero.FeedItem)
 Zotero.FeedItem.prototype._objectType = 'feedItem';
 Zotero.FeedItem.prototype._containerObject = 'feed';
 
+Zotero.defineProperty(Zotero.FeedItem.prototype, 'isFeedItem', {
+	value: true
+});
+
 Zotero.defineProperty(Zotero.FeedItem.prototype, 'libraryID', {
 	get: function() Zotero.Libraries.feedLibraryID
 });
