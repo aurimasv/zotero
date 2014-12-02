@@ -1343,9 +1343,9 @@ var ZoteroPane = new function()
 						let feedItem = yield Zotero.FeedItems.getAsync(item.id);
 						if (feedItem) {
 							this.startItemReadTimeout(feedItem.id);
-						}
 					}
 				}
+			}
 			}
 			// Zero or multiple items selected
 			else {
@@ -2414,19 +2414,19 @@ var ZoteroPane = new function()
 		}
 		
 		var collectionTreeRow = this.getCollectionTreeRow();
-		var feedItem = collectionTreeRow.isWithinFeedLibrary();
+		var inFeedLibrary = collectionTreeRow.isWithinFeedLibrary();
 		
 		if(collectionTreeRow.isTrash()) {
 			show.push(m.restoreToLibrary);
-		} else if (!feedItem) {
+		} else if (!inFeedLibrary) {
 			show.push(m.deleteFromLibrary);
 		}
 		
-		if (!feedItem) show.push(m.sep3);
+		if (!inFeedLibrary) show.push(m.sep3);
 		
 		show.push(m.exportItems, m.createBib, m.loadReport);
 		
-		if (!feedItem && this.itemsView.selection.count > 0) {
+		if (!inFeedLibrary && this.itemsView.selection.count > 0) {
 			// Multiple items selected
 			if (this.itemsView.selection.count > 1) {
 				var multiple =  '.multiple';
@@ -2576,7 +2576,7 @@ var ZoteroPane = new function()
 			}
 		}
 		// No items selected
-		else if (!feedItem)
+		else if (!inFeedLibrary)
 		{
 			// Show in Library
 			if (!collectionTreeRow.isLibrary()) {
