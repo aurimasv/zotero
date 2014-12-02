@@ -370,9 +370,7 @@ Zotero.CollectionTreeView.prototype.notify = Zotero.Promise.coroutine(function* 
 		{
 			case 'feed':
 			case 'collection':
-				var collection = type == 'collection'
-					? yield Zotero.Collections.getAsync(ids)
-					: yield Zotero.Feeds.getAsync(ids);
+				var collection = yield Zotero.Collections.getAsync(ids);
 				
 				// Open container if creating subcollection
 				var parentID = collection.parentID;
@@ -988,7 +986,7 @@ Zotero.CollectionTreeView.prototype._expandRow = Zotero.Promise.coroutine(functi
 	// Add collections
 	for (var i = 0, len = collections.length; i < len; i++) {
 		// In personal library root, skip group collections
-		if (!isGroup && !isCollection && !isFeedLibrary && collections[i].libraryID) {
+		if (libraryID != collections[i].libraryID) {
 			continue;
 		}
 		
