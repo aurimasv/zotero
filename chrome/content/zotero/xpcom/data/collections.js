@@ -32,9 +32,7 @@ Zotero.Collections = function() {
 		Zotero_Collections._super.apply(this);
 	}
 	
-	Zotero_Collections._super = Zotero.DataObjects;
-	Zotero_Collections.prototype = Object.create(Zotero_Collections._super.prototype);
-	Zotero_Collections.prototype.constructor = Zotero_Collections; // This is the only way to access the class from the singleton
+	Zotero.extendClass(Zotero.DataObjects, Zotero_Collections);
 	
 	Zotero_Collections.prototype._ZDO_object = 'collection';
 	
