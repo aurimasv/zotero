@@ -84,7 +84,35 @@ Components.utils.import("resource://gre/modules/osfile.jsm");
 	this.initialURL; // used by Schema to show the changelog on upgrades
 	
 	Components.utils.import("resource://zotero/bluebird.js", this);
+	/**
+	 * Creates a promise that guarantees a mutual execution environment until it
+	 * is resolved/rejected
+	 * @param {String|Function} id A string that identifies the mutex. If a
+	 *   a function is passed instead, the function is called with the same
+	 *   arguments as the target function and is expected to return a string
+	 *   identifying the mutex
+	 * @param {Function} func The function that will be wrapped by the mutex
+	 * @return {Function} Function that wraps the target function in mutex
+	 */
+	this.Promise.mutex = function(id, func) {
+		return Zotero.Promise.coroutine(function *() {
+			let myID = id, // We don't want to permanently convert id to string if it's a function
+				args = arguments;
+			if (typeof myID == 'function') {
+				myID = myID.apply(null, arguments);
+			}
 			
+			return Zotero.Promise.using(
+				Zotero.getMutex(myID).disposer(function(mutex) {
+					mutex.release();
+				}),
+				function() {
+					return func.apply(this, args)
+				}.bind(this)
+			);
+		});
+	};
+	
 	this.getActiveZoteroPane = function() {
 		return Services.wm.getMostRecentWindow("navigator:browser").ZoteroPane;
 	};
