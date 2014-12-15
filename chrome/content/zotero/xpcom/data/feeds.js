@@ -75,21 +75,18 @@ Zotero.Feeds = function() {
 	Zotero_Feeds.prototype.getFeedsInLibrary = Zotero.Promise.coroutine(function* () {
 		let sql = "SELECT collectionID AS id FROM feeds";
 		let ids = yield Zotero.DB.queryAsync(sql);
-Zotero.debug(ids.map(function(row) row.id));
 		let feeds = yield this.getAsync(ids.map(function(row) row.id));
 		if (!feeds.length) return feeds;
 		
 		return feeds.sort(function (a, b) Zotero.localeCompare(a.name, b.name));
 	});
 	
-	let globalFeedCheckDelay = Zotero.Promise.resolve(),
-		pendingFeedCheckSchedule;
+	let globalFeedCheckDelay = Zotero.Promise.resolve();
 	Zotero_Feeds.prototype.scheduleNextFeedCheck = Zotero.Promise.coroutine(function* () {
-return;
 		Zotero.debug("Scheduling next feed update.");
 		let sql = "SELECT ( CASE "
 			+ "WHEN lastCheck IS NULL THEN 0 "
-			+ "ELSE julianday(lastCheck, 'utc') + (refreshInterval/1440) - julianday('now', 'utc') "
+			+ "ELSE julianday(lastCheck, 'utc') + (refreshInterval/1440.0) - julianday('now', 'utc') "
 			+ "END ) * 1440 AS nextCheck "
 			+ "FROM feeds WHERE refreshInterval IS NOT NULL "
 			+ "ORDER BY nextCheck ASC LIMIT 1";
@@ -103,8 +100,7 @@ return;
 		if (nextCheck !== false) {
 			nextCheck = nextCheck > 0 ? Math.ceil(nextCheck * 60000) : 0;
 			Zotero.debug("Next feed check in " + nextCheck/60000 + " minutes");
-			this._nextFeedCheck = Zotero.Promise.delay(nextCheck)
-				.cancellable();
+			this._nextFeedCheck = Zotero.Promise.delay(nextCheck).cancellable();
 			Zotero.Promise.all([this._nextFeedCheck, globalFeedCheckDelay])
 			.then(() => {
 				globalFeedCheckDelay = Zotero.Promise.delay(60000); // Don't perform auto-updates more than once per minute
@@ -120,6 +116,22 @@ return;
 		} else {
 			Zotero.debug("No feeds with auto-update.");
 		}
+	});
+	
+	Zotero_Feeds.prototype.getAsync = Zotero.Promise.coroutine(function* () {
+		let feeds = yield Zotero_Feeds._super.prototype.getAsync.apply(this, arguments);
+		if (!feeds) return feeds;
+		
+		if (Array.isArray(feeds)) {
+			return feeds.isFeed ? feeds : false;
+		}
+		
+		let toReturn = [];
+		for (let i=0; i<feeds.length; i++) {
+			if (feeds[i].isFeed) toReturn.push(feeds[i]);
+		}
+		
+		return toReturn;
 	});
 	
 	Zotero_Feeds.prototype.updateFeeds = Zotero.Promise.coroutine(function* () {

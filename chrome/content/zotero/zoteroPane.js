@@ -501,9 +501,10 @@ var ZoteroPane = new function()
 		}
 	}
 	
-	
-	function handleKeyUp(event, from) {
-		if (from == 'zotero-pane') {
+	let Z_VK_READ_TOGGLE = 192; // `
+	function handleKeyUp(event) {
+		var from = event.originalTarget.id;
+		if (from == 'zotero-items-tree') {
 			if ((Zotero.isWin && event.keyCode == 17) ||
 					(!Zotero.isWin && event.keyCode == 18)) {
 				if (this.highlightTimer) {
@@ -511,6 +512,34 @@ var ZoteroPane = new function()
 					this.highlightTimer = null;
 				}
 				ZoteroPane_Local.collectionsView.setHighlightedRows();
+				return;
+			} else if (event.keyCode == Z_VK_READ_TOGGLE) {
+				// Toggle read/unread
+				let row = this.collectionsView.getRow(this.collectionsView.selection.currentIndex);
+				if (!row || !row.isWithinFeedLibrary()) return;
+				if(itemReadTimeout) {
+					itemReadTimeout.cancel();
+					itemReadTimeout = null;
+				}
+				
+				let itemIDs = this.getSelectedItems(true);
+				Zotero.FeedItems.getAsync(itemIDs)
+				.then(function(feedItems) {
+					// Determine what most items are set to;
+					let read = 0;
+					for (let i=0; i<feedItems.length; i++) {
+						read += feedItems[i].isRead ? 1 : -1;
+					}
+					
+					// Toggle so that majority changes
+					let setToRead = read < 0
+						? true // Most are currently unread
+						: false;
+					
+					for (let i=0; i<feedItems.length; i++) {
+						feedItems[i].toggleRead(setToRead);
+					}
+				});
 			}
 		}
 	}
@@ -590,24 +619,8 @@ var ZoteroPane = new function()
 				//event.preventDefault();
 				//event.stopPropagation();
 				return;
-			} else if (event.keyCode == '`') {
-				// Toggle read/unread
-				if (!this.collectionsView.selection.currentIndex) return;
-				let row = this.collectionsView.getRow(this.collectionsView.selection.currentIndex);
-				if (!row || !row.isWithinFeedLibrary()) return;
-				
-				if(itemReadTimeout) {
-					itemReadTimeout.cancel();
-					itemReadTimeout = null;
-				}
-				
-				let itemIDs = this.getSelectedItems(true);
-				for (var i=0; i<itemIDs; i++) {
-					this.markItemRead(itemIDs[i]);
-				}
 			}
 		}
-		
 		var key = String.fromCharCode(event.which);
 		if (!key) {
 			Zotero.debug('No key');
@@ -1338,14 +1351,10 @@ var ZoteroPane = new function()
 						tabs.selectedIndex = document.getElementById('zotero-view-item').selectedIndex;
 					}
 					
-					if (collectionTreeRow.isWithinFeedLibrary()) {
-						// Fire timer for read item
-						let feedItem = yield Zotero.FeedItems.getAsync(item.id);
-						if (feedItem) {
-							this.startItemReadTimeout(feedItem.id);
+					if (item.isFeedItem) {
+						this.startItemReadTimeout(item.id);
 					}
 				}
-			}
 			}
 			// Zero or multiple items selected
 			else {
@@ -4147,14 +4156,6 @@ var ZoteroPane = new function()
 	});
 	
 	
-	this.markItemRead = Zotero.Promise.coroutine(function* (feedItemID, toggle) {
-		let feedItem = yield Zotero.FeedItems.getAsync(feedItemID);
-		if (!feedItem) return;
-		
-		feedItem.isRead = toggle !== undefined ? !!toggle : !feedItem.isRead;
-		yield feedItem.save({skipEditCheck: true, skipDateModifiedUpdate: true});
-	})
-	
 	let itemReadTimeout;
 	this.startItemReadTimeout = function(feedItemID) {
 		if (itemReadTimeout) {
@@ -4162,8 +4163,18 @@ var ZoteroPane = new function()
 			itemReadTimeout = null;
 		}
 		
-		itemReadTimeout = Zotero.Promise.delay(3000)
+		let feedItem;
+		itemReadTimeout = Zotero.FeedItems.getAsync(feedItemID)
 		.cancellable()
+		.then(function(newFeedItem) {
+			if (!newFeedItem) {
+				throw new Zotero.Promise.CancellationError('Not a FeedItem');
+			} else if(newFeedItem.isRead) {
+				throw new Zotero.Promise.CancellationError('FeedItem already read.');
+			}
+			feedItem = newFeedItem;
+		})
+		.delay(3000)
 		.then(() => {
 			itemReadTimeout = null;
 			// Check to make sure we're still on the same item
@@ -4172,7 +4183,15 @@ var ZoteroPane = new function()
 			let row = this.itemsView.getRow(this.itemsView.selection.currentIndex);
 			if (!row || !row.ref || !row.ref.id == feedItemID) return;
 			
-			return this.markItemRead(feedItemID, true);
+			return feedItem.toggleRead(true);
+		})
+		.catch(function(e) {
+			if (e instanceof Zotero.Promise.CancellationError) {
+				Zotero.debug(e.message);
+				return;
+			}
+			
+			Zotero.debug(e, 1);
 		});
 	}
 	

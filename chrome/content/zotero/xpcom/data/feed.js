@@ -1,7 +1,7 @@
 /*
     ***** BEGIN LICENSE BLOCK *****
     
-    Copyright © 2009 Center for History and New Media
+    Copyright © 2015 Center for History and New Media
                      George Mason University, Fairfax, Virginia, USA
                      http://zotero.org
     
@@ -72,6 +72,9 @@ Zotero.defineProperty(Zotero.Feed.prototype, 'lastCheckError', {
 Zotero.defineProperty(Zotero.Feed.prototype, 'libraryID', {
 	get: function() Zotero.Libraries.feedLibraryID
 })
+Zotero.defineProperty(Zotero.Feed.prototype, 'unreadCount', {
+	get: function() this._feedUnreadCount
+})
 
 Zotero.Feed.prototype._set = function (field, value) {
 	switch (field) {
@@ -130,7 +133,11 @@ Zotero.Feed.prototype._initSave = Zotero.Promise.coroutine(function* (env) {
 		throw new Error('Feed URL is not set');
 	}
 	
-	return Zotero.Feed._super.prototype._initSave.apply(this, arguments);
+	let proceed = yield Zotero.Feed._super.prototype._initSave.apply(this, arguments);
+	if (!proceed) return proceed;
+	
+	env.table = 'collections';
+	return true;
 });
 
 Zotero.Feed.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
@@ -177,33 +184,41 @@ Zotero.Feed.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 Zotero.Feed.prototype.getExpiredFeedItemIDs = Zotero.Promise.coroutine(function* () {
 	let sql = "SELECT itemID AS id FROM feedItems "
 		+ "WHERE readTimestamp IS NOT NULL "
-		+ "AND (julianday(readTimestamp, 'utc') + (?) - julianday('now', 'utc')) > 0";
+		+ "AND (julianday(readTimestamp, 'utc') + (?) - julianday('now', 'utc')) < 0";
 	let expiredIDs = yield Zotero.DB.queryAsync(sql, [{int: this.cleanupAfter}]);
 	return expiredIDs.map(row => row.id);
 });
 
-Zotero.Feed.prototype._updateFeed = Zotero.Promise.coroutine(function* () {
-	let errorMessage = '';
+Zotero.Feed.prototype.clearExpiredItems = Zotero.Promise.coroutine(function* () {
 	try {
 		// Clear expired items
 		if (this.cleanupAfter) {
 			let expiredItems = yield this.getExpiredFeedItemIDs();
 			Zotero.debug("Cleaning up read feed items...");
+			let promises = [];
 			if (expiredItems.length) {
 				Zotero.debug(expiredItems.join(', '));
-				yield Zotero.FeedItems.erase(expiredItems);
+				promises.push(Zotero.FeedItems.erase(expiredItems));
 			} else {
 				Zotero.debug("No expired feed items");
 			}
+			
+			yield Zotero.Promise.settle(promises);
 		}
 	} catch(e) {
 		Zotero.debug("Error clearing expired feed items.");
 		Zotero.debug(e);
 	}
+});
+
+Zotero.Feed.prototype._updateFeed = Zotero.Promise.coroutine(function* () {
+	let errorMessage = '';
+	
+	yield this.clearExpiredItems();
 	
 	try {
 		let fr = new Zotero.FeedReader(this.url);
-		let itemIterator = fr.createItemIterator();
+		let itemIterator = fr.itemIterator;
 		let item, toAdd = [], processedGUIDs = [];
 		while (item = yield itemIterator.next().value) {
 			if (item.dateModified && this.lastUpdate
@@ -252,10 +267,13 @@ Zotero.Feed.prototype._updateFeed = Zotero.Promise.coroutine(function* () {
 		}
 		
 		// Save in reverse order
-		let savePromises = new Array(toAdd.length);
+		//let savePromises = new Array(toAdd.length);
 		for (let i=toAdd.length-1; i>=0; i--) {
+			// Saving currently has to happen concurrently so as not to violate the
+			// unique constraints in dataValues (FIXME)
 			yield toAdd[i].save({skipEditCheck: true, setDateModified: true});
 		}
+		//yield Zotero.Promise.settle(savePromises);
 		
 		this.lastUpdate = Zotero.Date.dateToSQL(new Date(), true);
 	} catch(e) {
@@ -282,3 +300,15 @@ Zotero.Feed.prototype.erase = Zotero.Promise.coroutine(function* () {
 	yield Zotero.FeedItems.erase(childItemIDs);
 	return Zotero.Feed._super.prototype.erase.call(this); // Don't tell it to delete child items. They're already gone
 })
+
+Zotero.Feed.prototype.updateUnreadCount = Zotero.Promise.coroutine(function* () {
+	let sql = "SELECT " + this._ObjectsClass._primaryDataSQLParts.feedUnreadCount
+		+ this._ObjectsClass.primaryDataSQLFrom
+		+ " AND O.collectionID=?";
+	let newCount = yield Zotero.DB.valueQueryAsync(sql, [this.id]);
+	
+	if (newCount != this._feedUnreadCount) {
+		this._feedUnreadCount = newCount;
+		Zotero.Notifier.trigger('unreadCountUpdated', 'feed', this.id);
+	}
+});

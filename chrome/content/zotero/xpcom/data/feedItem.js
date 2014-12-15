@@ -62,7 +62,7 @@ Zotero.defineProperty(Zotero.FeedItem.prototype, 'guid', {
 	}
 });
 
-Zotero.defineProperty(this, 'isRead', {
+Zotero.defineProperty(Zotero.FeedItem.prototype, 'isRead', {
 	get: function() {
 		this._requireData('primaryData');
 		return !!this._feedItemReadTimestamp;
@@ -111,16 +111,62 @@ Zotero.FeedItem.prototype._initSave = Zotero.Promise.coroutine(function* (env) {
 		};
 	}
 	
+	env.table = 'items';
+	
 	return true;
 });
 
 Zotero.FeedItem.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
-	yield Zotero.FeedItem._super.prototype._saveData.apply(this, arguments);
+	let itemID;
+	if (env.isNew) {
+		// For new items, run this first so we get an item ID
+		yield Zotero.FeedItem._super.prototype._saveData.apply(this, arguments);
+		itemID = env.id;
+	} else {
+		itemID = this.id;
+	}
 	
 	if (this._changed.feedItemData || env.isNew) {
 		var sql = "REPLACE INTO feedItems VALUES (?,?,?)";
-		yield Zotero.DB.queryAsync(sql, [env.id, this.guid, this._feedItemReadTimestamp]);
+		yield Zotero.DB.queryAsync(sql, [itemID, this.guid, this._feedItemReadTimestamp]);
 		
 		this._clearChanged('feedItemData');
+	}
+	
+	if (!env.isNew) {
+		if (this.hasChanged()) {
+			yield Zotero.FeedItem._super.prototype._saveData.apply(this, arguments);
+		} else {
+			env.skipPrimaryDataReload = true;
+		}
+		Zotero.Notifier.trigger('modify', 'feedItem', itemID);
+	} else {
+		Zotero.Notifier.trigger('add', 'feedItem', itemID);
+	}
+	
+	if (env.collectionsAdded || env.collectionsRemoved) {
+		let affectedCollections = (env.collectionsAdded || [])
+			.concat(env.collectionsRemoved || []);
+		if (affectedCollections.length) {
+			let feeds = yield Zotero.Feeds.getAsync(affectedCollections);
+			for (let i=0; i<feeds.length; i++) {
+				feeds[i].updateUnreadCount();
+			}
+		}
+	}
+});
+
+Zotero.FeedItem.prototype.toggleRead = Zotero.Promise.coroutine(function* (state) {
+	state = state !== undefined ? !!state : !this.isRead;
+	let changed = this.isRead != state;
+	this.isRead = state;
+	if (changed) {
+		yield this.save({skipEditCheck: true, skipDateModifiedUpdate: true});
+		
+		yield this.loadCollections();
+		let feeds = yield Zotero.Feeds.getAsync(this.getCollections());
+		for (let i=0; i<feeds.length; i++) {
+			feeds[i].updateUnreadCount();
+		}
 	}
 });

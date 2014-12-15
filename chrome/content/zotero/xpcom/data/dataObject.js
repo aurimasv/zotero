@@ -562,6 +562,7 @@ Zotero.DataObject.prototype._recoverFromSaveError = Zotero.Promise.coroutine(fun
 
 Zotero.DataObject.prototype._initSave = Zotero.Promise.coroutine(function* (env) {
 	env.isNew = !this.id;
+	env.table = this._objectTypePlural;
 	
 	if (!env.options.skipEditCheck) this.editCheck();
 	
@@ -576,6 +577,7 @@ Zotero.DataObject.prototype._initSave = Zotero.Promise.coroutine(function* (env)
 		env.transactionOptions = {
 			onCommit: () => {
 				this.ObjectsClass.registerIdentifiers(env.id, env.libraryID, env.key);
+				if (env.isNew) Zotero.ID.release(env.table, env.id);
 			}
 		};
 	}
