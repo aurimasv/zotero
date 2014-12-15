@@ -84,7 +84,7 @@ Components.utils.import("resource://gre/modules/osfile.jsm");
 	this.initialURL; // used by Schema to show the changelog on upgrades
 	
 	Components.utils.import("resource://zotero/bluebird.js", this);
-	
+			
 	this.getActiveZoteroPane = function() {
 		return Services.wm.getMostRecentWindow("navigator:browser").ZoteroPane;
 	};
@@ -1764,6 +1764,48 @@ Components.utils.import("resource://gre/modules/osfile.jsm");
 		}
 		return Zotero.Promise.coroutine(generator)();
 	}
+	
+	/**
+	 * Returns a promise for a mutex that will resolve after previous mutexes
+	 * have released. Mutex is an object with a single method .release() that
+	 * MUST be called when the mutex is no longer required.
+	 */
+	this.getMutex = function() { // Closure
+		let mutexes = {};
+		return Zotero.Promise.method(function (id) {
+			if (typeof id != 'string') throw new Error('Mutex ID must be a string');
+			
+			if (!mutexes[id]) mutexes[id] = [];
+			
+			let sequenceID = Zotero.randomString(3);
+			
+			let deferred = Zotero.Promise.defer();
+			let mutex = deferred.promise
+			.then(function() {
+				return new function Mutex() {
+					let fullID = id + "#" + sequenceID;
+					Zotero.debug("Issuing mutex " + fullID);
+					this.release = function() {
+						Zotero.debug("Releasing mutex " + fullID);
+						mutexes[id].shift();
+						if (mutexes[id][0]) mutexes[id][0].resolve(); // Resolve next in queue
+						
+						// Replace .release with noop so we don't mess this up on accident
+						this.release = function() {
+							Zotero.debug("Attempting to release mutex " + fullID
+								+ " more than once!");
+						}
+					}
+				}
+			});
+			
+			Zotero.debug("Queueing mutex " + id + "#" + sequenceID);
+			mutexes[id].push(deferred);
+			if (mutexes[id].length == 1) deferred.resolve(); // Nothing else in queue
+			
+			return mutex;
+		});
+	}();
 	
 	
 	/**
