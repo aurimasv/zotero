@@ -114,6 +114,38 @@ Zotero.FeedItems = function() {
 		return Zotero.Items.getAsync(id);
 	});
 	
+	/**
+	 * Same as DataObjects.getAsync, but filters out non-feedItem items
+	 */
+	Zotero_FeedItems.prototype.getAsync = Zotero.Promise.coroutine(function* () {
+		let items = yield Zotero_FeedItems._super.prototype.getAsync.apply(this, arguments);
+		if (!items) return items;
+		
+		if (Array.isArray(items)) {
+			return items.isFeedItem ? items : false;
+		}
+		
+		let toReturn = [];
+		for (let i=0; i<items.length; i++) {
+			if (items[i].isFeedItem) toReturn.push(items[i]);
+		}
+		
+		return toReturn;
+	});
+	
+	Zotero_FeedItems.prototype.toggleReadById = Zotero.Promise.coroutine(function* (ids, state) {
+		if (!Array.isArray(ids)) {
+			if (typeof ids != 'string') throw new Error('ids must be a string or array in Zotero.FeedItems.toggleReadById');
+			
+			ids = [ids];
+		}
+		
+		let items = yield this.getAsync(ids);
+		for (let i=0; i<items.length; i++) {
+			items[i].toggleRead(state);
+		}
+	});
+	
 	var feedItems = new Zotero_FeedItems();
 	
 	// Proxy remaining methods/properties to Zotero.Items

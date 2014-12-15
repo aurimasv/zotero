@@ -1590,6 +1590,9 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 				Zotero.Notifier.trigger('remove', 'collection-item', collectionID + '-' + this.id);
 			}
 		}
+		
+		env.collectionsAdded = toAdd;
+		env.collectionsRemoved = toRemove;
 	}
 	
 	// Related items
@@ -1679,7 +1682,7 @@ Zotero.Item.prototype._finalizeSave = Zotero.Promise.coroutine(function* (env) {
 	// Always reload primary data. DataObject.reload() only reloads changed data types, so
 	// it won't reload, say, dateModified and firstCreator if only creator data was changed
 	// and not primaryData.
-	yield this.loadPrimaryData(true);
+	if (!env.skipPrimaryDataReload) yield this.loadPrimaryData(true);
 	yield this.reload();
 	this._clearChanged();
 	

@@ -42,7 +42,10 @@ Zotero.CollectionTreeView = function()
 	this.hideSources = [];
 	
 	this._highlightedRows = {};
-	this._unregisterID = Zotero.Notifier.registerObserver(this, ['collection', 'search', 'share', 'group', 'trash', 'bucket'], 'collectionTreeView');
+	this._unregisterID = Zotero.Notifier.registerObserver(this,
+		['collection', 'search', 'share', 'group', 'trash', 'bucket', 'feed'],
+		'collectionTreeView'
+	);
 	this._containerState = {};
 	this._duplicateLibraries = [];
 	this._unfiledLibraries = [];
@@ -236,6 +239,13 @@ Zotero.CollectionTreeView.prototype.reload = function()
  */
 Zotero.CollectionTreeView.prototype.notify = Zotero.Promise.coroutine(function* (action, type, ids)
 {
+	if (type == 'feed' && action == 'unreadCountUpdated') {
+		for (let i=0; i<ids.length; i++) {
+			this._treebox.invalidateRow(this._rowMap['C' + ids[i]]);
+		}
+		return;
+	}
+	
 	if ((!ids || ids.length == 0) && action != 'refresh' && action != 'redraw') {
 		return;
 	}
@@ -1965,7 +1975,10 @@ Zotero.CollectionTreeView.prototype.getRowProperties = function(row, prop) {
 }
 
 Zotero.CollectionTreeView.prototype.getColumnProperties = function(col, prop) 		{ }
-Zotero.CollectionTreeView.prototype.getCellProperties = function(row, col, prop) 	{ }
+Zotero.CollectionTreeView.prototype.getCellProperties = function(row, col, prop) {
+	let row = this.getRow(row);
+	if (row.ref && row.ref.unreadCount) return 'unread';
+}
 Zotero.CollectionTreeView.prototype.isSeparator = function(index) {
 	var source = this.getRow(index);
 	return source.type == 'separator';
