@@ -968,7 +968,7 @@ function originatesFromRejection(e) {
 
 function isError(obj) {
     // Added by Zotero
-    return obj.message && obj.stack;
+    return obj && obj.message && obj.stack;
     return obj instanceof Error;
 }
 
