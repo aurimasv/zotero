@@ -239,7 +239,7 @@ Zotero.CollectionTreeView.prototype.reload = function()
  */
 Zotero.CollectionTreeView.prototype.notify = Zotero.Promise.coroutine(function* (action, type, ids)
 {
-	if (type == 'feed' && action == 'unreadCountUpdated') {
+	if (type == 'feed' && (action == 'unreadCountUpdated' || action == 'statusChanged')) {
 		for (let i=0; i<ids.length; i++) {
 			this._treebox.invalidateRow(this._rowMap['C' + ids[i]]);
 		}
@@ -486,7 +486,14 @@ Zotero.CollectionTreeView.prototype.getImageSrc = function(row, col)
 	switch (collectionType) {
 		case 'library':
 		case 'feedLibrary':
+			break;
+		
 		case 'feed':
+			if (treeRow.ref.updating) {
+				collectionType += '-updating';
+			} else if (treeRow.ref.lastCheckError) {
+				collectionType += '-error';
+			}
 			break;
 		
 		case 'trash':

@@ -33,6 +33,8 @@ Zotero.Feed = function() {
 	this._feedCleanupAfter = null;
 	this._feedRefreshInterval = null;
 	this._feedUnreadCount = null;
+	
+	this._updating = false;
 }
 
 Zotero.Feed._super = Zotero.Collection;
@@ -74,6 +76,14 @@ Zotero.defineProperty(Zotero.Feed.prototype, 'libraryID', {
 })
 Zotero.defineProperty(Zotero.Feed.prototype, 'unreadCount', {
 	get: function() this._feedUnreadCount
+})
+Zotero.defineProperty(Zotero.Feed.prototype, 'updating', {
+	get: function() this._updating,
+	set: function(v) {
+		if (!v == !this._updating) return; // Unchanged
+		this._updating = !!v;
+		Zotero.Notifier.trigger('statusChanged', 'feed', this.id);
+	}
 })
 
 Zotero.Feed.prototype._set = function (field, value) {
@@ -211,14 +221,13 @@ Zotero.Feed.prototype.clearExpiredItems = Zotero.Promise.coroutine(function* () 
 	}
 });
 
-Zotero.Feed.prototype._updateFeed = Zotero.Promise.coroutine(function* () {
-	let errorMessage = '';
+Zotero.Feed.prototype._updateFeed = function() {
+	this.updating = true;
 	
-	yield this.clearExpiredItems();
-	
-	try {
+	return this.clearExpiredItems()
+	.then(Zotero.Promise.coroutine(function* () {
 		let fr = new Zotero.FeedReader(this.url);
-		let itemIterator = fr.itemIterator;
+		let itemIterator = new fr.ItemIterator();
 		let item, toAdd = [], processedGUIDs = [];
 		while (item = yield itemIterator.next().value) {
 			if (item.dateModified && this.lastUpdate
@@ -269,23 +278,33 @@ Zotero.Feed.prototype._updateFeed = Zotero.Promise.coroutine(function* () {
 		// Save in reverse order
 		//let savePromises = new Array(toAdd.length);
 		for (let i=toAdd.length-1; i>=0; i--) {
-			// Saving currently has to happen concurrently so as not to violate the
+			// Saving currently has to happen sequentially so as not to violate the
 			// unique constraints in dataValues (FIXME)
 			yield toAdd[i].save({skipEditCheck: true, setDateModified: true});
 		}
 		//yield Zotero.Promise.settle(savePromises);
 		
 		this.lastUpdate = Zotero.Date.dateToSQL(new Date(), true);
-	} catch(e) {
-		Zotero.debug("Error processing feed from " + this.url);
-		Zotero.debug(e);
-		errorMessage = e.message || 'Error processing feed';
-	}
-	
-	this.lastCheck = Zotero.Date.dateToSQL(new Date(), true);
-	this.lastCheckError = errorMessage || null;
-	yield this.save({skipEditCheck: true});
-});
+	}.bind(this)))
+	.then(() => {
+			this.lastCheckError = null;
+		},
+		(e) => {
+			if (e.message) {
+				Zotero.debug("Error processing feed from " + this.url);
+				Zotero.debug(e);
+			}
+			this.lastCheckError = e.message || 'Error processing feed';
+		}
+	)
+	.finally(() => {
+		this.lastCheck = Zotero.Date.dateToSQL(new Date(), true);
+		return this.save({skipEditCheck: true});
+	})
+	.finally(() => {
+		this.updating = false;
+	});
+};
 
 Zotero.Feed.prototype.updateFeed = function() {
 	return this._updateFeed()
