@@ -392,6 +392,10 @@ Zotero.Schema = new function(){
 	 * @return {Promise}
 	 */
 	this.updateBundledFiles = function(mode, skipDeleteUpdate, runRemoteUpdateWhenComplete) {
+		Zotero.Translators.init();
+		Zotero.Styles.init();
+		return Zotero.Promise.resolve();
+		
 		if (_localUpdateInProgress) return Zotero.Promise.resolve();
 		
 		return Zotero.Promise.try(function () {
