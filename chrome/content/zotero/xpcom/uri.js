@@ -89,7 +89,9 @@ Zotero.URI = new function () {
 		
 		switch (libraryType) {
 			case 'feed':
-				return this.feedLibraryBaseURI;
+				var id = Zotero.Users.getCurrentUserID() || Zotero.Users.getLocalUserKey();
+				break;
+				
 			case 'user':
 				var id = Zotero.Users.getCurrentUserID();
 				if (!id) {
@@ -113,18 +115,14 @@ Zotero.URI = new function () {
 	 * Return URI of item, which might be a local URI if user hasn't synced
 	 */
 	this.getItemURI = function (item) {
-		if (Zotero.Libraries.isGroupLibrary(item.libraryID)) {
+		if (Zotero.Libraries.isGroupLibrary(item.libraryID) || item.isFeedItem) {
 			var baseURI = this.getLibraryURI(item.libraryID);
-		}
-		else if (item.library == Zotero.Libraries.feedLibraryID) {
-			var baseURI = this.feedLibraryBaseURI;
 		}
 		else {
 			var baseURI =  this.getCurrentUserURI();
 		}
 		return baseURI + "/items/" + item.key;
 	}
-	
 	
 	/**
 	 * Get path portion of item URI (e.g., users/6/items/ABCD1234 or groups/1/items/ABCD1234)
@@ -134,15 +132,20 @@ Zotero.URI = new function () {
 	}
 	
 	
+	this.getFeedItemURI = function(feedItem) {
+		return this.getItemURI(feedItem);
+	}
+	
+	this.getFeedItemPath = function(feedItem) {
+		return this.getItemPath(feedItem);
+	}
+	
 	/**
 	 * Return URI of collection, which might be a local URI if user hasn't synced
 	 */
 	this.getCollectionURI = function (collection) {
-		if (Zotero.Libraries.isGroupLibrary(collection.libraryID)) {
+		if (Zotero.Libraries.isGroupLibrary(collection.libraryID) || collection.isFeed) {
 			var baseURI = this.getLibraryURI(collection.libraryID);
-		}
-		else if (collection.libraryID == Zotero.Libraries.feedLibraryID) {
-			var baseURI = this.feedLibraryBaseURI;
 		}
 		else {
 			var baseURI =  this.getCurrentUserURI();
@@ -156,6 +159,14 @@ Zotero.URI = new function () {
 	 */
 	this.getCollectionPath = function (collection) {
 		return this.getLibraryPath(collection.libraryID) + "/collections/" + collection.key;
+	}
+	
+	this.getFeedURI = function(feed) {
+		return this.getCollectionURI(feed);
+	}
+	
+	this.getFeedPath = function(feed) {
+		return this.getCollectionPath(feed);
 	}
 	
 	
@@ -187,6 +198,9 @@ Zotero.URI = new function () {
 		return this._getURIObject(itemURI, 'item');
 	}
 	
+	this.getURIFeedItem = function (feedItemURI) {
+		return this._getURIObject(feedItemURI, 'feedItem');
+	}
 	
 	/**
 	 * Convert a collection URI into a collection
@@ -198,6 +212,9 @@ Zotero.URI = new function () {
 		return this._getURIObject(collectionURI, 'collection');
 	}
 	
+	this.getURIFeed = function (feed) {
+		return this._getURIObject(feed, 'feed');
+	}
 	
 	/**
 	 * Convert a library URI into a libraryID
@@ -250,7 +267,7 @@ Zotero.URI = new function () {
 				throw ("Invalid base URI '" + objectURI + "' in Zotero.URI._getURIObject()");
 			}
 			objectURI = objectURI.substr(_baseURI.length);
-			var typeRE = /^(users|groups)\/([0-9]+)(?:\/|$)/;
+			var typeRE = /^(users|groups|feeds)\/([0-9]+)(?:\/|$)/;
 			var matches = objectURI.match(typeRE);
 			if (!matches) {
 				throw ("Invalid library URI '" + objectURI + "' in Zotero.URI._getURIObject()");
@@ -265,6 +282,8 @@ Zotero.URI = new function () {
 				return false;
 			}
 			var libraryID = Zotero.Groups.getLibraryIDFromGroupID(id);
+		} else if (libraryType == 'feed') {
+			var libraryID = Zotero.Libraries.feedLibraryID;
 		}
 		
 		if(type === 'library') {
@@ -287,7 +306,7 @@ Zotero.URI = new function () {
 				return false;
 			}
 			
-			if (libraryType == 'group') {
+			if (libraryType == 'group' || libraryType == 'feed') {
 				return libraryID;
 			}
 		} else {
@@ -303,7 +322,7 @@ Zotero.URI = new function () {
 				return Zotero[Types].getByLibraryAndKey(null, objectKey);
 			}
 			
-			if (libraryType == 'group') {
+			if (libraryType == 'group' || libraryType == 'feed') {
 				return Zotero[Types].getByLibraryAndKey(libraryID, objectKey);
 			}
 		}
