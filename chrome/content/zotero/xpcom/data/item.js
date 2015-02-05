@@ -726,7 +726,7 @@ Zotero.Item.prototype.setField = function(field, value, loadIn) {
 				let date = Zotero.Date.sqlToDate(value, true);
 				if (!date) throw new Error("Invalid SQL date: " + value);
 				
-				value = Zotero.Date.dateToSQL(date);
+				value = Zotero.Date.dateToSQL(date, true);
 				break;
 
 			case 'version':
