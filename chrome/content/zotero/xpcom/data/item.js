@@ -3890,7 +3890,7 @@ Zotero.Item.prototype.fromJSON = function (json) {
 	if (json.itemKey) this.key = json.itemKey;
 	if (json.itemType) this.setType(Zotero.ItemTypes.getID(json.itemType));
 	
-	var changedFields = {};
+	var setFields = {};
 	
 	// Primary data
 	for (var field in json) {
@@ -3945,17 +3945,15 @@ Zotero.Item.prototype.fromJSON = function (json) {
 		
 		// Item fields
 		default:
-			let changed = this.setField(field, json[field]);
-			if (changed) {
-				changedFields[field] = true;
-			}
+			this.setField(field, json[field]);
+			setFields[field] = true;
 		}
 	}
 	
 	// Clear existing fields not specified
 	var previousFields = this.getUsedFields(true);
 	for each(let field in previousFields) {
-		if (!changedFields[field] &&
+		if (!setFields[field] &&
 				// Invalid fields will already have been cleared by the type change
 				Zotero.ItemFields.isValidForType(
 					Zotero.ItemFields.getID(field), this.itemTypeID
