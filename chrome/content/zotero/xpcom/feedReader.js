@@ -268,7 +268,6 @@ Zotero.FeedReader = new function() {
 		if (!item.dateModified) {
 			// When there's no reliable modification date, we can assume that item doesn't get updated
 			Zotero.debug("FeedReader: Feed item missing a modification date (" + item.guid + ")");
-			item.dateModified = null;
 		}
 		
 		if (!item.date && item.dateModified) {
