@@ -134,6 +134,7 @@ Zotero.DataObject.prototype._setIdentifier = function (field, value) {
 	}
 	
 	this['_' + field] = value;
+	return true;
 }
 
 
@@ -554,12 +555,14 @@ Zotero.DataObject.prototype._saveData = function() {
 
 Zotero.DataObject.prototype._finalizeSave = function(env) {
 	env.notifier.commit();
+	return env.isNew ? this.id : true;
 }
 
 Zotero.DataObject.prototype._recoverFromSaveError = Zotero.Promise.coroutine(function* () {
 	env.notifier.clearQueue();
 	yield this.reload(null, true);
 	this._clearChanged();
+	return false;
 });
 
 Zotero.DataObject.prototype._initSave = Zotero.Promise.coroutine(function* (env) {
