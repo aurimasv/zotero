@@ -7,14 +7,14 @@
     <RDF:Seq>
       <RDF:li>
         <RDF:Description>
-          <version>5.0a-feed_reader</version>
+          <version>5.0a-feed_reader1</version>
           <targetApplication>
             <RDF:Description>
               <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
               <minVersion>31.0</minVersion>
               <maxVersion>35.*</maxVersion>
-              <updateLink>https://github.com/aurimasv/zotero/releases/download/v5.0a-feed_reader/zotero.xpi</updateLink>
-              <updateInfoURL>https://github.com/aurimasv/zotero/releases/tag/v5.0a-feed_reader</updateInfoURL>
+              <updateLink>https://github.com/aurimasv/zotero/releases/download/v5.0a-feed_reader1/zotero.xpi</updateLink>
+              <updateInfoURL>https://github.com/aurimasv/zotero/releases/tag/v5.0a-feed_reader1</updateInfoURL>
             </RDF:Description>
           </targetApplication>
         </RDF:Description>
