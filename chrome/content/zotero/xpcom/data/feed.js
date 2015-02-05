@@ -258,7 +258,14 @@ Zotero.Feed.prototype._updateFeed = function() {
 				feedItem.setCollections([this.id]);
 			} else {
 				Zotero.debug("Feed item " + item.guid + " already in library.");
-				if (item.dateModified && feedItem.dateModified
+				
+				// Make sure that feed item is assigned to this feed
+				yield feedItem.loadCollections();
+				let collections = feedItem.getCollections();
+				if (collections.indexOf(this.id) == -1) {
+					Zotero.debug("Feed item not in this feed. Adding to feed.");
+					feedItem.setCollections(collections.concat(this.id));
+				} else if (item.dateModified && feedItem.dateModified
 					&& feedItem.dateModified == item.dateModified
 				) {
 					Zotero.debug("Modification date has not changed. Skipping update.");
