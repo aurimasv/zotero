@@ -138,7 +138,7 @@ Zotero.Feeds = function() {
 		let sql = "SELECT collectionID AS id FROM feeds "
 			+ "WHERE refreshInterval IS NOT NULL "
 			+ "AND ( lastCheck IS NULL "
-				+ "OR (julianday(lastCheck, 'utc') + (refreshInterval/1440) - julianday('now', 'utc')) <= 0 )";
+				+ "OR (julianday(lastCheck, 'utc') + (refreshInterval/1440.0) - julianday('now', 'utc')) <= 0 )";
 		let needUpdate = (yield Zotero.DB.queryAsync(sql)).map(row => row.id);
 		Zotero.debug("Running update for feeds: " + needUpdate.join(', '));
 		let feeds = yield this.getAsync(needUpdate);
