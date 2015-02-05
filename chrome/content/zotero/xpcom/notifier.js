@@ -357,4 +357,36 @@ Zotero.Notifier = new function(){
 	function isEnabled() {
 		return !_disabled;
 	}
+	/*
+	 * Creates a queue that will hold notifier events until they are released
+	 * 
+	 * @method trigger    Delayed proxy for Zotero.Notifier.trigger
+	 * @method untrigger  Delayed proxy for Zotero.Notifier.untrigger
+	 * @method commit     Executes all queued notifier calls
+	 * @method clearQueue Clear notifier call queue
+	 */
+	this.Queue = function() {
+		var _queue = [];
+		
+		function queueAction() {
+			_queue.push(arguments);
+		}
+		
+		for (let i of ['trigger', 'untrigger']) {
+			this[i] = queueAction.bind(null, i); // prepend method name to arguments
+		}
+		
+		this.commit = function() {
+			for (let i=0; i<_queue.length; i++) {
+				let method = _queue[i][0];
+				let args = Array.prototype.slice.call(_queue[i],1);
+				Zotero.Notifier[method].apply(Zotero.Notifier, args);
+			}
+			this.clearQueue();
+		}
+		
+		this.clearQueue = function() {
+			_queue = [];
+		}
+	}
 }

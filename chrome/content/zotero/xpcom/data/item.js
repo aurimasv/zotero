@@ -1143,6 +1143,7 @@ Zotero.Item.prototype.isEditable = function() {
 Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 	var isNew = env.isNew;
 	var options = env.options;
+	var notifier = env.notifier;
 	
 	var itemTypeID = this.itemTypeID;
 		
@@ -1211,14 +1212,14 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			itemID = env.id = insertID;
 		}
 		
-		Zotero.Notifier.trigger('add', 'item', itemID);
+		notifier.trigger('add', 'item', itemID);
 	}
 	else {
 		var sql = "UPDATE items SET " + sqlColumns.join("=?, ") + "=? WHERE itemID=?";
 		sqlValues.push(parseInt(itemID));
 		yield Zotero.DB.queryAsync(sql, sqlValues);
 		
-		Zotero.Notifier.trigger('modify', 'item', itemID, { changed: this._previousData });
+		notifier.trigger('modify', 'item', itemID, { changed: this._previousData });
 	}
 	
 	//
@@ -1324,7 +1325,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			
 			let newParentItemNotifierData = {};
 			//newParentItemNotifierData[newParentItem.id] = {};
-			Zotero.Notifier.trigger('modify', 'item', parentItem.id, newParentItemNotifierData);
+			notifier.trigger('modify', 'item', parentItem.id, newParentItemNotifierData);
 			
 			switch (Zotero.ItemTypes.getName(itemTypeID)) {
 				case 'note':
@@ -1346,7 +1347,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 				
 				let newParentItemNotifierData = {};
 				//newParentItemNotifierData[newParentItem.id] = {};
-				Zotero.Notifier.trigger('modify', 'item', parentItem.id, newParentItemNotifierData);
+				notifier.trigger('modify', 'item', parentItem.id, newParentItemNotifierData);
 			}
 			
 			var oldParentKey = this._previousData.parentKey;
@@ -1355,7 +1356,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 				if (oldParentItem) {
 					let oldParentItemNotifierData = {};
 					//oldParentItemNotifierData[oldParentItem.id] = {};
-					Zotero.Notifier.trigger('modify', 'item', oldParentItem.id, oldParentItemNotifierData);
+					notifier.trigger('modify', 'item', oldParentItem.id, oldParentItemNotifierData);
 				}
 				else {
 					Zotero.debug("Old source item " + oldParentKey
@@ -1375,7 +1376,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 						yield this.loadCollections();
 						this.removeFromCollection(changedCollections[i]);
 						
-						Zotero.Notifier.trigger(
+						notifier.trigger(
 							'remove',
 							'collection-item',
 							changedCollections[i] + '-' + this.id
@@ -1427,9 +1428,9 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 		yield Zotero.DB.queryAsync(sql, itemID);
 		
 		// Refresh trash
-		Zotero.Notifier.trigger('refresh', 'trash', this.libraryID);
+		notifier.trigger('refresh', 'trash', this.libraryID);
 		if (this._deleted) {
-			Zotero.Notifier.trigger('trash', 'item', this.id);
+			notifier.trigger('trash', 'item', this.id);
 		}
 		
 		if (parentItem) {
@@ -1546,7 +1547,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			// "OR REPLACE" allows changing type
 			let sql = "INSERT OR REPLACE INTO itemTags (itemID, tagID, type) VALUES (?, ?, ?)";
 			yield Zotero.DB.queryAsync(sql, [this.id, tagID, tag.type ? tag.type : 0]);
-			Zotero.Notifier.trigger('add', 'item-tag', this.id + '-' + tag.tag);
+			notifier.trigger('add', 'item-tag', this.id + '-' + tag.tag);
 		}
 		
 		if (toRemove.length) {
@@ -1556,7 +1557,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 				let tagID = Zotero.Tags.getID(this.libraryID, tag.tag);
 				let sql = "DELETE FROM itemTags WHERE itemID=? AND tagID=? AND type=?";
 				yield Zotero.DB.queryAsync(sql, [this.id, tagID, tag.type ? tag.type : 0]);
-				Zotero.Notifier.trigger('remove', 'item-tag', this.id + '-' + tag.tag);
+				notifier.trigger('remove', 'item-tag', this.id + '-' + tag.tag);
 			}
 			Zotero.Prefs.set('purge.tags', true);
 		}
@@ -1582,7 +1583,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			yield Zotero.DB.queryAsync(sql, [collectionID, this.id, orderIndex]);
 			
 			yield this.ContainerObjectsClass.refreshChildItems(collectionID);
-			Zotero.Notifier.trigger('add', 'collection-item', collectionID + '-' + this.id);
+			notifier.trigger('add', 'collection-item', collectionID + '-' + this.id);
 		}
 		
 		if (toRemove.length) {
@@ -1594,7 +1595,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			for (let i=0; i<toRemove.length; i++) {
 				let collectionID = toRemove[i];
 				yield this.ContainerObjectsClass.refreshChildItems(collectionID);
-				Zotero.Notifier.trigger('remove', 'collection-item', collectionID + '-' + this.id);
+				notifier.trigger('remove', 'collection-item', collectionID + '-' + this.id);
 			}
 		}
 		
@@ -1624,7 +1625,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			}
 		}
 		
-		Zotero.Notifier.trigger('modify', 'item', removed.concat(newids));
+		notifier.trigger('modify', 'item', removed.concat(newids));
 	}
 	
 	// Related items
@@ -1665,7 +1666,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 			}
 		}
 		
-		Zotero.Notifier.trigger('modify', 'item', removed.concat(newids));
+		notifier.trigger('modify', 'item', removed.concat(newids));
 	}
 	
 	// Update child item counts and contents
@@ -1683,6 +1684,7 @@ Zotero.Item.prototype._finalizeSave = Zotero.Promise.coroutine(function* (env) {
 	if (env.isNew) {
 		var id = this.id;
 		this._disabled = true;
+		env.notifier.commit();
 		return id;
 	}
 	
@@ -1692,6 +1694,8 @@ Zotero.Item.prototype._finalizeSave = Zotero.Promise.coroutine(function* (env) {
 	if (!env.skipPrimaryDataReload) yield this.loadPrimaryData(true);
 	yield this.reload();
 	this._clearChanged();
+	
+	env.notifier.commit();
 	
 	return true;
 });

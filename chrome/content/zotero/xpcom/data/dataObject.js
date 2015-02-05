@@ -513,7 +513,8 @@ Zotero.DataObject.prototype.editCheck = function () {
 Zotero.DataObject.prototype.save = Zotero.Promise.coroutine(function* (options) {
 	var env = {
 		transactionOptions: null,
-		options: options || {}
+		options: options || {},
+		notifier: new Zotero.Notifier.Queue()
 	};
 	
 	var proceed = yield this._initSave(env);
@@ -551,11 +552,12 @@ Zotero.DataObject.prototype._saveData = function() {
 	throw new Error("Zotero.DataObject.prototype._saveData is an abstract method");
 }
 
-Zotero.DataObject.prototype._finalizeSave = function() {
-	throw new Error("Zotero.DataObject.prototype._finalizeSave is an abstract method");
+Zotero.DataObject.prototype._finalizeSave = function(env) {
+	env.notifier.commit();
 }
 
 Zotero.DataObject.prototype._recoverFromSaveError = Zotero.Promise.coroutine(function* () {
+	env.notifier.clearQueue();
 	yield this.reload(null, true);
 	this._clearChanged();
 });

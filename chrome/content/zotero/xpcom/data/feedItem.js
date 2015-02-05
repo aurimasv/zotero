@@ -139,9 +139,9 @@ Zotero.FeedItem.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 		} else {
 			env.skipPrimaryDataReload = true;
 		}
-		Zotero.Notifier.trigger('modify', 'feedItem', itemID);
+		env.notifier.trigger('modify', 'feedItem', itemID);
 	} else {
-		Zotero.Notifier.trigger('add', 'feedItem', itemID);
+		env.notifier.trigger('add', 'feedItem', itemID);
 	}
 	
 	if (env.collectionsAdded || env.collectionsRemoved) {
