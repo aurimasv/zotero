@@ -1178,7 +1178,7 @@ Zotero.Item.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 		this.synced ? 1 : 0
 	);
 	
-	if (this._changed.primaryData && this._changed.primaryData._dateModified) {
+	if (this._changed.primaryData && this._changed.primaryData.dateModified) {
 		sqlColumns.push('dateModified', 'clientDateModified');
 		sqlValues.push(this.dateModified, Zotero.DB.transactionDateTime);
 	}
@@ -3904,8 +3904,12 @@ Zotero.Item.prototype.fromJSON = function (json) {
 			break;
 		
 		case 'dateAdded':
-		case 'dateModified':
 			this['_'+field] = val;
+			break;
+		
+		case 'dateModified':
+			// Use setField to mark as changed
+			this.setField(field, val);
 			break;
 		
 		case 'tags':

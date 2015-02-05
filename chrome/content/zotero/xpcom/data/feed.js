@@ -282,7 +282,7 @@ Zotero.Feed.prototype._updateFeed = function() {
 		for (let i=toAdd.length-1; i>=0; i--) {
 			// Saving currently has to happen sequentially so as not to violate the
 			// unique constraints in dataValues (FIXME)
-			yield toAdd[i].save({skipEditCheck: true, setDateModified: true});
+			yield toAdd[i].save({skipEditCheck: true});
 		}
 		//yield Zotero.Promise.settle(savePromises);
 		
