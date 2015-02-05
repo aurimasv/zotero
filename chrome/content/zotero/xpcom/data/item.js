@@ -3928,23 +3928,38 @@ Zotero.Item.prototype.fromJSON = function (json) {
 		// Attachment metadata
 		//
 		case 'linkMode':
-			this.attachmentLinkMode = Zotero.Attachments["LINK_MODE_" + val.toUpperCase()];
-			break;
-		
 		case 'contentType':
-			this.attachmentContentType = val;
-			break;
-		
 		case 'charset':
-			this.attachmentCharset = val;
-			break;
-		
 		case 'path':
-			this.attachmentPath = val;
+			if (!this.isAttachment()) {
+				Zotero.debug('Zotero.Item.fromJSON: ' + field + ' is only valid for attachments. Skipping.');
+				continue;
+			}
+			
+			if (field == 'linkMode') {
+				this.attachmentLinkMode = Zotero.Attachments["LINK_MODE_" + val.toUpperCase()];
+			} else {
+				this['attachment' + field[0].toUpperCase() + field.substr(1)] = val;
+			}
 			break;
 		
 		// Item fields
 		default:
+			// Validate to avoid throwing errors
+			if (!this.ObjectsClass.isPrimaryField(field)) {
+				let fieldID = Zotero.ItemFields.getID(field);
+				if (!fieldID) {
+					Zotero.debug('Zotero.Item.fromJSON: ' + field + ' is not a valid field');
+					continue;
+				}
+				
+				if (!Zotero.ItemFields.isValidForType(fieldID, this._itemTypeID)) {
+					Zotero.debug('Zotero.Item.fromJSON: ' + field + ' is not valid for '
+						+ Zotero.ItemTypes.getName(this.itemTypeID));
+					continue;
+				}
+			}
+			
 			this.setField(field, json[field]);
 			setFields[field] = true;
 		}
