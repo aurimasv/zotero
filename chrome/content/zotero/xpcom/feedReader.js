@@ -170,17 +170,10 @@ Zotero.FeedReader = new function() {
 	}
 	
 	/*
-	 * Format JS date as SQL date + time zone offset
+	 * Format JS date as SQL date
 	 */
 	function formatDate(date) {
-		let offset = (date.getTimezoneOffset() / 60) * -1;
-		let absOffset = Math.abs(offset);
-		offset = offset
-			? ' ' + (offset < 0 ? '-' : '+')
-				+ Zotero.Utilities.lpad(Math.floor(absOffset), '0', 2)
-				+ ('' + ( (absOffset - Math.floor(absOffset)) || '' )).substr(1) // Get ".5" fraction or "" otherwise
-			: '';
-		return Zotero.Date.dateToSQL(date, false) + offset;
+		return Zotero.Date.dateToSQL(date, true);
 	}
 	
 	/*
