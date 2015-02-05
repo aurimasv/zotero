@@ -192,10 +192,12 @@ Zotero.Feed.prototype._saveData = Zotero.Promise.coroutine(function* (env) {
 })
 
 Zotero.Feed.prototype.getExpiredFeedItemIDs = Zotero.Promise.coroutine(function* () {
-	let sql = "SELECT itemID AS id FROM feedItems "
-		+ "WHERE readTimestamp IS NOT NULL "
-		+ "AND (julianday(readTimestamp, 'utc') + (?) - julianday('now', 'utc')) < 0";
-	let expiredIDs = yield Zotero.DB.queryAsync(sql, [{int: this.cleanupAfter}]);
+	let sql = "SELECT FeI.itemID AS id FROM feedItems FeI "
+		+ "LEFT JOIN collectionItems CI USING (itemID) "
+		+ "WHERE CI.collectionID=? "
+		+ "AND FeI.readTimestamp IS NOT NULL "
+		+ "AND (julianday(FeI.readTimestamp, 'utc') + (?) - julianday('now', 'utc')) < 0";
+	let expiredIDs = yield Zotero.DB.queryAsync(sql, [this.id, {int: this.cleanupAfter}]);
 	return expiredIDs.map(row => row.id);
 });
 
