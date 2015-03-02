@@ -1346,49 +1346,6 @@ Zotero.Utilities = {
 	},
 	
 	/**
-	 * Adds all fields to an item in toArray() format and adds a unique (base) fields to 
-	 * uniqueFields array
-	 */
-	"itemToExportFormat":function(item) {
-		const CREATE_ARRAYS = ['creators', 'notes', 'tags', 'seeAlso', 'attachments'];
-		for(var i=0; i<CREATE_ARRAYS.length; i++) {
-			var createArray = CREATE_ARRAYS[i];
-			if(!item[createArray]) item[createArray] = [];
-		}
-		
-		item.uniqueFields = {};
-		
-		// get base fields, not just the type-specific ones
-		var itemTypeID = (item.itemTypeID ? item.itemTypeID : Zotero.ItemTypes.getID(item.itemType));
-		var allFields = Zotero.ItemFields.getItemTypeFields(itemTypeID);
-		for(var i in allFields) {
-			var field = allFields[i];
-			var fieldName = Zotero.ItemFields.getName(field);
-			
-			if(item[fieldName] !== undefined) {
-				var baseField = Zotero.ItemFields.getBaseIDFromTypeAndField(itemTypeID, field);
-				
-				var baseName = null;
-				if(baseField && baseField != field) {
-					baseName = Zotero.ItemFields.getName(baseField);
-				}
-				
-				if(baseName) {
-					item[baseName] = item[fieldName];
-					item.uniqueFields[baseName] = item[fieldName];
-				} else {
-					item.uniqueFields[fieldName] = item[fieldName];
-				}
-			}
-		}
-		
-		// preserve notes
-		if(item.note) item.uniqueFields.note = item.note;
-		
-		return item;
-	},
-	
-	/**
 	 * Converts an item from toArray() format to an array of items in
 	 * the content=json format used by the server
 	 */
@@ -1527,7 +1484,7 @@ Zotero.Utilities = {
 	 */
 	"itemToCSLJSON":function(zoteroItem) {
 		if (zoteroItem instanceof Zotero.Item) {
-			zoteroItem = zoteroItem.toArray();
+			zoteroItem = Zotero.Utilities.Internal.itemToExportFormat(zoteroItem);
 		}
 		
 		var cslType = CSL_TYPE_MAPPINGS[zoteroItem.itemType] || "article";
@@ -1549,10 +1506,11 @@ Zotero.Utilities = {
 					value = zoteroItem[field];
 				} else {
 					var fieldID = Zotero.ItemFields.getID(field),
-						baseMapping;
-					if(Zotero.ItemFields.isValidForType(fieldID, itemTypeID)
-							&& (baseMapping = Zotero.ItemFields.getBaseIDFromTypeAndField(itemTypeID, fieldID))) {
-						value = zoteroItem[Zotero.ItemTypes.getName(baseMapping)];
+						typeFieldID;
+					if(fieldID
+						&& (typeFieldID = Zotero.ItemFields.getFieldIDFromTypeAndBase(itemTypeID, fieldID))
+					) {
+						value = zoteroItem[Zotero.ItemFields.getName(typeFieldID)];
 					}
 				}
 				
@@ -1599,7 +1557,14 @@ Zotero.Utilities = {
 		
 		// get date variables
 		for(var variable in CSL_DATE_MAPPINGS) {
-			var date = zoteroItem[CSL_DATE_MAPPINGS[variable]];
+			var date = zoteroItem[CSL_DATE_MAPPINGS[variable]] 
+			if (!date) {
+				var typeSpecificFieldID = Zotero.ItemFields.getFieldIDFromTypeAndBase(itemTypeID, CSL_DATE_MAPPINGS[variable]);
+				if (typeSpecificFieldID) {
+					date = zoteroItem[Zotero.ItemFields.getName(typeSpecificFieldID)];
+				}
+			}
+			
 			if(date) {
 				var dateObj = Zotero.Date.strToDate(date);
 				// otherwise, use date-parts
