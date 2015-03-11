@@ -210,7 +210,6 @@ Zotero.Utilities.Internal = {
 		return s;
 	},
 	
-	
 	/**
 	 * Display a prompt from an error with custom buttons and a callback
 	 */

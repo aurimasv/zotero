@@ -748,6 +748,7 @@ Zotero.Translate.ItemGetter = function() {
 	this._itemsLeft = null;
 	this._collectionsLeft = null;
 	this._exportFileDirectory = null;
+	this.legacy = false;
 };
 
 Zotero.Translate.ItemGetter.prototype = {
@@ -828,8 +829,8 @@ Zotero.Translate.ItemGetter.prototype = {
 	 * Converts an attachment to array format and copies it to the export folder if desired
 	 */
 	"_attachmentToArray":function(attachment) {
-		var attachmentArray = Zotero.Utilities.Internal.itemToExportFormat(attachment);
-		var linkMode = attachmentArray.linkMode;
+		var attachmentArray = Zotero.Utilities.Internal.itemToExportFormat(attachment, this.legacy);
+		var linkMode = attachment.attachmentLinkMode;
 		if(linkMode != Zotero.Attachments.LINK_MODE_LINKED_URL) {
 			var attachFile = attachment.getFile();
 			attachmentArray.localPath = attachFile.path;
@@ -968,7 +969,7 @@ Zotero.Translate.ItemGetter.prototype = {
 				var returnItemArray = this._attachmentToArray(returnItem);
 				if(returnItemArray) return returnItemArray;
 			} else {
-				var returnItemArray = Zotero.Utilities.Internal.itemToExportFormat(returnItem);
+				var returnItemArray = Zotero.Utilities.Internal.itemToExportFormat(returnItem, this.legacy);
 				
 				// get attachments, although only urls will be passed if exportFileData is off
 				returnItemArray.attachments = [];
