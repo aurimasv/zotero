@@ -61,7 +61,7 @@ const CSL_TEXT_MAPPINGS = {
 	"number-of-volumes":["numberOfVolumes"],
 	"number-of-pages":["numPages"],	
 	"edition":["edition"],
-	"version":["version"],
+	"version":["versionNumber"],
 	"section":["section", "committee"],
 	"genre":["type", "programmingLanguage"],
 	"source":["libraryCatalog"],
@@ -1505,6 +1505,7 @@ Zotero.Utilities = {
 				if(field in zoteroItem) {
 					value = zoteroItem[field];
 				} else {
+					if (field == 'versionNumber') field = 'version'; // Until https://github.com/zotero/zotero/issues/670
 					var fieldID = Zotero.ItemFields.getID(field),
 						typeFieldID;
 					if(fieldID
