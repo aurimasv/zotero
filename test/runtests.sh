@@ -16,7 +16,7 @@ function makePath {
 
 DEBUG=false
 if [ -z "$FX_EXECUTABLE" ] ; then
-	if[ "`uname`" == "Darwin" ] ; then
+	if [ "`uname`" == "Darwin" ] ; then
 		FX_EXECUTABLE="/Applications/Firefox.app/Contents/MacOS/firefox"
 	else
 		FX_EXECUTABLE="firefox"
