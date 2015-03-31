@@ -15,10 +15,12 @@ function makePath {
 }
 
 DEBUG=false
-if [ "`uname`" == "Darwin" ]; then
-	FX_EXECUTABLE="/Applications/Firefox.app/Contents/MacOS/firefox"
-else
-	FX_EXECUTABLE="firefox"
+if [ -z "$FX_EXECUTABLE" ] ; then
+	if[ "`uname`" == "Darwin" ] ; then
+		FX_EXECUTABLE="/Applications/Firefox.app/Contents/MacOS/firefox"
+	else
+		FX_EXECUTABLE="firefox"
+	fi
 fi
 FX_ARGS=""
 

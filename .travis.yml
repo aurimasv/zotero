@@ -14,4 +14,4 @@ before_install:
 install:
     - test/install-firefox.sh
 script:
-    - test/runtests.sh -x "$FX_EXECUTABLE"
+    - test/runtests.sh
