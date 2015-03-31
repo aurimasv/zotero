@@ -1,9 +1,10 @@
 #!/bin/bash
 
 if [ "$FIREFOXVERSION" = "stable" ] ; then
+  sudo apt-get update
   sudo apt-get install firefox
 elif [ "$FIREFOXVERSION" = "ESR" ] ; then
-  local ESR_VERSION="31.5.0esr"
+  ESR_VERSION="31.5.0esr"
   wget http://ftp.mozilla.org/pub/firefox/releases/${ESR_VERSION}/linux-x86_64/en-US/firefox-${ESR_VERSION}.tar.bz2
   tar -xjf firefox-${ESR_VERSION}.tar.bz2
   FX_EXECUTABLE="firefox/firefox"
