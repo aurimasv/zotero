@@ -77,7 +77,7 @@ user_pref("extensions.zotero.firstRunGuidance", false);
 user_pref("extensions.zotero.firstRun2", false);
 EOF
 
-FX_VERSION=`MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE"`
+FX_VERSION=`MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE" -v`
 echo "Running tests with $FX_VERSION"
 
 makePath FX_PROFILE "$PROFILE"
