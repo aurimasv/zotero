@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ps -e
+sudo rm -f /usr/local/bin/firefox
 
 if [ "$FIREFOXVERSION" = "ESR" ] ; then
   ESR_VERSION="31.5.0esr"
