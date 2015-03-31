@@ -77,8 +77,10 @@ user_pref("extensions.zotero.firstRunGuidance", false);
 user_pref("extensions.zotero.firstRun2", false);
 EOF
 
-FX_VERSION=`MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE" -v`
-echo "Running tests with $FX_VERSION"
+if [ -z $IS_CYGWIN ] ; then
+	FX_VERSION="`MOZ_NO_REMOTE=1 NO_EM_RESTART=1 \"$FX_EXECUTABLE\" -v | more`"
+	echo "Running tests with $FX_VERSION"
+fi
 
 makePath FX_PROFILE "$PROFILE"
 MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE" -profile "$FX_PROFILE" \
