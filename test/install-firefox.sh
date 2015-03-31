@@ -14,7 +14,7 @@ elif [ "$FIREFOXVERSION" = "stable" ] || [ "$FIREFOXVERSION" = "beta" ] || [ "$F
     sudo add-apt-repository ppa:ubuntu-mozilla-daily/firefox-aurora -y
   fi
   sudo apt-get update -q
-  sudo apt-get install firefox
+  sudo apt-get install firefox -V --reinstall
   FX_EXECUTABLE="`which firefox`"
 fi
 
