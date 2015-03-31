@@ -6,6 +6,8 @@ env:
     matrix:
         - FIREFOXVERSION="stable"
         - FIREFOXVERSION="ESR"
+        - FIREFOXVERSION="beta"
+        - FIREFOXVERSION="aurora"
 notifications:
     email: false
 before_install:
