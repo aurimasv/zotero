@@ -77,6 +77,9 @@ user_pref("extensions.zotero.firstRunGuidance", false);
 user_pref("extensions.zotero.firstRun2", false);
 EOF
 
+FX_VERSION=`MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE"`
+echo "Running tests with $FX_VERSION"
+
 makePath FX_PROFILE "$PROFILE"
 MOZ_NO_REMOTE=1 NO_EM_RESTART=1 "$FX_EXECUTABLE" -profile "$FX_PROFILE" \
     -chrome chrome://zotero-unit/content/runtests.html -test "$TESTS" $FX_ARGS
