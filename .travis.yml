@@ -13,4 +13,4 @@ before_install:
     - sh -e /etc/init.d/xvfb start
     - test/install-firefox.sh
 script:
-    - test/runtests.sh -x firefox/firefox
+    - test/runtests.sh
