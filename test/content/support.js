@@ -1,3 +1,17 @@
+Components.utils.import("resource://gre/modules/osfile.jsm");
+
+function quit(failed) {
+	// Quit with exit status
+	if(!failed) {
+		OS.File.writeAtomic(OS.Path.join(OS.Constants.Path.profileDir, "success"), new Uint8Array(0));
+	}
+	if(!ZoteroUnit.noquit) {
+		Components.classes['@mozilla.org/toolkit/app-startup;1'].
+		getService(Components.interfaces.nsIAppStartup).
+		quit(Components.interfaces.nsIAppStartup.eForceQuit);
+	}
+}
+
 /**
  * Waits for a DOM event on the specified node. Returns a promise
  * resolved with the event.
@@ -290,7 +304,7 @@ function populateDBWithSampleData(data) {
 	return data;
 }
 
-function generateCiteprocJSData() {
+function generateCiteprocJSExportData() {
 	let items = populateDBWithSampleData(loadSampleData('allTypesAndFields')),
 		cslExportData = {};
 	

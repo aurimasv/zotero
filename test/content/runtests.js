@@ -1,24 +1,7 @@
-Components.utils.import("resource://gre/modules/FileUtils.jsm");
-Components.utils.import("resource://gre/modules/osfile.jsm");
 Components.utils.import("resource://zotero/q.js");
 var EventUtils = Components.utils.import("resource://zotero-unit/EventUtils.jsm");
 
-var ZoteroUnit = Components.classes["@mozilla.org/commandlinehandler/general-startup;1?type=zotero-unit"].
-	             getService(Components.interfaces.nsISupports).
-	             wrappedJSObject;
 var dump = ZoteroUnit.dump;
-
-function quit(failed) {
-	// Quit with exit status
-	if(!failed) {
-		OS.File.writeAtomic(FileUtils.getFile("ProfD", ["success"]).path, Uint8Array(0));
-	}
-	if(!ZoteroUnit.noquit) {
-		Components.classes['@mozilla.org/toolkit/app-startup;1'].
-		getService(Components.interfaces.nsIAppStartup).
-		quit(Components.interfaces.nsIAppStartup.eForceQuit);
-	}
-}
 
 function Reporter(runner) {
 	var indents = 0, passed = 0, failed = 0;
@@ -71,8 +54,8 @@ var assert = chai.assert,
     expect = chai.expect;
 
 // Set up tests to run
-var run = true;
-if(ZoteroUnit.tests) {
+var run = ZoteroUnit.runTests;
+if(run && ZoteroUnit.tests) {
 	var testDirectory = getTestDataDirectory().parent,
 	    testFiles = [];
 	if(ZoteroUnit.tests == "all") {
