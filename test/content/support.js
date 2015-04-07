@@ -289,3 +289,15 @@ function populateDBWithSampleData(data) {
 	
 	return data;
 }
+
+function generateCiteprocJSData() {
+	let items = populateDBWithSampleData(loadSampleData('allTypesAndFields')),
+		cslExportData = {};
+	
+	for (let itemName in items) {
+		let zItem = Zotero.Items.get(items[itemName].id);
+		cslExportData[itemName] = Zotero.Cite.System.prototype.retrieveItem(zItem);
+	}
+	
+	return cslExportData;
+}

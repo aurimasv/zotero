@@ -67,4 +67,33 @@ describe("Support Functions for Unit Testing", function() {
 			assert.deepEqual(loadSampleData('allTypesAndFields'), generateAllTypesAndFieldsData());
 		});
 	});
+	describe("generateCiteprocJSExportData", function() {
+		let citeURL = Zotero.Prefs.get("export.citePaperJournalArticleURL");
+		before(function () {
+			Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
+		});
+		after(function() {
+			Zotero.Prefs.set("export.citePaperJournalArticleURL", citeURL);
+		});
+		
+		it("all citeproc-js export data should be up to date", function() {
+			this.timeout(45000);
+			let oldData = loadSampleData('citeprocJSExport'),
+				newData = generateCiteprocJSExportData();
+			
+			assert.isObject(newData, 'created data object');
+			assert.isNotNull(newData);
+			assert.isAbove(Object.keys(newData).length, 0, 'citeproc-js export object is not empty');
+			
+			// Ignore item ID
+			for (let itemName in oldData) {
+				delete oldData[itemName].id;
+			}
+			for (let itemName in newData) {
+				delete newData[itemName].id;
+			}
+			
+			assert.deepEqual(oldData, newData, 'citeproc-js export data has not changed');
+		});
+	});
 });
