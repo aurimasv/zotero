@@ -1,4 +1,3 @@
-Components.utils.import("resource://zotero/q.js");
 var EventUtils = Components.utils.import("resource://zotero-unit/EventUtils.jsm");
 
 var dump = ZoteroUnit.dump;

@@ -1,4 +1,5 @@
 Components.utils.import("resource://gre/modules/osfile.jsm");
+Components.utils.import("resource://zotero/q.js");
 
 function quit(failed) {
 	// Quit with exit status
@@ -158,8 +159,8 @@ function installPDFTools() {
 }
 
 /**
- * Returns a promise for the nsIFile corresponding to the test data
- * directory (i.e., test/tests/data)
+ * Returns the nsIFile corresponding to the test data directory
+ * (i.e., test/tests/data)
  */
 function getTestDataDirectory() {
 	Components.utils.import("resource://gre/modules/Services.jsm");
