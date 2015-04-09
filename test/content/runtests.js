@@ -21,24 +21,34 @@ function quit(failed) {
 }
 
 if (ZoteroUnit.makeTestData) {
-	var dataPath = getTestDataDirectory().path;
+	let dataPath = getTestDataDirectory().path;
 	
 	Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
 	
-	var dataFiles = ['allTypesAndFields', 'citeProcJSExport'];
-	for (var i=0; i<dataFiles.length; i++) {
-		if (i) dump('\n');
-		dump('Generating data for ' + dataFiles[i] + '...');
+	let dataFiles = ['allTypesAndFields', 'citeProcJSExport'];
+	let p = Q.resolve();
+	for (let i=0; i<dataFiles.length; i++) {
+		let first = !i;
+		let fileName = dataFiles[i];
 		
-		var data = window['generate' + dataFiles[i].charAt(0).toUpperCase() + dataFiles[i].substr(1) + 'Data']();
-		var str = 'var data = ' + JSON.stringify(data, null, '\t');
-		
-		OS.File.writeAtomic(OS.Path.join(dataPath, dataFiles[i] + '.js'), str);
-		
-		dump('done.');
+		p = p.then(function() {
+			// Make sure to not run next loop if previous fails
+			return Q.try(function() {
+				if (!first) dump('\n');
+				dump('Generating data for ' + fileName + '...');
+				
+				let data = window['generate' + fileName.charAt(0).toUpperCase() + fileName.substr(1) + 'Data']();
+				let str = 'var data = ' + JSON.stringify(data, null, '\t');
+				
+				return OS.File.writeAtomic(OS.Path.join(dataPath, fileName + '.js'), str);
+			})
+			.then(function() { dump("done."); })
+			.catch(function(e) { dump("failed!"); throw e })
+		});
 	}
 	
-	quit(false);
+	p.catch(function(e) { dump('\n'); dump(e) })
+	.finally(function() { quit(false) });
 }
 
 function Reporter(runner) {
