@@ -25,22 +25,41 @@ if (ZoteroUnit.makeTestData) {
 	
 	Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
 	
-	let dataFiles = ['allTypesAndFields', 'citeProcJSExport', 'translatorExport'];
+	let dataFiles = [
+		{
+			name: 'allTypesAndFields',
+			func: generateAllTypesAndFieldsData
+		},
+		{
+			name: 'citeProcJSExport',
+			func: generateCiteProcJSExportData
+		},
+		{
+			name: 'translatorExportLegacy',
+			func: generateTranslatorExportData,
+			args: [true]
+		},
+		{
+			name: 'translatorExport',
+			func: generateTranslatorExportData,
+			args: [false]
+		}
+	];
 	let p = Q.resolve();
 	for (let i=0; i<dataFiles.length; i++) {
 		let first = !i;
-		let fileName = dataFiles[i];
+		let params = dataFiles[i];
 		
 		p = p.then(function() {
 			// Make sure to not run next loop if previous fails
 			return Q.try(function() {
 				if (!first) dump('\n');
-				dump('Generating data for ' + fileName + '...');
+				dump('Generating data for ' + params.name + '...');
 				
-				let data = window['generate' + fileName.charAt(0).toUpperCase() + fileName.substr(1) + 'Data']();
+				let data = params.func.apply(null, params.args || []);
 				let str = 'var data = ' + stableStringify(data);
 				
-				return OS.File.writeAtomic(OS.Path.join(dataPath, fileName + '.js'), str);
+				return OS.File.writeAtomic(OS.Path.join(dataPath, params.name + '.js'), str);
 			})
 			.then(function() { dump("done."); })
 			.catch(function(e) { dump("failed!"); throw e })
