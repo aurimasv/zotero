@@ -32,14 +32,14 @@ Usage: $0 [option] [TESTS...]
 Options
  -c                  open JavaScript console and don't quit on completion
  -d                  enable debug logging
- -t                  generate test data and quit
+ -g                  generate test data and quit
  -x FX_EXECUTABLE    path to Firefox executable (default: $FX_EXECUTABLE)
  TESTS               set of tests to run (default: all)
 DONE
 	exit 1
 }
 
-while getopts "x:dct" opt; do
+while getopts "x:dcg" opt; do
 	case $opt in
 		x)
 			FX_EXECUTABLE="$OPTARG"
@@ -50,7 +50,7 @@ while getopts "x:dct" opt; do
 		c)
 			FX_ARGS="-jsconsole -noquit"
 			;;
-		t)
+		g)
 			ZOTERO_ARGS="$ZOTERO_ARGS -makeTestData"
 			;;
 		*)
