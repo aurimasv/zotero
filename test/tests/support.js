@@ -67,7 +67,7 @@ describe("Support Functions for Unit Testing", function() {
 			assert.deepEqual(loadSampleData('allTypesAndFields'), generateAllTypesAndFieldsData());
 		});
 	});
-	describe("generateCiteprocJSExportData", function() {
+	describe("generateCiteProcJSExportData", function() {
 		let citeURL = Zotero.Prefs.get("export.citePaperJournalArticleURL");
 		before(function () {
 			Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
@@ -78,8 +78,8 @@ describe("Support Functions for Unit Testing", function() {
 		
 		it("all citeproc-js export data should be up to date", function() {
 			this.timeout(45000);
-			let oldData = loadSampleData('citeprocJSExport'),
-				newData = generateCiteprocJSExportData();
+			let oldData = loadSampleData('citeProcJSExport'),
+				newData = generateCiteProcJSExportData();
 			
 			assert.isObject(newData, 'created data object');
 			assert.isNotNull(newData);

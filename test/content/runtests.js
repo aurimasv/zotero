@@ -1,6 +1,45 @@
+Components.utils.import("resource://gre/modules/osfile.jsm");
+Components.utils.import("resource://zotero/q.js");
 var EventUtils = Components.utils.import("resource://zotero-unit/EventUtils.jsm");
 
+var ZoteroUnit = Components.classes["@mozilla.org/commandlinehandler/general-startup;1?type=zotero-unit"].
+                 getService(Components.interfaces.nsISupports).
+                 wrappedJSObject;
+
 var dump = ZoteroUnit.dump;
+
+function quit(failed) {
+	// Quit with exit status
+	if(!failed) {
+		OS.File.writeAtomic(OS.Path.join(OS.Constants.Path.profileDir, "success"), new Uint8Array(0));
+	}
+	if(!ZoteroUnit.noquit) {
+		Components.classes['@mozilla.org/toolkit/app-startup;1'].
+		getService(Components.interfaces.nsIAppStartup).
+		quit(Components.interfaces.nsIAppStartup.eForceQuit);
+	}
+}
+
+if (ZoteroUnit.makeTestData) {
+	var dataPath = getTestDataDirectory().path;
+	
+	Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
+	
+	var dataFiles = ['allTypesAndFields', 'citeProcJSExport'];
+	for (var i=0; i<dataFiles.length; i++) {
+		if (i) dump('\n');
+		dump('Generating data for ' + dataFiles[i] + '...');
+		
+		var data = window['generate' + dataFiles[i].charAt(0).toUpperCase() + dataFiles[i].substr(1) + 'Data']();
+		var str = 'var data = ' + JSON.stringify(data, null, '\t');
+		
+		OS.File.writeAtomic(OS.Path.join(dataPath, dataFiles[i] + '.js'), str);
+		
+		dump('done.');
+	}
+	
+	quit(false);
+}
 
 function Reporter(runner) {
 	var indents = 0, passed = 0, failed = 0;
