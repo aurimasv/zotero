@@ -417,21 +417,23 @@ Zotero.Utilities.Internal = {
 			item.dateAdded = zoteroItem.dateAdded;
 			item.dateModified = zoteroItem.dateModified;
 			
-			// Map base fields and include item type-specific fields in uniqueFields
+			// Map base fields
 			for (let field in item) {
 				let id = Zotero.ItemFields.getID(field);
 				if (!id || !Zotero.ItemFields.isValidForType(id, zoteroItem.itemTypeID)) {
 					 continue;
 				}
 				
-				item.uniqueFields[field] = item[field];
-				
 				let baseField = Zotero.ItemFields.getName(
 					Zotero.ItemFields.getBaseIDFromTypeAndField(item.itemType, field)
 				);
-				if (!baseField || baseField == field) continue;
 				
-				item[baseField] = item[field];
+				if (!baseField || baseField == field) {
+					item.uniqueFields[field] = item[field];
+				} else {
+					item[baseField] = item[field];
+					item.uniqueFields[baseField] = item[field];
+				}
 			}
 			
 			// Add various fields for compatibility with translators pre-4.0.27
