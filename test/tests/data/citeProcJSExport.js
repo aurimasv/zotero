@@ -21,7 +21,7 @@ var data = {
 		],
 		"call-number": "Call number",
 		"dimensions": "Artwork size",
-		"id": 3,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/CBWCQKJU",
 		"issued": {
 			"date-parts": [
 				[
@@ -70,7 +70,7 @@ var data = {
 		],
 		"dimensions": "1:22:33",
 		"event-place": "Place",
-		"id": 4,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/NUTNJ6DB",
 		"issued": {
 			"date-parts": [
 				[
@@ -113,7 +113,7 @@ var data = {
 		"authority": "Legislative body",
 		"chapter-number": "Session",
 		"container-title": "Code",
-		"id": 5,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/I3AQQ6QF",
 		"issued": {
 			"date-parts": [
 				[
@@ -154,7 +154,7 @@ var data = {
 		],
 		"container-title": "Publication title",
 		"genre": "Type",
-		"id": 6,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/PVJETXAC",
 		"issued": {
 			"date-parts": [
 				[
@@ -208,7 +208,7 @@ var data = {
 			}
 		],
 		"event-place": "Place",
-		"id": 7,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/KDZJWH8H",
 		"issued": {
 			"date-parts": [
 				[
@@ -281,7 +281,7 @@ var data = {
 			}
 		],
 		"event-place": "Place",
-		"id": 8,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/MIW4P7HT",
 		"issued": {
 			"date-parts": [
 				[
@@ -329,7 +329,7 @@ var data = {
 		],
 		"authority": "Court",
 		"container-title": "Reporter",
-		"id": 9,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/W584DVPF",
 		"issued": {
 			"date-parts": [
 				[
@@ -374,7 +374,7 @@ var data = {
 		"collection-title": "Series title",
 		"event-place": "Place",
 		"genre": "Programming language",
-		"id": 10,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/D9NN3JVH",
 		"issued": {
 			"date-parts": [
 				[
@@ -433,7 +433,7 @@ var data = {
 		],
 		"event": "Conference name",
 		"event-place": "Place",
-		"id": 11,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/HKH8RKE8",
 		"issued": {
 			"date-parts": [
 				[
@@ -499,7 +499,7 @@ var data = {
 			}
 		],
 		"event-place": "Place",
-		"id": 12,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/82UQDIH9",
 		"issued": {
 			"date-parts": [
 				[
@@ -554,7 +554,7 @@ var data = {
 				"given": "editorFirst"
 			}
 		],
-		"id": 13,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/7KMQRREF",
 		"issued": {
 			"date-parts": [
 				[
@@ -602,7 +602,7 @@ var data = {
 				"given": "authorFirst"
 			}
 		],
-		"id": 14,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/EZZ5J3KZ",
 		"issued": {
 			"date-parts": [
 				[
@@ -663,7 +663,7 @@ var data = {
 			}
 		],
 		"event-place": "Place",
-		"id": 15,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/8KU3BP3E",
 		"issued": {
 			"date-parts": [
 				[
@@ -714,7 +714,7 @@ var data = {
 		"call-number": "Call number",
 		"dimensions": "1:22:33",
 		"genre": "Type",
-		"id": 16,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/4Q6SB3QR",
 		"issued": {
 			"date-parts": [
 				[
@@ -753,7 +753,7 @@ var data = {
 		],
 		"container-title": "Publication title",
 		"genre": "Type",
-		"id": 17,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/DNIM6HPJ",
 		"issued": {
 			"date-parts": [
 				[
@@ -790,7 +790,7 @@ var data = {
 		"authority": "Legislative body",
 		"chapter-number": "Session",
 		"event-place": "Place",
-		"id": 18,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/PGZMN773",
 		"issued": {
 			"date-parts": [
 				[
@@ -831,7 +831,7 @@ var data = {
 				"given": "authorFirst"
 			}
 		],
-		"id": 19,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/DAWP6IN9",
 		"issued": {
 			"date-parts": [
 				[
@@ -874,7 +874,7 @@ var data = {
 			}
 		],
 		"call-number": "Call number",
-		"id": 20,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/7XAERXK3",
 		"interviewer": [
 			{
 				"family": "interviewerLast",
@@ -935,7 +935,7 @@ var data = {
 				"given": "editorFirst"
 			}
 		],
-		"id": 21,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/JWXGV3JF",
 		"issue": "5",
 		"issued": {
 			"date-parts": [
@@ -990,7 +990,7 @@ var data = {
 		],
 		"call-number": "Call number",
 		"genre": "Type",
-		"id": 22,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/C8U9UQ59",
 		"issued": {
 			"date-parts": [
 				[
@@ -1036,7 +1036,7 @@ var data = {
 		],
 		"call-number": "Call number",
 		"container-title": "Publication title",
-		"id": 23,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/EMA9ABU6",
 		"issue": "5",
 		"issued": {
 			"date-parts": [
@@ -1091,7 +1091,7 @@ var data = {
 		"call-number": "Call number",
 		"event-place": "Place",
 		"genre": "Type",
-		"id": 24,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/76RRIZ4F",
 		"issued": {
 			"date-parts": [
 				[
@@ -1148,7 +1148,7 @@ var data = {
 		"edition": "8",
 		"event-place": "Place",
 		"genre": "Type",
-		"id": 25,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/FTUXIAEW",
 		"issued": {
 			"date-parts": [
 				[
@@ -1193,7 +1193,7 @@ var data = {
 		"container-title": "Publication title",
 		"edition": "8",
 		"event-place": "Place",
-		"id": 26,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/8N6R4CMP",
 		"issued": {
 			"date-parts": [
 				[
@@ -1246,7 +1246,7 @@ var data = {
 		"authority": "Issuing authority",
 		"call-number": "Application number",
 		"event-place": "Place",
-		"id": 27,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/KK7B6WJE",
 		"issue": "Priority numbers",
 		"issued": {
 			"date-parts": [
@@ -1298,7 +1298,7 @@ var data = {
 		],
 		"collection-title": "Series title",
 		"dimensions": "1:22:33",
-		"id": 28,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/WX5ZJ83K",
 		"language": "en-US",
 		"medium": "Medium",
 		"note": "Extra",
@@ -1328,7 +1328,7 @@ var data = {
 		"event": "Meeting name",
 		"event-place": "Place",
 		"genre": "Type",
-		"id": 29,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/MAK9TUWA",
 		"issued": {
 			"date-parts": [
 				[
@@ -1369,7 +1369,7 @@ var data = {
 		"container-title": "Publication title",
 		"dimensions": "1:22:33",
 		"event-place": "Place",
-		"id": 30,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/GUSG48DD",
 		"issued": {
 			"date-parts": [
 				[
@@ -1420,7 +1420,7 @@ var data = {
 		"collection-title": "Series title",
 		"event-place": "Place",
 		"genre": "Type",
-		"id": 31,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/3M5WIIS6",
 		"issued": {
 			"date-parts": [
 				[
@@ -1467,7 +1467,7 @@ var data = {
 		],
 		"chapter-number": "Session",
 		"container-title": "Code",
-		"id": 32,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/CHWSXBQT",
 		"issued": {
 			"date-parts": [
 				[
@@ -1511,7 +1511,7 @@ var data = {
 		"call-number": "Call number",
 		"event-place": "Place",
 		"genre": "Type",
-		"id": 33,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/JSPEQWHX",
 		"issued": {
 			"date-parts": [
 				[
@@ -1555,7 +1555,7 @@ var data = {
 		"container-title": "Publication title",
 		"dimensions": "1:22:33",
 		"event-place": "Place",
-		"id": 34,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/AQ6WQQGR",
 		"issued": {
 			"date-parts": [
 				[
@@ -1601,7 +1601,7 @@ var data = {
 		"collection-title": "Series title",
 		"dimensions": "1:22:33",
 		"event-place": "Place",
-		"id": 35,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/AZ5C3DK2",
 		"issued": {
 			"date-parts": [
 				[
@@ -1643,7 +1643,7 @@ var data = {
 		],
 		"container-title": "Publication title",
 		"genre": "Type",
-		"id": 36,
+		"id": "http://zotero.org/users/local/riiZoBgm/items/WHB3T5S7",
 		"issued": {
 			"date-parts": [
 				[

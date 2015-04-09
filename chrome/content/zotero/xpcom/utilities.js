@@ -1491,7 +1491,7 @@ Zotero.Utilities = {
 		var itemTypeID = Zotero.ItemTypes.getID(zoteroItem.itemType);
 		
 		var cslItem = {
-			'id':zoteroItem.itemID,
+			'id':zoteroItem.uri,
 			'type':cslType
 		};
 		

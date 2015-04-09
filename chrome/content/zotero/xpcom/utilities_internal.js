@@ -371,7 +371,8 @@ Zotero.Utilities.Internal = {
 	"itemToExportFormat": new function() {
 		return function(zoteroItem, legacy) {
 			var item = zoteroItem.toJSON();
-			item.itemID = zoteroItem.id;
+			item.uri = Zotero.URI.getItemURI(zoteroItem);
+			delete item.key;
 			
 			if (!zoteroItem.isAttachment() && !zoteroItem.isNote()) {
 				// Include attachments
@@ -404,6 +405,9 @@ Zotero.Utilities.Internal = {
 		
 		function addCompatibilityMappings(item, zoteroItem) {
 			item.uniqueFields = {};
+			
+			// Meaningless local item ID, but some older export translators depend on it
+			item.itemID = zoteroItem.id;
 			
 			// "version" is expected to be a field for "computerProgram", which is now
 			// called "versionNumber"
@@ -439,7 +443,6 @@ Zotero.Utilities.Internal = {
 			// Add various fields for compatibility with translators pre-4.0.27
 			item.itemID = zoteroItem.id;
 			item.libraryID = zoteroItem.libraryID;
-			item.uri = Zotero.URI.getItemURI(zoteroItem);
 			
 			// Creators
 			if (item.creators) {
