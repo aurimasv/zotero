@@ -77,7 +77,6 @@ describe("Support Functions for Unit Testing", function() {
 		});
 		
 		it("all citeproc-js export data should be up to date", function() {
-			this.timeout(45000);
 			let oldData = loadSampleData('citeProcJSExport'),
 				newData = generateCiteProcJSExportData();
 			
