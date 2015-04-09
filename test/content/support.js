@@ -179,8 +179,8 @@ function generateAllTypesAndFieldsData() {
 	// work well for some fields that expect values in certain formats
 	let specialValues = {
 		date: '1999-12-31',
-		filingDate: '2000-01-01',
-		accessDate: '1999-12-31 23:59:59',
+		filingDate: '2000-01-02',
+		accessDate: '1997-06-13 23:59:58',
 		number: 3,
 		numPages: 4,
 		issue: 5,
