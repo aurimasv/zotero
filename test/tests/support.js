@@ -95,4 +95,52 @@ describe("Support Functions for Unit Testing", function() {
 			assert.deepEqual(oldData, newData, 'citeproc-js export data has not changed');
 		});
 	});
+	describe("generateTranslatorExportData", function() {
+		it("legacy mode data should be up to date", function() {
+			let oldData = loadSampleData('translatorExportLegacy'),
+				newData = generateTranslatorExportData(true);
+			
+			assert.isObject(newData, 'created data object');
+			assert.isNotNull(newData);
+			assert.isAbove(Object.keys(newData).length, 0, 'translator export object is not empty');
+			
+			// Ignore data that is not stable, but make sure it is set
+			let ignoreFields = ['itemID', 'key', 'dateAdded', 'dateModified', 'uri'];
+			for (let itemName in oldData) {
+				for (let i=0; i<ignoreFields.length; i++) {
+					let field = ignoreFields[i]
+					if (oldData[itemName][field] !== undefined) {
+						assert.isDefined(newData[itemName][field], field + ' is set');
+						delete oldData[itemName][field];
+						delete newData[itemName][field];
+					}
+				}
+			}
+			
+			assert.deepEqual(oldData, newData, 'translator export data has not changed');
+		});
+		it("data should be up to date", function() {
+			let oldData = loadSampleData('translatorExport'),
+				newData = generateTranslatorExportData();
+			
+			assert.isObject(newData, 'created data object');
+			assert.isNotNull(newData);
+			assert.isAbove(Object.keys(newData).length, 0, 'translator export object is not empty');
+			
+			// Ignore data that is not stable, but make sure it is set
+			let ignoreFields = ['itemID', 'key', 'dateAdded', 'dateModified'];
+			for (let itemName in oldData) {
+				for (let i=0; i<ignoreFields.length; i++) {
+					let field = ignoreFields[i]
+					if (oldData[itemName][field] !== undefined) {
+						assert.isDefined(newData[itemName][field], field + ' is set');
+						delete oldData[itemName][field];
+						delete newData[itemName][field];
+					}
+				}
+			}
+			
+			assert.deepEqual(oldData, newData, 'translator export data has not changed');
+		});
+	});
 });
