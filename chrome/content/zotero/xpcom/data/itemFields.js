@@ -173,7 +173,7 @@ Zotero.ItemFields = new function() {
 		}
 		
 		if (_itemTypeFields[itemTypeID]) {
-			return _itemTypeFields[itemTypeID];
+			return _itemTypeFields[itemTypeID].slice();
 		}
 		
 		if (!itemTypeID) {
@@ -186,7 +186,7 @@ Zotero.ItemFields = new function() {
 		var fields = Zotero.DB.columnQuery(sql);
 		
 		_itemTypeFields[itemTypeID] = fields ? fields : [];
-		return _itemTypeFields[itemTypeID];
+		return _itemTypeFields[itemTypeID].slice();
 	}
 	
 	
@@ -295,11 +295,11 @@ Zotero.ItemFields = new function() {
 		
 		if (asNames) {
 			return _typeFieldNamesByBase[baseFieldID] ?
-				_typeFieldNamesByBase[baseFieldID] : false;
+				_typeFieldNamesByBase[baseFieldID].slice() : false;
 		}
 		
 		return _typeFieldIDsByBase[baseFieldID] ?
-			_typeFieldIDsByBase[baseFieldID] : false;
+			_typeFieldIDsByBase[baseFieldID].slice() : false;
 	}
 	
 	
