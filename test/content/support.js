@@ -169,6 +169,41 @@ function resetDB() {
 	});
 }
 
+function stableStringify(obj, level, label) {
+	if (!level) level = 0;
+	let indent = '\t'.repeat(level);
+	
+	if (label) label = JSON.stringify('' + label) + ': ';
+	else label = '';
+	
+	if (typeof obj == 'function' || obj === undefined) return null;
+	
+	if (typeof obj != 'object' || obj === null) return indent + label + JSON.stringify(obj);
+	
+	if (Array.isArray(obj)) {
+		let str = indent + label + '[';
+		for (let i=0; i<obj.length; i++) {
+			let json = stableStringify(obj[i], level + 1);
+			if (json === null) json = indent + '\tnull'; // function
+			str += '\n' + json + (i < obj.length-1 ? ',' : '');
+		}
+		return str + (obj.length ? '\n' + indent : '') + ']';
+	}
+	
+	let keys = Object.keys(obj).sort(),
+		empty = true,
+		str = indent + label + '{';
+	for (let i=0; i<keys.length; i++) {
+		let json = stableStringify(obj[keys[i]], level + 1, keys[i]);
+		if (json === null) continue; // function
+		
+		empty = false;
+		str += '\n' + json + (i < keys.length-1 ? ',' : '');
+	}
+	
+	return str + (!empty ? '\n' + indent : '') + '}';
+}
+
 /**
  * Generates sample item data that is stored in data/sampleItemData.js
  */

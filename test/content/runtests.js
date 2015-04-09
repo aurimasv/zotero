@@ -38,7 +38,7 @@ if (ZoteroUnit.makeTestData) {
 				dump('Generating data for ' + fileName + '...');
 				
 				let data = window['generate' + fileName.charAt(0).toUpperCase() + fileName.substr(1) + 'Data']();
-				let str = 'var data = ' + JSON.stringify(data, null, '\t');
+				let str = 'var data = ' + stableStringify(data);
 				
 				return OS.File.writeAtomic(OS.Path.join(dataPath, fileName + '.js'), str);
 			})
@@ -47,7 +47,7 @@ if (ZoteroUnit.makeTestData) {
 		});
 	}
 	
-	p.catch(function(e) { dump('\n'); dump(e) })
+	p.catch(function(e) { dump('\n'); dump(Zotero.Utilities.varDump(e)) })
 	.finally(function() { quit(false) });
 }
 
