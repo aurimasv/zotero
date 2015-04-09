@@ -5,7 +5,7 @@ var data = {
 		"ISBN": "978-1-234-56789-7",
 		"title": "Title",
 		"shortTitle": "Short title",
-		"numPages": "3",
+		"numPages": 4,
 		"archive": "Archive",
 		"date": "1999-12-31",
 		"callNumber": "Call number",
@@ -14,10 +14,10 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"series": "Series",
-		"seriesNumber": "3",
-		"volume": "3",
-		"numberOfVolumes": "3",
-		"edition": "3",
+		"seriesNumber": 9,
+		"volume": 6,
+		"numberOfVolumes": 7,
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"publisher": "Publisher",
@@ -26,28 +26,28 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -67,10 +67,10 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"series": "Series",
-		"seriesNumber": "3",
-		"volume": "3",
-		"numberOfVolumes": "3",
-		"edition": "3",
+		"seriesNumber": 9,
+		"volume": 6,
+		"numberOfVolumes": 7,
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"publisher": "Publisher",
@@ -79,33 +79,33 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "bookAuthor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "bookAuthorFirst",
+				"lastName": "bookAuthorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -129,36 +129,36 @@ var data = {
 		"seriesTitle": "Series title",
 		"seriesText": "Series text",
 		"series": "Series",
-		"volume": "3",
-		"issue": "3",
+		"volume": 6,
+		"issue": 5,
 		"libraryCatalog": "Library catalog",
 		"language": "en-US",
 		"abstractNote": "Abstract note",
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "reviewedAuthor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "reviewedAuthorFirst",
+				"lastName": "reviewedAuthorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -177,31 +177,31 @@ var data = {
 		"rights": "Rights",
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
-		"volume": "3",
-		"issue": "3",
+		"volume": 6,
+		"issue": 5,
 		"libraryCatalog": "Library catalog",
 		"language": "en-US",
 		"abstractNote": "Abstract note",
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "reviewedAuthor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "reviewedAuthorFirst",
+				"lastName": "reviewedAuthorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -221,7 +221,7 @@ var data = {
 		"rights": "Rights",
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
-		"edition": "3",
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"language": "en-US",
@@ -229,23 +229,23 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "reviewedAuthor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "reviewedAuthorFirst",
+				"lastName": "reviewedAuthorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -254,7 +254,7 @@ var data = {
 		"url": "http://www.example.com",
 		"title": "Title",
 		"shortTitle": "Short title",
-		"numPages": "3",
+		"numPages": 4,
 		"archive": "Archive",
 		"date": "1999-12-31",
 		"callNumber": "Call number",
@@ -271,13 +271,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -300,18 +300,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "recipient",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "recipientFirst",
+				"lastName": "recipientLast"
 			}
 		]
 	},
@@ -320,7 +320,7 @@ var data = {
 		"url": "http://www.example.com",
 		"title": "Title",
 		"shortTitle": "Short title",
-		"numPages": "3",
+		"numPages": 4,
 		"archive": "Archive",
 		"date": "1999-12-31",
 		"callNumber": "Call number",
@@ -336,18 +336,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -370,23 +370,23 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "interviewee",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "intervieweeFirst",
+				"lastName": "intervieweeLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "interviewer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "interviewerFirst",
+				"lastName": "interviewerLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -412,23 +412,23 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "director",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "directorFirst",
+				"lastName": "directorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "producer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "producerFirst",
+				"lastName": "producerLast"
 			},
 			{
 				"creatorType": "scriptwriter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "scriptwriterFirst",
+				"lastName": "scriptwriterLast"
 			}
 		]
 	},
@@ -452,13 +452,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "artist",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "artistFirst",
+				"lastName": "artistLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -478,18 +478,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -513,27 +513,27 @@ var data = {
 		"place": "Place",
 		"language": "en-US",
 		"abstractNote": "Abstract note",
-		"number": "3",
+		"number": 3,
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -553,24 +553,24 @@ var data = {
 		"history": "History",
 		"language": "en-US",
 		"abstractNote": "Abstract note",
-		"number": "3",
-		"volume": "3",
+		"number": 3,
+		"volume": 6,
 		"pages": "1-10",
 		"creators": [
 			{
 				"creatorType": "sponsor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "sponsorFirst",
+				"lastName": "sponsorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "cosponsor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "cosponsorFirst",
+				"lastName": "cosponsorLast"
 			}
 		]
 	},
@@ -579,7 +579,7 @@ var data = {
 		"url": "http://www.example.com",
 		"title": "Title",
 		"shortTitle": "Short title",
-		"number": "3",
+		"number": 3,
 		"rights": "Rights",
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
@@ -589,23 +589,23 @@ var data = {
 		"language": "en-US",
 		"abstractNote": "Abstract note",
 		"date": "1999-12-31",
-		"volume": "3",
+		"volume": 6,
 		"pages": "1-10",
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "counsel",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "counselFirst",
+				"lastName": "counselLast"
 			}
 		]
 	},
@@ -622,18 +622,18 @@ var data = {
 		"session": "Session",
 		"legislativeBody": "Legislative body",
 		"history": "History",
-		"numberOfVolumes": "3",
+		"numberOfVolumes": 7,
 		"committee": "Committee",
 		"place": "Place",
 		"publisher": "Publisher",
 		"language": "en-US",
 		"abstractNote": "Abstract note",
-		"number": "3",
+		"number": 3,
 		"creators": [
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -646,12 +646,12 @@ var data = {
 		"title": "Title",
 		"shortTitle": "Short title",
 		"issuingAuthority": "Issuing authority",
-		"filingDate": "1999-12-31",
+		"filingDate": "2000-01-01",
 		"rights": "Rights",
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"assignee": "Assignee",
-		"number": "3",
+		"number": 3,
 		"priorityNumbers": "Priority numbers",
 		"date": "1999-12-31",
 		"references": "References",
@@ -662,18 +662,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "inventor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "inventorFirst",
+				"lastName": "inventorLast"
 			},
 			{
 				"creatorType": "attorneyAgent",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "attorneyAgentFirst",
+				"lastName": "attorneyAgentLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -682,7 +682,7 @@ var data = {
 		"url": "http://www.example.com",
 		"pages": "1-10",
 		"date": "1999-12-31",
-		"number": "3",
+		"number": 3,
 		"title": "Title",
 		"shortTitle": "Short title",
 		"section": "Section",
@@ -698,13 +698,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -722,18 +722,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "recipient",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "recipientFirst",
+				"lastName": "recipientLast"
 			}
 		]
 	},
@@ -751,7 +751,7 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"seriesTitle": "Series title",
-		"edition": "3",
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"type": "Type",
 		"scale": "Scale",
@@ -762,18 +762,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "cartographer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "cartographerFirst",
+				"lastName": "cartographerLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			}
 		]
 	},
@@ -793,18 +793,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "commenter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "commenterFirst",
+				"lastName": "commenterLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -822,18 +822,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "recipient",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "recipientFirst",
+				"lastName": "recipientLast"
 			}
 		]
 	},
@@ -853,13 +853,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -877,8 +877,8 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"seriesTitle": "Series title",
-		"volume": "3",
-		"numberOfVolumes": "3",
+		"volume": 6,
+		"numberOfVolumes": 7,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"medium": "Medium",
@@ -889,23 +889,23 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "performer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "performerFirst",
+				"lastName": "performerLast"
 			},
 			{
 				"creatorType": "composer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "composerFirst",
+				"lastName": "composerLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "wordsBy",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "wordsByFirst",
+				"lastName": "wordsByLast"
 			}
 		]
 	},
@@ -926,13 +926,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "presenter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "presenterFirst",
+				"lastName": "presenterLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -950,8 +950,8 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"seriesTitle": "Series title",
-		"volume": "3",
-		"numberOfVolumes": "3",
+		"volume": 6,
+		"numberOfVolumes": 7,
 		"libraryCatalog": "Library catalog",
 		"medium": "Medium",
 		"place": "Place",
@@ -962,35 +962,35 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "director",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "directorFirst",
+				"lastName": "directorLast"
 			},
 			{
 				"creatorType": "castMember",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "castMemberFirst",
+				"lastName": "castMemberLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "producer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "producerFirst",
+				"lastName": "producerLast"
 			},
 			{
 				"creatorType": "scriptwriter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "scriptwriterFirst",
+				"lastName": "scriptwriterLast"
 			}
 		]
 	},
 	"tvBroadcast": {
 		"itemType": "tvBroadcast",
 		"url": "http://www.example.com",
-		"number": "3",
+		"number": 3,
 		"title": "Title",
 		"shortTitle": "Short title",
 		"publicationTitle": "Publication title",
@@ -1011,40 +1011,40 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "director",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "directorFirst",
+				"lastName": "directorLast"
 			},
 			{
 				"creatorType": "castMember",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "castMemberFirst",
+				"lastName": "castMemberLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "guest",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "guestFirst",
+				"lastName": "guestLast"
 			},
 			{
 				"creatorType": "producer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "producerFirst",
+				"lastName": "producerLast"
 			},
 			{
 				"creatorType": "scriptwriter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "scriptwriterFirst",
+				"lastName": "scriptwriterLast"
 			}
 		]
 	},
 	"radioBroadcast": {
 		"itemType": "radioBroadcast",
 		"url": "http://www.example.com",
-		"number": "3",
+		"number": 3,
 		"title": "Title",
 		"shortTitle": "Short title",
 		"publicationTitle": "Publication title",
@@ -1065,40 +1065,40 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "director",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "directorFirst",
+				"lastName": "directorLast"
 			},
 			{
 				"creatorType": "castMember",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "castMemberFirst",
+				"lastName": "castMemberLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "guest",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "guestFirst",
+				"lastName": "guestLast"
 			},
 			{
 				"creatorType": "producer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "producerFirst",
+				"lastName": "producerLast"
 			},
 			{
 				"creatorType": "scriptwriter",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "scriptwriterFirst",
+				"lastName": "scriptwriterLast"
 			}
 		]
 	},
 	"podcast": {
 		"itemType": "podcast",
 		"url": "http://www.example.com",
-		"number": "3",
+		"number": 3,
 		"title": "Title",
 		"shortTitle": "Short title",
 		"rights": "Rights",
@@ -1112,18 +1112,18 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "podcaster",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "podcasterFirst",
+				"lastName": "podcasterLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "guest",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "guestFirst",
+				"lastName": "guestLast"
 			}
 		]
 	},
@@ -1151,13 +1151,13 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "programmer",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "programmerFirst",
+				"lastName": "programmerLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			}
 		]
 	},
@@ -1178,7 +1178,7 @@ var data = {
 		"DOI": "10.1234/example.doi",
 		"accessDate": "1999-12-31 23:59:59",
 		"series": "Series",
-		"volume": "3",
+		"volume": 6,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"publisher": "Publisher",
@@ -1188,28 +1188,28 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -1232,28 +1232,28 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "reviewedAuthor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "reviewedAuthorFirst",
+				"lastName": "reviewedAuthorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -1272,10 +1272,10 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"series": "Series",
-		"seriesNumber": "3",
-		"volume": "3",
-		"numberOfVolumes": "3",
-		"edition": "3",
+		"seriesNumber": 9,
+		"volume": 6,
+		"numberOfVolumes": 7,
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"publisher": "Publisher",
@@ -1285,28 +1285,28 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	},
@@ -1325,10 +1325,10 @@ var data = {
 		"extra": "Extra",
 		"accessDate": "1999-12-31 23:59:59",
 		"series": "Series",
-		"seriesNumber": "3",
-		"volume": "3",
-		"numberOfVolumes": "3",
-		"edition": "3",
+		"seriesNumber": 9,
+		"volume": 6,
+		"numberOfVolumes": 7,
+		"edition": 8,
 		"libraryCatalog": "Library catalog",
 		"place": "Place",
 		"publisher": "Publisher",
@@ -1338,28 +1338,28 @@ var data = {
 		"creators": [
 			{
 				"creatorType": "author",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "authorFirst",
+				"lastName": "authorLast"
 			},
 			{
 				"creatorType": "contributor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "contributorFirst",
+				"lastName": "contributorLast"
 			},
 			{
 				"creatorType": "editor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "editorFirst",
+				"lastName": "editorLast"
 			},
 			{
 				"creatorType": "seriesEditor",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "seriesEditorFirst",
+				"lastName": "seriesEditorLast"
 			},
 			{
 				"creatorType": "translator",
-				"firstName": "First",
-				"lastName": "Last"
+				"firstName": "translatorFirst",
+				"lastName": "translatorLast"
 			}
 		]
 	}

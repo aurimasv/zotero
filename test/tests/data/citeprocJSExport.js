@@ -4,13 +4,13 @@ var data = {
 		"type": "book",
 		"title": "Title",
 		"collection-title": "Series",
-		"collection-number": "3",
+		"collection-number": "9",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
-		"volume": "3",
-		"number-of-volumes": "3",
-		"number-of-pages": "3",
-		"edition": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
+		"number-of-pages": "4",
+		"edition": "8",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -24,26 +24,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -71,13 +71,13 @@ var data = {
 		"title": "Title",
 		"container-title": "Publication title",
 		"collection-title": "Series",
-		"collection-number": "3",
+		"collection-number": "9",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
 		"page": "1-10",
-		"volume": "3",
-		"number-of-volumes": "3",
-		"edition": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
+		"edition": "8",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -91,32 +91,32 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"container-author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "bookAuthorLast",
+				"given": "bookAuthorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -145,8 +145,8 @@ var data = {
 		"container-title": "Publication title",
 		"collection-title": "Series title",
 		"page": "1-10",
-		"volume": "3",
-		"issue": "3",
+		"volume": "6",
+		"issue": "5",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -161,26 +161,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"reviewed-author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "reviewedAuthorLast",
+				"given": "reviewedAuthorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -208,8 +208,8 @@ var data = {
 		"title": "Title",
 		"container-title": "Publication title",
 		"page": "1-10",
-		"volume": "3",
-		"issue": "3",
+		"volume": "6",
+		"issue": "5",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -222,20 +222,20 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"reviewed-author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "reviewedAuthorLast",
+				"given": "reviewedAuthorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -264,7 +264,7 @@ var data = {
 		"container-title": "Publication title",
 		"publisher-place": "Place",
 		"page": "1-10",
-		"edition": "3",
+		"edition": "8",
 		"section": "Section",
 		"source": "Library catalog",
 		"archive": "Archive",
@@ -279,20 +279,20 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"reviewed-author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "reviewedAuthorLast",
+				"given": "reviewedAuthorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -320,7 +320,7 @@ var data = {
 		"title": "Title",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
-		"number-of-pages": "3",
+		"number-of-pages": "4",
 		"genre": "Type",
 		"source": "Library catalog",
 		"archive": "Archive",
@@ -334,8 +334,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"issued": {
@@ -373,14 +373,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"recipient": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "recipientLast",
+				"given": "recipientFirst"
 			}
 		],
 		"issued": {
@@ -407,7 +407,7 @@ var data = {
 		"type": "manuscript",
 		"title": "Title",
 		"publisher-place": "Place",
-		"number-of-pages": "3",
+		"number-of-pages": "4",
 		"genre": "Type",
 		"source": "Library catalog",
 		"archive": "Archive",
@@ -421,14 +421,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -466,20 +466,20 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "intervieweeLast",
+				"given": "intervieweeFirst"
 			}
 		],
 		"interviewer": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "interviewerLast",
+				"given": "interviewerFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -520,8 +520,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "directorLast",
+				"given": "directorFirst"
 			}
 		],
 		"issued": {
@@ -560,8 +560,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "artistLast",
+				"given": "artistFirst"
 			}
 		],
 		"issued": {
@@ -596,14 +596,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -647,20 +647,20 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -689,7 +689,7 @@ var data = {
 		"container-title": "Code",
 		"authority": "Legislative body",
 		"page": "1-10",
-		"volume": "3",
+		"volume": "6",
 		"section": "Section",
 		"abstract": "Abstract note",
 		"URL": "http://www.example.com",
@@ -701,8 +701,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "sponsorLast",
+				"given": "sponsorFirst"
 			}
 		],
 		"issued": {
@@ -731,7 +731,7 @@ var data = {
 		"container-title": "Reporter",
 		"authority": "Court",
 		"page": "1-10",
-		"volume": "3",
+		"volume": "6",
 		"abstract": "Abstract note",
 		"URL": "http://www.example.com",
 		"note": "Extra",
@@ -741,8 +741,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"issued": {
@@ -772,7 +772,7 @@ var data = {
 		"publisher-place": "Place",
 		"authority": "Legislative body",
 		"page": "1-10",
-		"number-of-volumes": "3",
+		"number-of-volumes": "7",
 		"section": "Committee",
 		"event-place": "Place",
 		"abstract": "Abstract note",
@@ -785,8 +785,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "contributorLast",
+				"given": "contributorFirst"
 			}
 		],
 		"issued": {
@@ -828,8 +828,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "inventorLast",
+				"given": "inventorFirst"
 			}
 		],
 		"issued": {
@@ -853,11 +853,12 @@ var data = {
 		"submitted": {
 			"date-parts": [
 				[
-					"1999",
-					12,
-					31
+					"2000",
+					1,
+					1
 				]
-			]
+			],
+			"season": "2000-01-01"
 		}
 	},
 	"statute": {
@@ -878,8 +879,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"issued": {
@@ -912,14 +913,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"recipient": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "recipientLast",
+				"given": "recipientFirst"
 			}
 		],
 		"issued": {
@@ -948,7 +949,7 @@ var data = {
 		"collection-title": "Series title",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
-		"edition": "3",
+		"edition": "8",
 		"genre": "Type",
 		"source": "Library catalog",
 		"scale": "Scale",
@@ -964,14 +965,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "cartographerLast",
+				"given": "cartographerFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"issued": {
@@ -1006,8 +1007,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"issued": {
@@ -1040,14 +1041,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"recipient": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "recipientLast",
+				"given": "recipientFirst"
 			}
 		],
 		"issued": {
@@ -1082,8 +1083,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"issued": {
@@ -1112,8 +1113,8 @@ var data = {
 		"collection-title": "Series title",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
-		"volume": "3",
-		"number-of-volumes": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
 		"source": "Library catalog",
 		"dimensions": "1:22:33",
 		"medium": "Medium",
@@ -1129,14 +1130,14 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "performerLast",
+				"given": "performerFirst"
 			}
 		],
 		"composer": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "composerLast",
+				"given": "composerFirst"
 			}
 		],
 		"issued": {
@@ -1173,8 +1174,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "presenterLast",
+				"given": "presenterFirst"
 			}
 		],
 		"issued": {
@@ -1203,8 +1204,8 @@ var data = {
 		"collection-title": "Series title",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
-		"volume": "3",
-		"number-of-volumes": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
 		"source": "Library catalog",
 		"dimensions": "1:22:33",
 		"medium": "Medium",
@@ -1220,8 +1221,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "directorLast",
+				"given": "directorFirst"
 			}
 		],
 		"issued": {
@@ -1265,8 +1266,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "directorLast",
+				"given": "directorFirst"
 			}
 		],
 		"issued": {
@@ -1310,8 +1311,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "directorLast",
+				"given": "directorFirst"
 			}
 		],
 		"issued": {
@@ -1348,8 +1349,8 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "podcasterLast",
+				"given": "podcasterFirst"
 			}
 		],
 		"accessed": {
@@ -1384,8 +1385,8 @@ var data = {
 		"shortTitle": "Short title",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "programmerLast",
+				"given": "programmerFirst"
 			}
 		],
 		"issued": {
@@ -1416,7 +1417,7 @@ var data = {
 		"publisher": "Publisher",
 		"publisher-place": "Place",
 		"page": "1-10",
-		"volume": "3",
+		"volume": "6",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -1432,26 +1433,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -1489,26 +1490,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"reviewed-author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "reviewedAuthorLast",
+				"given": "reviewedAuthorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -1536,13 +1537,13 @@ var data = {
 		"title": "Title",
 		"container-title": "Publication title",
 		"collection-title": "Series",
-		"collection-number": "3",
+		"collection-number": "9",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
 		"page": "1-10",
-		"volume": "3",
-		"number-of-volumes": "3",
-		"edition": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
+		"edition": "8",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -1556,26 +1557,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
@@ -1603,13 +1604,13 @@ var data = {
 		"title": "Title",
 		"container-title": "Publication title",
 		"collection-title": "Series",
-		"collection-number": "3",
+		"collection-number": "9",
 		"publisher": "Publisher",
 		"publisher-place": "Place",
 		"page": "1-10",
-		"volume": "3",
-		"number-of-volumes": "3",
-		"edition": "3",
+		"volume": "6",
+		"number-of-volumes": "7",
+		"edition": "8",
 		"source": "Library catalog",
 		"archive": "Archive",
 		"archive_location": "Archive location",
@@ -1623,26 +1624,26 @@ var data = {
 		"language": "en-US",
 		"author": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "authorLast",
+				"given": "authorFirst"
 			}
 		],
 		"editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "editorLast",
+				"given": "editorFirst"
 			}
 		],
 		"collection-editor": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "seriesEditorLast",
+				"given": "seriesEditorFirst"
 			}
 		],
 		"translator": [
 			{
-				"family": "Last",
-				"given": "First"
+				"family": "translatorLast",
+				"given": "translatorFirst"
 			}
 		],
 		"issued": {
