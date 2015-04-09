@@ -8,35 +8,32 @@ var data = {
 		"artworkSize": "Artwork size",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 125,
 				"creatorType": "artist",
-				"fieldMode": "",
 				"firstName": "artistFirst",
 				"lastName": "artistLast"
 			},
 			{
-				"creatorID": 126,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 37,
 		"itemType": "artwork",
-		"key": "MH9VVBEB",
+		"key": "K6PKFE39",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"medium": "Medium",
 		"notes": [],
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -59,7 +56,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/MH9VVBEB",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/K6PKFE39",
 		"url": "http://www.example.com"
 	},
 	"audioRecording": {
@@ -71,43 +68,36 @@ var data = {
 		"attachments": [],
 		"audioRecordingFormat": "Medium",
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 127,
 				"creatorType": "performer",
-				"fieldMode": "",
 				"firstName": "performerFirst",
 				"lastName": "performerLast"
 			},
 			{
-				"creatorID": 128,
 				"creatorType": "composer",
-				"fieldMode": "",
 				"firstName": "composerFirst",
 				"lastName": "composerLast"
 			},
 			{
-				"creatorID": 129,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 130,
 				"creatorType": "wordsBy",
-				"fieldMode": "",
 				"firstName": "wordsByFirst",
 				"lastName": "wordsByLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 38,
 		"itemType": "audioRecording",
-		"key": "3KGVEQKR",
+		"key": "HA4ERU3I",
 		"label": "Publisher",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
@@ -117,7 +107,7 @@ var data = {
 		"numberOfVolumes": "7",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -148,7 +138,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/3KGVEQKR",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/HA4ERU3I",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -160,44 +150,39 @@ var data = {
 		"code": "Code",
 		"codePages": "1-10",
 		"codeVolume": "6",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 131,
 				"creatorType": "sponsor",
-				"fieldMode": "",
 				"firstName": "sponsorFirst",
 				"lastName": "sponsorLast"
 			},
 			{
-				"creatorID": 132,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 133,
 				"creatorType": "cosponsor",
-				"fieldMode": "",
 				"firstName": "cosponsorFirst",
 				"lastName": "cosponsorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"history": "History",
 		"itemID": 39,
 		"itemType": "bill",
-		"key": "WX8NFQXT",
+		"key": "CINETPZR",
 		"language": "en-US",
 		"legislativeBody": "Legislative body",
 		"libraryID": null,
 		"notes": [],
 		"number": "3",
 		"pages": "1-10",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"section": "Section",
 		"seeAlso": [],
@@ -224,7 +209,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/WX8NFQXT",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/CINETPZR",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -233,41 +218,36 @@ var data = {
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
 		"blogTitle": "Publication title",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 134,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 135,
 				"creatorType": "commenter",
-				"fieldMode": "",
 				"firstName": "commenterFirst",
 				"lastName": "commenterLast"
 			},
 			{
-				"creatorID": 136,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 40,
 		"itemType": "blogPost",
-		"key": "CTSNRFE9",
+		"key": "ZISMJNFS",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -287,7 +267,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/CTSNRFE9",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/ZISMJNFS",
 		"url": "http://www.example.com",
 		"websiteType": "Type"
 	},
@@ -299,51 +279,42 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 137,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 138,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 139,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 140,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 141,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"edition": "8",
 		"extra": "Extra",
 		"itemID": 41,
 		"itemType": "book",
-		"key": "W55EFEVZ",
+		"key": "QJFUMNT8",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -352,7 +323,7 @@ var data = {
 		"numberOfVolumes": "7",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -384,7 +355,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/W55EFEVZ",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/QJFUMNT8",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -397,58 +368,47 @@ var data = {
 		"attachments": [],
 		"bookTitle": "Publication title",
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 142,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 143,
 				"creatorType": "bookAuthor",
-				"fieldMode": "",
 				"firstName": "bookAuthorFirst",
 				"lastName": "bookAuthorLast"
 			},
 			{
-				"creatorID": 144,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 145,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 146,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 147,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"edition": "8",
 		"extra": "Extra",
 		"itemID": 42,
 		"itemType": "bookSection",
-		"key": "NPW68Q6G",
+		"key": "AKEMM8Q6",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -458,7 +418,7 @@ var data = {
 		"place": "Place",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -491,7 +451,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/NPW68Q6G",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/AKEMM8Q6",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -500,47 +460,42 @@ var data = {
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
 		"caseName": "Title",
+		"collections": [],
 		"court": "Court",
 		"creators": [
 			{
-				"creatorID": 148,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 149,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 150,
 				"creatorType": "counsel",
-				"fieldMode": "",
 				"firstName": "counselFirst",
 				"lastName": "counselLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
 		"dateDecided": "1999-12-31",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateModified": "2015-04-09 18:14:30",
 		"docketNumber": "3",
 		"extra": "Extra",
 		"firstPage": "1-10",
 		"history": "History",
 		"itemID": 43,
 		"itemType": "case",
-		"key": "VZ9X6J9J",
+		"key": "3BAD89QW",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
 		"number": "3",
 		"pages": "1-10",
-		"related": [],
+		"relations": {},
 		"reporter": "Reporter",
 		"reporterVolume": "6",
 		"rights": "Rights",
@@ -565,7 +520,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/VZ9X6J9J",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/3BAD89QW",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -577,37 +532,34 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"company": "Publisher",
 		"creators": [
 			{
-				"creatorID": 151,
 				"creatorType": "programmer",
-				"fieldMode": "",
 				"firstName": "programmerFirst",
 				"lastName": "programmerLast"
 			},
 			{
-				"creatorID": 152,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 44,
 		"itemType": "computerProgram",
-		"key": "TQ47HKEM",
+		"key": "86BNAUZP",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
 		"place": "Place",
 		"programmingLanguage": "Programming language",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"seriesTitle": "Series title",
@@ -636,7 +588,7 @@ var data = {
 			"url": "http://www.example.com",
 			"version": "Version"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/TQ47HKEM",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/86BNAUZP",
 		"url": "http://www.example.com",
 		"version": "Version"
 	},
@@ -649,51 +601,42 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"conferenceName": "Conference name",
 		"creators": [
 			{
-				"creatorID": 153,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 154,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 155,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 156,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 157,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 45,
 		"itemType": "conferencePaper",
-		"key": "3AXZ8SQR",
+		"key": "GHXWIP4K",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -703,7 +646,7 @@ var data = {
 		"proceedingsTitle": "Publication title",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -734,7 +677,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/3AXZ8SQR",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/GHXWIP4K",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -746,52 +689,43 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 158,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 159,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 160,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 161,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 162,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"dictionaryTitle": "Publication title",
 		"edition": "8",
 		"extra": "Extra",
 		"itemID": 46,
 		"itemType": "dictionaryEntry",
-		"key": "3EJV64RW",
+		"key": "4PGJ2N66",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -801,7 +735,7 @@ var data = {
 		"place": "Place",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -834,7 +768,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/3EJV64RW",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/4PGJ2N66",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -845,56 +779,47 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 163,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 164,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 165,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 166,
 				"creatorType": "reviewedAuthor",
-				"fieldMode": "",
 				"firstName": "reviewedAuthorFirst",
 				"lastName": "reviewedAuthorLast"
 			},
 			{
-				"creatorID": 167,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 47,
 		"itemType": "document",
-		"key": "IH9I2P5G",
+		"key": "MBGJ4795",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -916,47 +841,42 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/IH9I2P5G",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/MBGJ4795",
 		"url": "http://www.example.com"
 	},
 	"email": {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 168,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 169,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 170,
 				"creatorType": "recipient",
-				"fieldMode": "",
 				"firstName": "recipientFirst",
 				"lastName": "recipientLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 48,
 		"itemType": "email",
-		"key": "WNWVI8NE",
+		"key": "UQ2NJAHJ",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -974,7 +894,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/WNWVI8NE",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/UQ2NJAHJ",
 		"url": "http://www.example.com"
 	},
 	"encyclopediaArticle": {
@@ -985,52 +905,43 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 171,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 172,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 173,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 174,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 175,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"edition": "8",
 		"encyclopediaTitle": "Publication title",
 		"extra": "Extra",
 		"itemID": 49,
 		"itemType": "encyclopediaArticle",
-		"key": "N3M6M9V6",
+		"key": "4K3FR5P9",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1040,7 +951,7 @@ var data = {
 		"place": "Place",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -1073,7 +984,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/N3M6M9V6",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/4K3FR5P9",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1084,52 +995,45 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 176,
 				"creatorType": "director",
-				"fieldMode": "",
 				"firstName": "directorFirst",
 				"lastName": "directorLast"
 			},
 			{
-				"creatorID": 177,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 178,
 				"creatorType": "producer",
-				"fieldMode": "",
 				"firstName": "producerFirst",
 				"lastName": "producerLast"
 			},
 			{
-				"creatorID": 179,
 				"creatorType": "scriptwriter",
-				"fieldMode": "",
 				"firstName": "scriptwriterFirst",
 				"lastName": "scriptwriterLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"distributor": "Publisher",
 		"extra": "Extra",
 		"genre": "Type",
 		"itemID": 50,
 		"itemType": "film",
-		"key": "MPKBSN64",
+		"key": "QNBJM87P",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"medium": "Medium",
 		"notes": [],
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -1156,7 +1060,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/MPKBSN64",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/QNBJM87P",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium"
 	},
@@ -1164,36 +1068,33 @@ var data = {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 180,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 181,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"forumTitle": "Publication title",
 		"itemID": 51,
 		"itemType": "forumPost",
-		"key": "52ATWEUA",
+		"key": "42IASK5F",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
 		"postType": "Type",
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1213,32 +1114,31 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/52ATWEUA",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/42IASK5F",
 		"url": "http://www.example.com"
 	},
 	"hearing": {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"committee": "Committee",
 		"creators": [
 			{
-				"creatorID": 182,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"documentNumber": "3",
 		"extra": "Extra",
 		"history": "History",
 		"itemID": 52,
 		"itemType": "hearing",
-		"key": "6SPIDNPT",
+		"key": "H97UTSPC",
 		"language": "en-US",
 		"legislativeBody": "Legislative body",
 		"libraryID": null,
@@ -1248,7 +1148,7 @@ var data = {
 		"pages": "1-10",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"session": "Session",
@@ -1275,47 +1175,42 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/6SPIDNPT",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/H97UTSPC",
 		"url": "http://www.example.com"
 	},
 	"instantMessage": {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 183,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 184,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 185,
 				"creatorType": "recipient",
-				"fieldMode": "",
 				"firstName": "recipientFirst",
 				"lastName": "recipientLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 53,
 		"itemType": "instantMessage",
-		"key": "2QXZQEWN",
+		"key": "N4N67X8H",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1332,7 +1227,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/2QXZQEWN",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/N4N67X8H",
 		"url": "http://www.example.com"
 	},
 	"interview": {
@@ -1342,50 +1237,43 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 186,
 				"creatorType": "interviewee",
-				"fieldMode": "",
 				"firstName": "intervieweeFirst",
 				"lastName": "intervieweeLast"
 			},
 			{
-				"creatorID": 187,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 188,
 				"creatorType": "interviewer",
-				"fieldMode": "",
 				"firstName": "interviewerFirst",
 				"lastName": "interviewerLast"
 			},
 			{
-				"creatorID": 189,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"interviewMedium": "Medium",
 		"itemID": 54,
 		"itemType": "interview",
-		"key": "F62HJW74",
+		"key": "9DI6F8WQ",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"medium": "Medium",
 		"notes": [],
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1407,7 +1295,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/F62HJW74",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/9DI6F8WQ",
 		"url": "http://www.example.com"
 	},
 	"journalArticle": {
@@ -1419,59 +1307,50 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 190,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 191,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 192,
 				"creatorType": "editor",
-				"fieldMode": "",
 				"firstName": "editorFirst",
 				"lastName": "editorLast"
 			},
 			{
-				"creatorID": 193,
 				"creatorType": "reviewedAuthor",
-				"fieldMode": "",
 				"firstName": "reviewedAuthorFirst",
 				"lastName": "reviewedAuthorLast"
 			},
 			{
-				"creatorID": 194,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"issue": "5",
 		"itemID": 55,
 		"itemType": "journalArticle",
 		"journalAbbreviation": "Journal abbreviation",
-		"key": "VMJMEV87",
+		"key": "R727RM4X",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
 		"pages": "1-10",
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"series": "Series",
@@ -1505,7 +1384,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/VMJMEV87",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/R727RM4X",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1516,42 +1395,37 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 195,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 196,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 197,
 				"creatorType": "recipient",
-				"fieldMode": "",
 				"firstName": "recipientFirst",
 				"lastName": "recipientLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 56,
 		"itemType": "letter",
-		"key": "KBR2IHG6",
+		"key": "9SFV3ZUZ",
 		"language": "en-US",
 		"letterType": "Type",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1574,7 +1448,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/KBR2IHG6",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/9SFV3ZUZ",
 		"url": "http://www.example.com"
 	},
 	"magazineArticle": {
@@ -1585,51 +1459,44 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 198,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 199,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 200,
 				"creatorType": "reviewedAuthor",
-				"fieldMode": "",
 				"firstName": "reviewedAuthorFirst",
 				"lastName": "reviewedAuthorLast"
 			},
 			{
-				"creatorID": 201,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"issue": "5",
 		"itemID": 57,
 		"itemType": "magazineArticle",
-		"key": "VTFZ6SK7",
+		"key": "2SQJQ2JI",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
 		"pages": "1-10",
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1655,7 +1522,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/VTFZ6SK7",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/2SQJQ2JI",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1666,36 +1533,31 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 202,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 203,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 204,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 58,
 		"itemType": "manuscript",
-		"key": "CAQB8KVA",
+		"key": "JJUBD8EI",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1703,7 +1565,7 @@ var data = {
 		"notes": [],
 		"numPages": "4",
 		"place": "Place",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1728,7 +1590,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/CAQB8KVA",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/JJUBD8EI",
 		"url": "http://www.example.com"
 	},
 	"map": {
@@ -1739,37 +1601,32 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 205,
 				"creatorType": "cartographer",
-				"fieldMode": "",
 				"firstName": "cartographerFirst",
 				"lastName": "cartographerLast"
 			},
 			{
-				"creatorID": 206,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 207,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"edition": "8",
 		"extra": "Extra",
 		"itemID": 59,
 		"itemType": "map",
-		"key": "65984PBH",
+		"key": "F643EBH7",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1777,7 +1634,7 @@ var data = {
 		"notes": [],
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"scale": "Scale",
 		"seeAlso": [],
@@ -1808,7 +1665,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/65984PBH",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/F643EBH7",
 		"url": "http://www.example.com"
 	},
 	"newspaperArticle": {
@@ -1819,44 +1676,37 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 208,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 209,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 210,
 				"creatorType": "reviewedAuthor",
-				"fieldMode": "",
 				"firstName": "reviewedAuthorFirst",
 				"lastName": "reviewedAuthorLast"
 			},
 			{
-				"creatorID": 211,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"edition": "8",
 		"extra": "Extra",
 		"itemID": 60,
 		"itemType": "newspaperArticle",
-		"key": "IP7I63PF",
+		"key": "467A4H2K",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1864,7 +1714,7 @@ var data = {
 		"pages": "1-10",
 		"place": "Place",
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"section": "Section",
 		"seeAlso": [],
@@ -1892,7 +1742,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/IP7I63PF",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/467A4H2K",
 		"url": "http://www.example.com"
 	},
 	"patent": {
@@ -1901,40 +1751,35 @@ var data = {
 		"applicationNumber": "Application number",
 		"assignee": "Assignee",
 		"attachments": [],
+		"collections": [],
 		"country": "Country",
 		"creators": [
 			{
-				"creatorID": 212,
 				"creatorType": "inventor",
-				"fieldMode": "",
 				"firstName": "inventorFirst",
 				"lastName": "inventorLast"
 			},
 			{
-				"creatorID": 213,
 				"creatorType": "attorneyAgent",
-				"fieldMode": "",
 				"firstName": "attorneyAgentFirst",
 				"lastName": "attorneyAgentLast"
 			},
 			{
-				"creatorID": 214,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"filingDate": "2000-01-02 2000-01-02",
 		"issueDate": "1999-12-31",
 		"issuingAuthority": "Issuing authority",
 		"itemID": 61,
 		"itemType": "patent",
-		"key": "63XTHMPK",
+		"key": "9FZTREKP",
 		"language": "en-US",
 		"legalStatus": "Legal status",
 		"libraryID": null,
@@ -1945,7 +1790,7 @@ var data = {
 		"place": "Place",
 		"priorityNumbers": "Priority numbers",
 		"references": "References",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -1973,7 +1818,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/63XTHMPK",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/9FZTREKP",
 		"url": "http://www.example.com"
 	},
 	"podcast": {
@@ -1981,42 +1826,37 @@ var data = {
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
 		"audioFileType": "Medium",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 215,
 				"creatorType": "podcaster",
-				"fieldMode": "",
 				"firstName": "podcasterFirst",
 				"lastName": "podcasterLast"
 			},
 			{
-				"creatorID": 216,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 217,
 				"creatorType": "guest",
-				"fieldMode": "",
 				"firstName": "guestFirst",
 				"lastName": "guestLast"
 			}
 		],
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"episodeNumber": "3",
 		"extra": "Extra",
 		"itemID": 62,
 		"itemType": "podcast",
-		"key": "EWBBVJDX",
+		"key": "9HE3992K",
 		"language": "en-US",
 		"libraryID": null,
 		"medium": "Medium",
 		"notes": [],
 		"number": "3",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -2038,43 +1878,40 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/EWBBVJDX",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/9HE3992K",
 		"url": "http://www.example.com"
 	},
 	"presentation": {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 218,
 				"creatorType": "presenter",
-				"fieldMode": "",
 				"firstName": "presenterFirst",
 				"lastName": "presenterLast"
 			},
 			{
-				"creatorID": 219,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 63,
 		"itemType": "presentation",
-		"key": "WXATRJE7",
+		"key": "IEVUE8HH",
 		"language": "en-US",
 		"libraryID": null,
 		"meetingName": "Meeting name",
 		"notes": [],
 		"place": "Place",
 		"presentationType": "Type",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -2095,7 +1932,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/WXATRJE7",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/IEVUE8HH",
 		"url": "http://www.example.com"
 	},
 	"radioBroadcast": {
@@ -2106,58 +1943,47 @@ var data = {
 		"attachments": [],
 		"audioRecordingFormat": "Medium",
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 220,
 				"creatorType": "director",
-				"fieldMode": "",
 				"firstName": "directorFirst",
 				"lastName": "directorLast"
 			},
 			{
-				"creatorID": 221,
 				"creatorType": "castMember",
-				"fieldMode": "",
 				"firstName": "castMemberFirst",
 				"lastName": "castMemberLast"
 			},
 			{
-				"creatorID": 222,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 223,
 				"creatorType": "guest",
-				"fieldMode": "",
 				"firstName": "guestFirst",
 				"lastName": "guestLast"
 			},
 			{
-				"creatorID": 224,
 				"creatorType": "producer",
-				"fieldMode": "",
 				"firstName": "producerFirst",
 				"lastName": "producerLast"
 			},
 			{
-				"creatorID": 225,
 				"creatorType": "scriptwriter",
-				"fieldMode": "",
 				"firstName": "scriptwriterFirst",
 				"lastName": "scriptwriterLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"episodeNumber": "3",
 		"extra": "Extra",
 		"itemID": 64,
 		"itemType": "radioBroadcast",
-		"key": "FQFBG3FG",
+		"key": "HW6IVXMM",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2169,7 +1995,7 @@ var data = {
 		"programTitle": "Publication title",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -2197,7 +2023,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/FQFBG3FG",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/HW6IVXMM",
 		"url": "http://www.example.com"
 	},
 	"report": {
@@ -2207,44 +2033,37 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 226,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 227,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 228,
 				"creatorType": "seriesEditor",
-				"fieldMode": "",
 				"firstName": "seriesEditorFirst",
 				"lastName": "seriesEditorLast"
 			},
 			{
-				"creatorID": 229,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"institution": "Publisher",
 		"itemID": 65,
 		"itemType": "report",
-		"key": "GAEWABF2",
+		"key": "JTAXRIUA",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2253,7 +2072,7 @@ var data = {
 		"pages": "1-10",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"reportNumber": "3",
 		"reportType": "Type",
 		"rights": "Rights",
@@ -2284,7 +2103,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/GAEWABF2",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/JTAXRIUA",
 		"url": "http://www.example.com"
 	},
 	"statute": {
@@ -2293,31 +2112,28 @@ var data = {
 		"attachments": [],
 		"code": "Code",
 		"codeNumber": "Code number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 230,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 231,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
 		"dateEnacted": "1999-12-31",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"history": "History",
 		"itemID": 66,
 		"itemType": "statute",
-		"key": "2RWIWARK",
+		"key": "HIVPWUI4",
 		"language": "en-US",
 		"libraryID": null,
 		"nameOfAct": "Title",
@@ -2325,7 +2141,7 @@ var data = {
 		"number": "3",
 		"pages": "1-10",
 		"publicLawNumber": "3",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"section": "Section",
 		"seeAlso": [],
@@ -2351,7 +2167,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/2RWIWARK",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/HIVPWUI4",
 		"url": "http://www.example.com"
 	},
 	"thesis": {
@@ -2361,29 +2177,26 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 232,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 233,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 67,
 		"itemType": "thesis",
-		"key": "4WQ2KVB5",
+		"key": "B5KZIVWC",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2391,7 +2204,7 @@ var data = {
 		"numPages": "4",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -2419,7 +2232,7 @@ var data = {
 			"url": "http://www.example.com"
 		},
 		"university": "Publisher",
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/4WQ2KVB5",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/B5KZIVWC",
 		"url": "http://www.example.com"
 	},
 	"tvBroadcast": {
@@ -2429,58 +2242,47 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 234,
 				"creatorType": "director",
-				"fieldMode": "",
 				"firstName": "directorFirst",
 				"lastName": "directorLast"
 			},
 			{
-				"creatorID": 235,
 				"creatorType": "castMember",
-				"fieldMode": "",
 				"firstName": "castMemberFirst",
 				"lastName": "castMemberLast"
 			},
 			{
-				"creatorID": 236,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 237,
 				"creatorType": "guest",
-				"fieldMode": "",
 				"firstName": "guestFirst",
 				"lastName": "guestLast"
 			},
 			{
-				"creatorID": 238,
 				"creatorType": "producer",
-				"fieldMode": "",
 				"firstName": "producerFirst",
 				"lastName": "producerLast"
 			},
 			{
-				"creatorID": 239,
 				"creatorType": "scriptwriter",
-				"fieldMode": "",
 				"firstName": "scriptwriterFirst",
 				"lastName": "scriptwriterLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"episodeNumber": "3",
 		"extra": "Extra",
 		"itemID": 68,
 		"itemType": "tvBroadcast",
-		"key": "JUNFP34P",
+		"key": "MASFPQSP",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2492,7 +2294,7 @@ var data = {
 		"programTitle": "Publication title",
 		"publicationTitle": "Publication title",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -2520,7 +2322,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/JUNFP34P",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/MASFPQSP",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium"
 	},
@@ -2532,50 +2334,41 @@ var data = {
 		"archiveLocation": "Archive location",
 		"attachments": [],
 		"callNumber": "Call number",
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 240,
 				"creatorType": "director",
-				"fieldMode": "",
 				"firstName": "directorFirst",
 				"lastName": "directorLast"
 			},
 			{
-				"creatorID": 241,
 				"creatorType": "castMember",
-				"fieldMode": "",
 				"firstName": "castMemberFirst",
 				"lastName": "castMemberLast"
 			},
 			{
-				"creatorID": 242,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 243,
 				"creatorType": "producer",
-				"fieldMode": "",
 				"firstName": "producerFirst",
 				"lastName": "producerLast"
 			},
 			{
-				"creatorID": 244,
 				"creatorType": "scriptwriter",
-				"fieldMode": "",
 				"firstName": "scriptwriterFirst",
 				"lastName": "scriptwriterLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 69,
 		"itemType": "videoRecording",
-		"key": "FT8P4PUW",
+		"key": "I4R2FSFZ",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2584,7 +2377,7 @@ var data = {
 		"numberOfVolumes": "7",
 		"place": "Place",
 		"publisher": "Publisher",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"runningTime": "1:22:33",
 		"seeAlso": [],
@@ -2616,7 +2409,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/FT8P4PUW",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/I4R2FSFZ",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium",
 		"volume": "6"
@@ -2625,41 +2418,36 @@ var data = {
 		"abstractNote": "Abstract note",
 		"accessDate": "1997-06-13 23:59:58",
 		"attachments": [],
+		"collections": [],
 		"creators": [
 			{
-				"creatorID": 245,
 				"creatorType": "author",
-				"fieldMode": "",
 				"firstName": "authorFirst",
 				"lastName": "authorLast"
 			},
 			{
-				"creatorID": 246,
 				"creatorType": "contributor",
-				"fieldMode": "",
 				"firstName": "contributorFirst",
 				"lastName": "contributorLast"
 			},
 			{
-				"creatorID": 247,
 				"creatorType": "translator",
-				"fieldMode": "",
 				"firstName": "translatorFirst",
 				"lastName": "translatorLast"
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-09 17:52:47",
-		"dateModified": "2015-04-09 17:52:47",
+		"dateAdded": "2015-04-09 18:14:30",
+		"dateModified": "2015-04-09 18:14:30",
 		"extra": "Extra",
 		"itemID": 70,
 		"itemType": "webpage",
-		"key": "A3FC4X6Z",
+		"key": "JN2KQ6XH",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
 		"publicationTitle": "Publication title",
-		"related": [],
+		"relations": {},
 		"rights": "Rights",
 		"seeAlso": [],
 		"shortTitle": "Short title",
@@ -2679,7 +2467,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/7Osj9Cu6/items/A3FC4X6Z",
+		"uri": "http://zotero.org/users/local/CizilMx9/items/JN2KQ6XH",
 		"url": "http://www.example.com",
 		"websiteTitle": "Publication title",
 		"websiteType": "Type"
