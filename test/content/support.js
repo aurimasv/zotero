@@ -216,7 +216,7 @@ function generateAllTypesAndFieldsData() {
 				value;
 			
 			// Use field name as field value
-			if (specialValue[name]) {
+			if (specialValues[name]) {
 				value = specialValues[name];
 			} else {
 				value = name.charAt(0).toUpperCase() + name.substr(1);
