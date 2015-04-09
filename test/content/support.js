@@ -335,3 +335,19 @@ function generateCiteProcJSExportData() {
 	
 	return cslExportData;
 }
+
+function generateTranslatorExportData(legacy) {
+	let items = populateDBWithSampleData(loadSampleData('allTypesAndFields')),
+		translatorExportData = {};
+	
+	let itemGetter = new Zotero.Translate.ItemGetter();
+	itemGetter.legacy = !!legacy;
+	
+	for (let itemName in items) {
+		let zItem = Zotero.Items.get(items[itemName].id);
+		itemGetter._itemsLeft = [zItem];
+		translatorExportData[itemName] = itemGetter.nextItem();
+	}
+	
+	return translatorExportData;
+}

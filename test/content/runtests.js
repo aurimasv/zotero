@@ -25,7 +25,7 @@ if (ZoteroUnit.makeTestData) {
 	
 	Zotero.Prefs.set("export.citePaperJournalArticleURL", true);
 	
-	let dataFiles = ['allTypesAndFields', 'citeProcJSExport'];
+	let dataFiles = ['allTypesAndFields', 'citeProcJSExport', 'translatorExport'];
 	let p = Q.resolve();
 	for (let i=0; i<dataFiles.length; i++) {
 		let first = !i;
