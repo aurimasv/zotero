@@ -126,7 +126,7 @@ describe("Support Functions for Unit Testing", function() {
 			assert.isAbove(Object.keys(newData).length, 0, 'translator export object is not empty');
 			
 			// Ignore data that is not stable, but make sure it is set
-			let ignoreFields = ['itemID', 'key', 'dateAdded', 'dateModified', 'uri'];
+			let ignoreFields = ['itemID', 'dateAdded', 'dateModified', 'uri'];
 			for (let itemName in oldData) {
 				for (let i=0; i<ignoreFields.length; i++) {
 					let field = ignoreFields[i]
@@ -149,7 +149,7 @@ describe("Support Functions for Unit Testing", function() {
 			assert.isAbove(Object.keys(newData).length, 0, 'translator export object is not empty');
 			
 			// Ignore data that is not stable, but make sure it is set
-			let ignoreFields = ['itemID', 'key', 'dateAdded', 'dateModified'];
+			let ignoreFields = ['dateAdded', 'dateModified', 'uri'];
 			for (let itemName in oldData) {
 				for (let i=0; i<ignoreFields.length; i++) {
 					let field = ignoreFields[i]
