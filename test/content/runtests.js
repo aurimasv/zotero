@@ -31,6 +31,10 @@ if (ZoteroUnit.makeTestData) {
 			func: generateAllTypesAndFieldsData
 		},
 		{
+			name: 'itemJSON',
+			func: generateItemJSONData
+		},
+		{
 			name: 'citeProcJSExport',
 			func: generateCiteProcJSExportData
 		},

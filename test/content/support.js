@@ -343,6 +343,18 @@ function populateDBWithSampleData(data) {
 	return data;
 }
 
+function generateItemJSONData(options) {
+	let items = populateDBWithSampleData(loadSampleData('allTypesAndFields')),
+		jsonData = {};
+	
+	for (let itemName in items) {
+		let zItem = Zotero.Items.get(items[itemName].id);
+		jsonData[itemName] = zItem.toJSON(options);
+	}
+	
+	return jsonData;
+}
+
 function generateCiteProcJSExportData() {
 	let items = populateDBWithSampleData(loadSampleData('allTypesAndFields')),
 		cslExportData = {};

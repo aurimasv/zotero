@@ -88,6 +88,31 @@ describe("Support Functions for Unit Testing", function() {
 			assert.deepEqual(loadSampleData('allTypesAndFields'), generateAllTypesAndFieldsData());
 		});
 	});
+	describe("generateItemJSONData", function() {
+		it("item JSON data should be up to date", function() {
+			let oldData = loadSampleData('itemJSON'),
+				newData = generateItemJSONData();
+			
+			assert.isObject(newData, 'created data object');
+			assert.isNotNull(newData);
+			assert.isAbove(Object.keys(newData).length, 0, 'data object is not empty');
+			
+			// Ignore data that is not stable, but make sure it is set
+			let ignoreFields = ['dateAdded', 'dateModified', 'key'];
+			for (let itemName in oldData) {
+				for (let i=0; i<ignoreFields.length; i++) {
+					let field = ignoreFields[i]
+					if (oldData[itemName][field] !== undefined) {
+						assert.isDefined(newData[itemName][field], field + ' is set');
+						delete oldData[itemName][field];
+						delete newData[itemName][field];
+					}
+				}
+			}
+			
+			assert.deepEqual(oldData, newData);
+		});
+	});
 	describe("generateCiteProcJSExportData", function() {
 		let citeURL = Zotero.Prefs.get("export.citePaperJournalArticleURL");
 		before(function () {
