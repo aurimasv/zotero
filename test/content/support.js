@@ -242,7 +242,7 @@ function generateAllTypesAndFieldsData() {
 			itemType: itemTypes[i].name
 		};
 		
-		let fields = Zotero.ItemFields.getItemTypeFields(itemTypes[i].id).sort();
+		let fields = Zotero.ItemFields.getItemTypeFields(itemTypes[i].id);
 		for (let j = 0; j < fields.length; j++) {
 			let field = fields[j];
 			field = Zotero.ItemFields.getBaseIDFromTypeAndField(itemTypes[i].id, field) || field;
