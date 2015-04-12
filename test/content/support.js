@@ -314,6 +314,11 @@ function populateDBWithSampleData(data) {
 				continue;
 			}
 			
+			if (itemField == 'tags') {
+				// Must save item first
+				continue;
+			}
+			
 			zItem.setField(itemField, item[itemField]);
 		}
 		item.id = zItem.save();
@@ -321,6 +326,20 @@ function populateDBWithSampleData(data) {
 	
 	Zotero.DB.commitTransaction();
 	
+	// Tags can only be added to saved items, so we do it now for all items
+	Zotero.DB.beginTransaction();
+	
+	for (let itemName in data) {
+		let item = data[itemName];
+		if (item.tags && item.tags.length) {
+			let zItem = Zotero.Items.get(item.id);
+			for (let i=0; i<item.tags.length; i++) {
+				zItem.addTag(item.tags[i].tag, item.tags[i].type);
+			}
+		}
+	}
+	
+	Zotero.DB.commitTransaction();
 	return data;
 }
 

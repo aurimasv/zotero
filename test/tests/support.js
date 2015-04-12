@@ -55,6 +55,27 @@ describe("Support Functions for Unit Testing", function() {
 				}
 			}
 		});
+		it("should populate items with tags", function() {
+			let data = populateDBWithSampleData({
+				itemWithTags: {
+					itemType: "journalArticle",
+					tags: [
+						{ tag: "automatic tag", type: 0 },
+						{ tag: "manual tag", type: 1}
+					]
+				}
+			});
+			
+			let zItem = Zotero.Items.get(data.itemWithTags.id);
+			assert.ok(zItem, 'inserted item with tags into database');
+			
+			let tags = data.itemWithTags.tags;
+			for (let i=0; i<tags.length; i++) {
+				let tagID = Zotero.Tags.getID(tags[i].tag, tags[i].type);
+				assert.ok(tagID, '"' + tags[i].tag + '" tag was inserted into the database');
+				assert.ok(zItem.hasTag(tagID), '"' + tags[i].tag + '" tag was assigned to item');
+			}
+		});
 	});
 	describe("generateAllTypesAndFieldsData", function() {
 		it("should generate all types and fields data", function() {
