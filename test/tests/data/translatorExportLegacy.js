@@ -22,11 +22,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 37,
+		"itemID": 71,
 		"itemType": "artwork",
+		"key": "URG4NG9K",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -55,7 +56,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/WJ9SAH9T",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/URG4NG9K",
 		"url": "http://www.example.com"
 	},
 	"audioRecording": {
@@ -91,11 +92,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 38,
+		"itemID": 72,
 		"itemType": "audioRecording",
+		"key": "K3JPBCZP",
 		"label": "Publisher",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
@@ -136,7 +138,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/78ZFGGIS",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/K3JPBCZP",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -167,12 +169,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"history": "History",
-		"itemID": 39,
+		"itemID": 73,
 		"itemType": "bill",
+		"key": "XHEAETDQ",
 		"language": "en-US",
 		"legislativeBody": "Legislative body",
 		"libraryID": null,
@@ -206,7 +209,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/7VJTR55D",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/XHEAETDQ",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -234,11 +237,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 40,
+		"itemID": 74,
 		"itemType": "blogPost",
+		"key": "P5CEI9PJ",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -263,7 +267,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/NGMWUJKC",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/P5CEI9PJ",
 		"url": "http://www.example.com",
 		"websiteType": "Type"
 	},
@@ -304,12 +308,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"edition": "8",
 		"extra": "Extra",
-		"itemID": 41,
+		"itemID": 75,
 		"itemType": "book",
+		"key": "SQW3USEX",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -350,7 +355,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/MIWE4E5T",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/SQW3USEX",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -397,12 +402,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"edition": "8",
 		"extra": "Extra",
-		"itemID": 42,
+		"itemID": 76,
 		"itemType": "bookSection",
+		"key": "I3R2EZA4",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -445,7 +451,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/T67ABA4P",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/I3R2EZA4",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -474,15 +480,16 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
 		"dateDecided": "1999-12-31",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateModified": "2015-04-26 06:40:48",
 		"docketNumber": "3",
 		"extra": "Extra",
 		"firstPage": "1-10",
 		"history": "History",
-		"itemID": 43,
+		"itemID": 77,
 		"itemType": "case",
+		"key": "27FBK7IW",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -513,7 +520,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/2H83GM6Z",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/27FBK7IW",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -540,11 +547,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 44,
+		"itemID": 78,
 		"itemType": "computerProgram",
+		"key": "ZVFQ59AJ",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
 		"notes": [],
@@ -580,7 +588,7 @@ var data = {
 			"url": "http://www.example.com",
 			"version": "Version"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/CF8HHG9S",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/ZVFQ59AJ",
 		"url": "http://www.example.com",
 		"version": "Version"
 	},
@@ -623,11 +631,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 45,
+		"itemID": 79,
 		"itemType": "conferencePaper",
+		"key": "4X4JGKAA",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -668,7 +677,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/KJDF8E6J",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/4X4JGKAA",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -709,13 +718,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"dictionaryTitle": "Publication title",
 		"edition": "8",
 		"extra": "Extra",
-		"itemID": 46,
+		"itemID": 80,
 		"itemType": "dictionaryEntry",
+		"key": "8MFTU597",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -758,7 +768,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/I48C4RNB",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/8MFTU597",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -798,11 +808,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 47,
+		"itemID": 81,
 		"itemType": "document",
+		"key": "TRVQD4MU",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -830,7 +841,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/M7US5HDB",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/TRVQD4MU",
 		"url": "http://www.example.com"
 	},
 	"email": {
@@ -856,11 +867,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 48,
+		"itemID": 82,
 		"itemType": "email",
+		"key": "B972FZG7",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -882,7 +894,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/QVI72T6Z",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/B972FZG7",
 		"url": "http://www.example.com"
 	},
 	"encyclopediaArticle": {
@@ -922,13 +934,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"edition": "8",
 		"encyclopediaTitle": "Publication title",
 		"extra": "Extra",
-		"itemID": 49,
+		"itemID": 83,
 		"itemType": "encyclopediaArticle",
+		"key": "QS8M3X6Q",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -971,7 +984,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/FMH9ZIT5",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/QS8M3X6Q",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1006,13 +1019,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"distributor": "Publisher",
 		"extra": "Extra",
 		"genre": "Type",
-		"itemID": 50,
+		"itemID": 84,
 		"itemType": "film",
+		"key": "CJAAM7US",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1046,7 +1060,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/VQERNDK3",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/CJAAM7US",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium"
 	},
@@ -1068,12 +1082,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"forumTitle": "Publication title",
-		"itemID": 51,
+		"itemID": 85,
 		"itemType": "forumPost",
+		"key": "4HQTXH7A",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -1099,7 +1114,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/4NSDVDDR",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/4HQTXH7A",
 		"url": "http://www.example.com"
 	},
 	"hearing": {
@@ -1116,13 +1131,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"documentNumber": "3",
 		"extra": "Extra",
 		"history": "History",
-		"itemID": 52,
+		"itemID": 86,
 		"itemType": "hearing",
+		"key": "ZFDSUNIK",
 		"language": "en-US",
 		"legislativeBody": "Legislative body",
 		"libraryID": null,
@@ -1159,7 +1175,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/A8CQRDBS",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/ZFDSUNIK",
 		"url": "http://www.example.com"
 	},
 	"instantMessage": {
@@ -1185,11 +1201,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 53,
+		"itemID": 87,
 		"itemType": "instantMessage",
+		"key": "XJ3877Z8",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -1210,7 +1227,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/99MPKZMW",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/XJ3877Z8",
 		"url": "http://www.example.com"
 	},
 	"interview": {
@@ -1244,12 +1261,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"interviewMedium": "Medium",
-		"itemID": 54,
+		"itemID": 88,
 		"itemType": "interview",
+		"key": "KW98WHF4",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1277,7 +1295,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/6K34U3NP",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/KW98WHF4",
 		"url": "http://www.example.com"
 	},
 	"journalArticle": {
@@ -1318,13 +1336,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"issue": "5",
-		"itemID": 55,
+		"itemID": 89,
 		"itemType": "journalArticle",
 		"journalAbbreviation": "Journal abbreviation",
+		"key": "B4GITB3Z",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1365,7 +1384,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/TZTZQ2ZR",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/B4GITB3Z",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1395,11 +1414,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 56,
+		"itemID": 90,
 		"itemType": "letter",
+		"key": "262GGUWT",
 		"language": "en-US",
 		"letterType": "Type",
 		"libraryCatalog": "Library catalog",
@@ -1428,7 +1448,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/BX6E8FQB",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/262GGUWT",
 		"url": "http://www.example.com"
 	},
 	"magazineArticle": {
@@ -1463,12 +1483,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"issue": "5",
-		"itemID": 57,
+		"itemID": 91,
 		"itemType": "magazineArticle",
+		"key": "S8SKUS3I",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1501,7 +1522,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/QANV7K7P",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/S8SKUS3I",
 		"url": "http://www.example.com",
 		"volume": "6"
 	},
@@ -1531,11 +1552,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 58,
+		"itemID": 92,
 		"itemType": "manuscript",
+		"key": "BZPATRCB",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1568,7 +1590,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/VZUFH62A",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/BZPATRCB",
 		"url": "http://www.example.com"
 	},
 	"map": {
@@ -1598,12 +1620,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"edition": "8",
 		"extra": "Extra",
-		"itemID": 59,
+		"itemID": 93,
 		"itemType": "map",
+		"key": "WGRTVIWS",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1642,7 +1665,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/X4EM3XZ4",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/WGRTVIWS",
 		"url": "http://www.example.com"
 	},
 	"newspaperArticle": {
@@ -1677,12 +1700,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"edition": "8",
 		"extra": "Extra",
-		"itemID": 60,
+		"itemID": 94,
 		"itemType": "newspaperArticle",
+		"key": "4PHE8AXE",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1718,7 +1742,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/IKR7C2C8",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/4PHE8AXE",
 		"url": "http://www.example.com"
 	},
 	"patent": {
@@ -1747,14 +1771,15 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"filingDate": "2000-01-02 2000-01-02",
 		"issueDate": "1999-12-31",
 		"issuingAuthority": "Issuing authority",
-		"itemID": 61,
+		"itemID": 95,
 		"itemType": "patent",
+		"key": "URAE2N3M",
 		"language": "en-US",
 		"legalStatus": "Legal status",
 		"libraryID": null,
@@ -1793,7 +1818,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/BX3N464P",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/URAE2N3M",
 		"url": "http://www.example.com"
 	},
 	"podcast": {
@@ -1819,12 +1844,13 @@ var data = {
 				"lastName": "guestLast"
 			}
 		],
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"episodeNumber": "3",
 		"extra": "Extra",
-		"itemID": 62,
+		"itemID": 96,
 		"itemType": "podcast",
+		"key": "CDUFPIKZ",
 		"language": "en-US",
 		"libraryID": null,
 		"medium": "Medium",
@@ -1852,7 +1878,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/K6NEZDXM",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/CDUFPIKZ",
 		"url": "http://www.example.com"
 	},
 	"presentation": {
@@ -1873,11 +1899,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 63,
+		"itemID": 97,
 		"itemType": "presentation",
+		"key": "HQ38BFRE",
 		"language": "en-US",
 		"libraryID": null,
 		"meetingName": "Meeting name",
@@ -1905,7 +1932,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/Z7KSWHDR",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/HQ38BFRE",
 		"url": "http://www.example.com"
 	},
 	"radioBroadcast": {
@@ -1950,12 +1977,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"episodeNumber": "3",
 		"extra": "Extra",
-		"itemID": 64,
+		"itemID": 98,
 		"itemType": "radioBroadcast",
+		"key": "IANDVIRR",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -1995,7 +2023,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/ATI5DNUR",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/IANDVIRR",
 		"url": "http://www.example.com"
 	},
 	"report": {
@@ -2029,12 +2057,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"institution": "Publisher",
-		"itemID": 65,
+		"itemID": 99,
 		"itemType": "report",
+		"key": "2MBIEXX8",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2074,7 +2103,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/C2BM385J",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/2MBIEXX8",
 		"url": "http://www.example.com"
 	},
 	"statute": {
@@ -2097,13 +2126,14 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
 		"dateEnacted": "1999-12-31",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
 		"history": "History",
-		"itemID": 66,
+		"itemID": 100,
 		"itemType": "statute",
+		"key": "ZZWC5DCZ",
 		"language": "en-US",
 		"libraryID": null,
 		"nameOfAct": "Title",
@@ -2137,7 +2167,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/AKJTUQNE",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/ZZWC5DCZ",
 		"url": "http://www.example.com"
 	},
 	"thesis": {
@@ -2161,11 +2191,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 67,
+		"itemID": 101,
 		"itemType": "thesis",
+		"key": "IZIFIQ9N",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2201,7 +2232,7 @@ var data = {
 			"url": "http://www.example.com"
 		},
 		"university": "Publisher",
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/IC75AHNP",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/IZIFIQ9N",
 		"url": "http://www.example.com"
 	},
 	"tvBroadcast": {
@@ -2245,12 +2276,13 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"episodeNumber": "3",
 		"extra": "Extra",
-		"itemID": 68,
+		"itemID": 102,
 		"itemType": "tvBroadcast",
+		"key": "K88A7XD3",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2290,7 +2322,7 @@ var data = {
 			"title": "Title",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/3REHDSVF",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/K88A7XD3",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium"
 	},
@@ -2331,11 +2363,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 69,
+		"itemID": 103,
 		"itemType": "videoRecording",
+		"key": "6VRTBPRB",
 		"language": "en-US",
 		"libraryCatalog": "Library catalog",
 		"libraryID": null,
@@ -2376,7 +2409,7 @@ var data = {
 			"url": "http://www.example.com",
 			"volume": "6"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/2UZZ6EWB",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/6VRTBPRB",
 		"url": "http://www.example.com",
 		"videoRecordingFormat": "Medium",
 		"volume": "6"
@@ -2404,11 +2437,12 @@ var data = {
 			}
 		],
 		"date": "1999-12-31",
-		"dateAdded": "2015-04-12 05:45:14",
-		"dateModified": "2015-04-12 05:45:14",
+		"dateAdded": "2015-04-26 06:40:48",
+		"dateModified": "2015-04-26 06:40:48",
 		"extra": "Extra",
-		"itemID": 70,
+		"itemID": 104,
 		"itemType": "webpage",
+		"key": "CTAR75NZ",
 		"language": "en-US",
 		"libraryID": null,
 		"notes": [],
@@ -2433,7 +2467,7 @@ var data = {
 			"type": "Type",
 			"url": "http://www.example.com"
 		},
-		"uri": "http://zotero.org/users/local/riiZoBgm/items/UIBUNWXH",
+		"uri": "http://zotero.org/users/local/GtG6GoZj/items/CTAR75NZ",
 		"url": "http://www.example.com",
 		"websiteTitle": "Publication title",
 		"websiteType": "Type"
