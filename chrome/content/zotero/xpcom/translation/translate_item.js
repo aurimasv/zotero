@@ -841,7 +841,7 @@ Zotero.Translate.ItemGetter.prototype = {
 				// Add path and filename if not an internet link
 				var attachFile = attachment.getFile();
 				if(attachFile) {
-					attachmentArray.defaultPath = "files/" + attachmentArray.itemID + "/" + attachFile.leafName;
+					attachmentArray.defaultPath = "files/" + attachment.id + "/" + attachFile.leafName;
 					attachmentArray.filename = attachFile.leafName;
 					
 					/**
