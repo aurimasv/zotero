@@ -408,6 +408,7 @@ Zotero.Utilities.Internal = {
 			
 			// Meaningless local item ID, but some older export translators depend on it
 			item.itemID = zoteroItem.id;
+			item.key = zoteroItem.key; // CSV translator exports this
 			
 			// "version" is expected to be a field for "computerProgram", which is now
 			// called "versionNumber"
@@ -481,6 +482,7 @@ Zotero.Utilities.Internal = {
 			// Fix linkMode
 			if (zoteroItem.isAttachment()) {
 				item.linkMode = zoteroItem.attachmentLinkMode;
+				item.mimeType = item.contentType;
 			}
 			
 			return item;
