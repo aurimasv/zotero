@@ -1,3 +1,5 @@
+Components.utils.import("resource://zotero/q.js");
+
 /**
  * Waits for a DOM event on the specified node. Returns a promise
  * resolved with the event.
@@ -155,6 +157,27 @@ function getTestDataDirectory() {
 	return Services.io.newURI(resource.resolveURI(resURI), null, null).
 	       QueryInterface(Components.interfaces.nsIFileURL).file;
 }
+
+/**
+ * Returns an absolute path to an empty temporary directory
+ * (i.e., test/tests/data)
+ */
+var getTempDirectory = Q.async(function getTempDirectory() {
+	Components.utils.import("resource://gre/modules/osfile.jsm");
+	let path;
+	let attempts = 5;
+	while (attempts--) {
+		path = OS.Path.join(OS.Constants.Path.tmpDir, Zotero.Utilities.randomString());
+		try {
+			yield OS.File.makeDir(path, { ignoreExisting: false });
+			break;
+		} catch (e) {
+			if (!attempts) throw e; // Throw on last attempt
+		}
+	}
+	
+	Q.return(path);
+});
 
 /**
  * Resets the Zotero DB and restarts Zotero. Returns a promise resolved
