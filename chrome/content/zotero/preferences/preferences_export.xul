@@ -52,7 +52,7 @@
 			
 			<hbox align="center">
 				<label id="zotero-quickCopy-locale-menu-label" value="&zotero.preferences.quickCopy.locale;" control="zotero-quickCopy-locale-menu"/>
-				<menulist id="zotero-quickCopy-locale-menu"/>
+				<menulist id="zotero-quickCopy-locale-menu" oncommand="Zotero_Preferences.Export._lastSelectedLocale = this.value"/>
 				
 				<separator orient="vertical" width="15px"/>
 				

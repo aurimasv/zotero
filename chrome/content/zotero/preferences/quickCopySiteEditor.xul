@@ -48,11 +48,9 @@
 				io.domain = document.getElementById('zotero-quickCopy-domain').value;
 				io.format = document.getElementById('zotero-quickCopy-menu').value;
 				
-				var menulist = document.getElementById('zotero-quickCopy-locale-menu');
-				if (menulist.disabled === false) {
-					io.locale = menulist.value;
-				} else {
-					io.locale = "";
+				io.locale = '';
+				if (!document.getElementById('zotero-quickCopy-locale-menu').disabled) {
+					io.locale = document.getElementById('zotero-quickCopy-locale-menu').value;
 				}
 				
 				io.ok = true;
@@ -74,7 +72,7 @@
 		
 		<label id="zotero-quickCopy-locale-menu-label" value="&zotero.preferences.quickCopy.locale;" control="zotero-quickCopy-locale-menu"/>
 		<hbox align="center">
-			<menulist id="zotero-quickCopy-locale-menu"/>
+			<menulist id="zotero-quickCopy-locale-menu" oncommand="Zotero_Preferences.Export._lastSelectedLocale = this.value"/>
 		</hbox>
 		
 		<separator class="thin"/>
@@ -100,6 +98,7 @@
 			io.locale
 		);
 		document.getElementById('zotero-quickCopy-copyAsHTML').checked = io.asHTML;
+		Zotero_Preferences.Export._lastSelectedLocale = io.locale;
 		Zotero_Preferences.Export.updateQuickCopyUI();
 	]]>
 	</script>

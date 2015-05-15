@@ -34,8 +34,7 @@
 
 var Zotero_File_Interface_Bibliography = new function() {
 	var _io, _saveStyle;
-	var selectedLocale = "";
-	var defaultStyleLocale = "";
+	var lastSelectedLocale;
 	
 	/*
 	 * Initialize some variables and prepare event listeners for when chrome is done
@@ -90,7 +89,7 @@ var Zotero_File_Interface_Bibliography = new function() {
 			_io.locale = Zotero.Prefs.get("export.lastLocale");
 		}
 		var menulist = document.getElementById("locale-menu");
-		selectedLocale = Zotero.Styles.populateLocaleList(menulist, _io.locale);
+		lastSelectedLocale = Zotero.Styles.populateLocaleList(menulist, _io.locale);
 		
 		// Has to be async to work properly
 		window.setTimeout(function () {
@@ -161,7 +160,7 @@ var Zotero_File_Interface_Bibliography = new function() {
 	 * Called when locale is changed
 	 */
 	this.localeChanged = function (selectedValue) {
-		selectedLocale = selectedValue;
+		lastSelectedLocale = selectedValue;
 	};
 
 	/*
@@ -222,36 +221,19 @@ var Zotero_File_Interface_Bibliography = new function() {
 		// For styles with a default-locale, disable locale menulist and show locale
 		var menulist = document.getElementById("locale-menu");
 		
-		// If not null, then menulist is extended with the default-locale value
-		// of the previously selected style
-		if (defaultStyleLocale) {
-			// Reset menulist
-			menulist.removeItemAt(0);
-			defaultStyleLocale = "";
-		}
-		
 		if (selectedStyle.locale) {
-			defaultStyleLocale = selectedStyle.locale;
-			
-			//add default-locale to menulist
-			let localeLabel = defaultStyleLocale;
-			if (Zotero.Styles.locales[defaultStyleLocale] !== undefined) {
-				localeLabel = Zotero.Styles.locales[defaultStyleLocale];
-			}
-			
-			menulist.insertItemAt(0, localeLabel, defaultStyleLocale);
-			menulist.selectedIndex = 0;
+			menulist.value = selectedStyle.locale;
 			menulist.disabled = true;
 		} else {
-			menulist.value = selectedLocale;
+			menulist.value = lastSelectedLocale;
 			menulist.disabled = false;
 		}
 	}
 
 	this.acceptSelection = function () {
 		// collect code
-		_io.style = document.getElementById("style-listbox").selectedItem.value;
-		_io.locale = document.getElementById("locale-menu").selectedItem.value;
+		_io.style = document.getElementById("style-listbox").value;
+		_io.locale = document.getElementById("locale-menu").value;
 		if(document.getElementById("output-method-radio")) {
 			// collect settings
 			_io.mode = document.getElementById("output-mode-radio").selectedItem.id;
