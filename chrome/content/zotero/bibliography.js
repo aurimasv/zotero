@@ -88,8 +88,7 @@ var Zotero_File_Interface_Bibliography = new function() {
 		if(!_io.locale) {
 			_io.locale = Zotero.Prefs.get("export.lastLocale");
 		}
-		var menulist = document.getElementById("locale-menu");
-		lastSelectedLocale = Zotero.Styles.populateLocaleList(menulist, _io.locale);
+		Zotero.Styles.populateLocaleList(document.getElementById("locale-menu"));
 		
 		// Has to be async to work properly
 		window.setTimeout(function () {

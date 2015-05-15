@@ -429,70 +429,79 @@ Zotero.Styles = new function() {
 	/**
 	 * Populate menulist with locales
 	 */
-	this.populateLocaleList = function(menulist, prefLocale) {
+	this.populateLocaleList = function(menulist) {
 		if(!_initialized) this.init();
 		
 		// Reset menulist
 		menulist.selectedItem = null;
 		menulist.removeAllItems();
 		
-		var doc = menulist.ownerDocument;
-		var popup = doc.createElement('menupopup');
-		menulist.appendChild(popup);
+		let fallbackLocale = Zotero.Styles.primaryDialects[Zotero.locale]
+			|| Zotero.locale;
 		
-		var desiredLocale = "";
-		var fallbackLocale = Zotero.locale;
+		let menuLocales = Zotero.Utilities.deepCopy(Zotero.Styles.locales);
+		let menuLocalesKeys = Object.keys(menuLocales).sort();
 		
-		// Primary dialect conversion (e.g. "en" to "en-US")
-		if (Zotero.Styles.primaryDialects[prefLocale] !== undefined) {
-			prefLocale = Zotero.Styles.primaryDialects[prefLocale];
-		}
-		if (Zotero.Styles.primaryDialects[fallbackLocale] !== undefined) {
-			fallbackLocale = Zotero.Styles.primaryDialects[fallbackLocale];
-		}
-		
-		if (prefLocale) {
-			desiredLocale = prefLocale;
-		} else {
-			desiredLocale = fallbackLocale;
-		}
-		
-		var menuLocales = {};
-		var menuLocalesKeys = [];
-		var styleLocales = Zotero.Styles.locales;
-		
-		for (let locale in styleLocales) {
-			menuLocales[locale] = styleLocales[locale];
-		}
-		
-		menuLocalesKeys = Object.keys(menuLocales);
-		menuLocalesKeys.sort();
-		
-		if (fallbackLocale && menuLocales[fallbackLocale] === undefined) {
+		// Make sure that client locale is always available as a choice
+		if (fallbackLocale && !(fallbackLocale in menuLocales)) {
 			menuLocales[fallbackLocale] = fallbackLocale;
 			menuLocalesKeys.unshift(fallbackLocale);
 		}
-		if (prefLocale && menuLocales[prefLocale] === undefined) {
-			menuLocales[prefLocale] = prefLocale;
-			menuLocalesKeys.unshift(prefLocale);
-		}
 		
-		var itemNode;
 		for (let i=0; i<menuLocalesKeys.length; i++) {
-			var menuValue = menuLocalesKeys[i];
-			var menuLabel = menuLocales[menuLocalesKeys[i]];
-			itemNode = doc.createElement("menuitem");
-			itemNode.setAttribute("value", menuValue);
-			itemNode.setAttribute("label", menuLabel);
-			popup.appendChild(itemNode);
-			
-			if (menuValue == desiredLocale) {
-				menulist.selectedItem = itemNode;
+			menulist.appendItem(menuLocales[menuLocalesKeys[i]], menuLocalesKeys[i]);
+		}
+	};
+	
+	/**
+	 * Update locale list state based on style selection
+	 * For styles that do not define a locale, enable the list and select a preferred locale
+	 * For styles that define a locale, disable the list and select the specified locale
+	 *   If the locale does not exist, it is added to the list.
+	 * If null is passed instead of style, the list (and optional label) is disabled, and set to blank value.
+	 */
+	this.updateLocaleList = function(style, prefLocale, menulist, menulistLabel) {
+		// Remove any nodes that were manually added to menulist
+		let availableLocales = [];
+		for (let i=0; i<menulist.itemCount; i++) {
+			let item = menulist.getItemAtIndex(i);
+			if (item.getAttributeNS('zotero:', 'customLocale')) {
+				menulist.removeItemAt(i);
+				i--;
+				continue;
 			}
+			
+			availableLocales.push(item.value);
 		}
 		
-		return desiredLocale;
-	};
+		if (!style) {
+			// disable menulist and label
+			menulist.disabled = true;
+			if (label) label.disabled = true;
+			
+			// set node to blank node
+			// If we just set value to "", the internal label is collapsed and the dropdown list becomes shorter
+			let blankListNode = menulist.appendItem('', '');
+			blankListNode.setAttributeNS('zotero:', 'customLocale', true);
+			
+			menulist.selectedItem = blankListNode;
+			return menulist.value;
+		}
+		
+		menulist.disabled = !!style.locale;
+		if (label) label.disabled = false;
+		
+		let selectLocale = style.locale || prefLocale || Zotero.locale;
+		selectLocale = Zotero.Styles.primaryDialects[selectLocale] || selectLocale;
+		
+		// Make sure the locale we want to select is in the menulist
+		if (availableLocales.indexOf(selectLocale) == -1) {
+			let customLocale = menulist.insertItemAt(0, selectLocale, selectLocale);
+			customLocale.setAttributeNS('zotero:', 'customLocale', true);
+		}
+		
+		return menulist.value = selectLocale;
+	}
 }
 
 /**

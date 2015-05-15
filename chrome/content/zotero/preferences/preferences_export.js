@@ -51,9 +51,10 @@ Zotero_Preferences.Export = {
 		
 		// Initialize locale drop-down
 		var localeMenulist = document.getElementById("zotero-quickCopy-locale-menu");
-		this._lastSelectedLocale = this.populateQuickCopyLocaleList(localeMenulist);
+		Zotero.Styles.populateLocaleList(localeMenulist);
 		localeMenulist.setAttribute('preference', "pref-quickCopy-locale");
 		
+		this._lastSelectedLocale = Zotero.Prefs.get("export.quickCopy.locale");
 		this.updateQuickCopyUI();
 		
 		if (!Zotero.isStandalone) {
@@ -151,20 +152,14 @@ Zotero_Preferences.Export = {
 		checkbox.checked = contentType == 'html';
 		checkbox.disabled = mode != 'bibliography';
 		
-		var menulist = document.getElementById('zotero-quickCopy-locale-menu');
-		var menulistLabel = document.getElementById('zotero-quickCopy-locale-menu-label');
-		
+		let menulist = document.getElementById('zotero-quickCopy-locale-menu');
+		let menulistLabel = document.getElementById('zotero-quickCopy-locale-menu-label');
+		let style;
 		if (mode == 'bibliography') {
-			let style = Zotero.Styles.get(format);
-			menulist.value = style.locale || this._lastSelectedLocale;
-			
-			menulistLabel.disabled = false;
-			menulist.disabled = !!style.locale;
-		} else {
-			menulist.value = '';
-			menulist.disabled = true;
-			menulistLabel.disabled = true;
+			style = Zotero.Styles.get(format);
 		}
+		
+		Zotero.Styles.updateLocaleList(style, this._lastSelectedLocale, menulist, menulistLabel);
 	},
 	
 	
@@ -255,17 +250,6 @@ Zotero_Preferences.Export = {
 		var domainPath = treeitem.firstChild.firstChild.getAttribute('label');
 		Zotero.DB.query("DELETE FROM settings WHERE setting='quickCopySite' AND key=?", [domainPath]);
 		this.refreshQuickCopySiteList();
-	},
-	
-	/*
-	 * Builds the Quick Copy locale drop-down
-	 */
-	populateQuickCopyLocaleList: function (menulist, quickCopyLocale) {
-		if (!quickCopyLocale) {
-			quickCopyLocale = Zotero.Prefs.get("export.quickCopy.locale");
-		}
-		
-		return Zotero.Styles.populateLocaleList(menulist, quickCopyLocale);
 	},
 	
 	updateQuickCopyInstructions: function () {
